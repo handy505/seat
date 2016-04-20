@@ -4,11 +4,10 @@ from tkinter import *
 import random
 import math
 import collections
-from operator import itemgetter, attrgetter 
-
+from operator import itemgetter, attrgetter
 
 ROW_MAX = 3
-COLUMN_MAX = 3	
+COLUMN_MAX = 3
 
 def generate_student_table():
 	# genrate student table
@@ -16,8 +15,8 @@ def generate_student_table():
 	s2 = Student(2, 'Bess', 170)
 	s3 = Student(3, 'Carol', 155, True)
 	s4 = Student(4, 'Dale', 175)
-	s5 = Student(5, 'Eileen ', 154)
-	s6 = Student(6, 'Florence ', 158)
+	s5 = Student(5, 'Eileen', 154)
+	s6 = Student(6, 'Florence', 158)
 	s7 = Student(7, 'Gill', 153)
 	s8 = Student(8, 'Hannah', 163, True)
 	s9 = Student(9, 'Irma', 168)
@@ -30,48 +29,27 @@ def generate_student_table():
 def distance(a, b):
 	return math.hypot(abs(a[0] - b[0]), abs(a[1] - b[1]))
 	
-	
-def height_score(seattable):
-	score = []
-	for i in range(0, ROW_MAX):
-		for j in range(0, COLUMN_MAX):
-			st = seattable[(i,j)]
-			#score.append(st.height * i)
-			score.append(st.height * distance((i,j), (0, COLUMN_MAX/2)))
-	#print(score) # debug
-	return sum(score)
 
 
-def responsibility_score(seattable):
-	col_score = []
-	for c in range(0, COLUMN_MAX):
-		rcount = 0
-		for r in range(0, ROW_MAX):
-			st = seattable[(r,c)]
-			rcount = rcount + (1 if st.responsibility == True else 0)
-		print("rcount", c, ":", rcount) # debug
-		col_score.append(1000) if rcount >=1 else col_score.append(0)
-	return sum(col_score)
-	
-
-def print_seat_table():
-	for i in range(0, ROW_MAX):
-		for j in range(0, COLUMN_MAX):	
-			s = seat_table[(i,j)]
-			print(i, j, s.info())
-			
-class SeatTableObj:
+class SeatSheet:
 	def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=[]):
 		self.__score = 0
-		self.__students = students
 		self.__row = row
 		self.__column = column
-		self.dct = collections.OrderedDict()
+		self.__table = collections.OrderedDict()
+		self.__students = students
+		for i in range(0, self.__row):
+			for j in range(0, self.__column):
+				rnd = random.randint(0, len(students)-1)
+				self.__table[(i,j)] = students[rnd]
+				students.pop(rnd)
 	
-	'''	
 	@property
-	def dct(self):
-		return self.__dct'''
+	def table(self):
+		return self.__table
+	@table.setter
+	def table(self,k,v):
+		self.__table[k] = v
 
 	
 	@property
@@ -80,21 +58,42 @@ class SeatTableObj:
 	@score.setter
 	def score(self, arg):
 		self.__score = arg
-		
-	'''	
-	def info(self):
-		for i in range(0, __row):
-			for j in range(0, __column):	
-				s = self.__content[(i,j)]
-				print(i, j, s.info())'''
 	
+	def info(self):
+		for i in range(0, self.__row):
+			for j in range(0, self.__column):	
+				st = self.__table[(i,j)]
+				print(i, j, st.info())
+
+	def height_score(self):
+		score = []
+		for i in range(0, self.__row):
+			for j in range(0, self.__column):
+				st = self.__table[(i,j)]
+				#score.append(st.height * i)
+				score.append(st.height * distance((i,j), (0, self.__column/2)))
+		#print(score) # debug
+		return sum(score)
+
+	def responsibility_score(self):
+		col_score = []
+		for c in range(0, COLUMN_MAX):
+			rcount = 0
+			for r in range(0, ROW_MAX):
+				st = self.__table[(r,c)]
+				rcount = rcount + (1 if st.responsibility == True else 0)
+			#print("rcount", c, ":", rcount) # debug
+			col_score.append(1000) if rcount >=1 else col_score.append(0)
+		return sum(col_score)
+
+
 class Student:
 	def __init__(self, number=0, name="empty", height=150, responsibility=False):
 		self.__number = number
 		self.__name = name
 		self.__responsibility = responsibility
 		self.__height = height
-	
+
 	@property
 	def height(self):
 		return self.__height
@@ -118,19 +117,10 @@ class Student:
 		 
 	def info(self):
 		return "#" + str(self.__number) + "," + self.__name + "," + str(self.__responsibility) + "," + str(self.__height)
-	
+
 		
 if __name__ == '__main__':
-		
-	'''	
-	seat_table_empty = list()		
-	for i in range(0,ROW_MAX):
-		for j in range(0,COLUMN_MAX):
-			seat_table_empty.append((i,j))
-	print(seat_table_empty)
-	print("distance:", distance((0,3),(3,6)))'''
-	
-	for i in range(0,3):
+	for i in range(0,10):
 		# genrate student table
 		student_table = generate_student_table()
 		
@@ -149,24 +139,12 @@ if __name__ == '__main__':
 				student_table.pop(rnd)
 		print_seat_table()'''
 		
-		pos = SeatTableObj()
-		pos.dct[(0,0)] = "abc"
-		pos.dct[(0,1)] = "def"
-		str = pos.dct.get((0,0))
-		print(str)
-		
-		
-		'''
-		hscore = height_score(seat_table)
-		print("hscore:", hscore)
-		
-		rscore = responsibility_score(seat_table)
-		print("responsibility:", rscore)
-		
-		score = hscore + rscore
-		
-		print("-------------------------")
-		'''
+		ss = SeatSheet(ROW_MAX, COLUMN_MAX, students = student_table)
+		ss.score = 100
+		#ss.info()
+		print(ss.height_score())
+		print(ss.responsibility_score())
+
 			
 	'''		
 	root = Tk()
@@ -182,4 +160,3 @@ if __name__ == '__main__':
 			Label(frame, text=seatInfo).grid(row=(r+1), column=c)
 	
 	root.mainloop()'''
-
