@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #-*- coding: UTF-8 -*-
 from tkinter import *
 import random
@@ -21,10 +21,11 @@ def generate_student_table():
     s7 = Student(7, 'Gill', 153)
     s8 = Student(8, 'Hannah', 163, True)
     s9 = Student(9, 'Irma', 168)
-    stu_table = [s1, s2, s3, s4, s5, s6, s7, s8, s9]
+    st_table = [s1, s2, s3, s4, s5, s6, s7, s8, s9]
+    exclusion_table = [s1, s9]
     #for s in student_table:
     #	print(s.info()) # debug
-    return stu_table
+    return st_table, exclusion_table
 
 class Student(object):
     """ student """
@@ -33,6 +34,12 @@ class Student(object):
         self.__name = name
         self.__responsibility = responsibility
         self.__height = height
+
+    @property
+    def number(self):
+        """ doc string """
+        return self.__number
+        
 
     @property
     def height(self):
@@ -82,11 +89,12 @@ class SeatSheet(object):
         if self.__students:
             for i in range(0, self.__row):
                 for j in range(0, self.__column):
-                    rnd = random.randint(0, len(students)-1)
-                    self.__table[(i, j)] = students[rnd]
-                    students.pop(rnd)
-
-
+                    if students:
+                        rnd = random.randint(0, len(students)-1)
+                        self.__table[(i, j)] = students[rnd]
+                        students.pop(rnd)
+                    else:
+                        self.__table[(i, j)] = None
 
     @property
     def table(self):
@@ -109,7 +117,8 @@ class SeatSheet(object):
         """ infomation """
         for i in range(0, self.__row):
             for j in range(0, self.__column):
-                print(i, j, self.__table[(i, j)].info())
+                st = self.__table[(i, j)].info() if self.__table[(i, j)] else "xxxx" 
+                print(i, j, st)
 
     def height_score(self):
         """ height score """
@@ -117,8 +126,8 @@ class SeatSheet(object):
         for i in range(0, self.__row):
             for j in range(0, self.__column):
                 st = self.__table[(i, j)]
-                #score.append(st.height * i)
-                score.append(st.height * distance((i, j), (0, self.__column/2)))
+                if st:
+                    score.append(st.height * distance((i, j), (0, self.__column/2)))
         #print(score) # debug
         self.__hscore = sum(score)
         return self.__hscore
@@ -130,67 +139,80 @@ class SeatSheet(object):
             rcount = 0
             for r in range(0, self.__row):
                 st = self.__table[(r, c)]
-                rcount = rcount + (1 if st.responsibility == True else 0)
+                if st:
+                    rcount = rcount + (1 if st.responsibility == True else 0)
             #print("rcount", c, ":", rcount) # debug
             col_score.append(1000) if rcount >=1 else col_score.append(0)
         self.__rscore = sum(col_score) 
         return self.__rscore
 
 
-if __name__ == '__main__':
-    for loop in range(0, 10):
-        # genrate student table
-        student_table = generate_student_table()
+    def __location_valid(self, tp):
+        if (0 <= tp[0] < self.__row) and (0 <= tp[1] < self.__column):
+            return True
+        else:
+            return False
+    
+    def exclusion_score(self, exclusion_table):
+        print("in exclusion_score", self.__row, self.__column)
+        ex = (0,0)
+        for loc in self.__table:
+            if self.__table[loc].number == exclusion_table[0].number:
+                ex = loc
+        print("excloc:", ex) 
+        if self.__location_valid((ex[0]-1, ex[1]-1)):
+            print("--valid")
+        if self.__location_valid((ex[0]-1, ex[1])):
+            print("-0valid")
+        if self.__location_valid((ex[0]-1, ex[1]+1)):
+            print("-+valid")
+        if self.__location_valid((ex[0], ex[1]-1)):
+            print("0-valid")
+        if self.__location_valid((ex[0], ex[1])):
+            print("00valid")
+        if self.__location_valid((ex[0], ex[1]+1)):
+            print("0+valid")
+        if self.__location_valid((ex[0]+1, ex[1]-1)):
+            print("+-valid")
+        if self.__location_valid((ex[0]+1, ex[1])):
+            print("+0valid")
+        if self.__location_valid((ex[0]+1, ex[1]+1)):
+            print("++valid")
+        
+                
 
-        '''
-        # sorted
+if __name__ == '__main__':
+    for loop in range(0, 4):
+        # genrate student table
+        student_table, exclusion_table = generate_student_table()
+
+
+        '''# sorted
         st2 = sorted(student_table, key = attrgetter('height'))
         for s in st2:
-            print(s.height) # debug'''
+            print(s.height) # debug
+        '''
 
-        # generate seat table
-        '''seat_table = collections.OrderedDict()
-        for i in range(0, ROW_MAX):
-            for j in range(0, COLUMN_MAX):
-                rnd = random.randint(0, len(student_table)-1)
-                seat_table[(i,j)] = student_table[rnd]
-                student_table.pop(rnd)
-        print_seat_table()'''
 
         ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table)
-
-        #ss.info()
-
-        print(ss.height_score())
-        print(ss.responsibility_score())
+        ss.info()
+        #print(ss.height_score())
+        #print(ss.responsibility_score())
+        ss.exclusion_score(exclusion_table)
 
 
 
     # gui
-    
     root = Tk()
     frame = Frame(root)
     frame.pack()
 
-    Label(frame, text="teacher").grid(row=0, column = round(COLUMN_MAX/2))
+    Label(frame, text="teacher").grid(row=0, column = round(COLUMN_MAX/2)-1)
 
-    for r in range(0,ROW_MAX):
-        for c in range(0,COLUMN_MAX):
-            st = ss.table[(r,c)]
-            seatInfo = "["+str(r+1)+str(c+1)+"]\n" + st.info() + "\n\n"
+    for r in range(0, ROW_MAX):
+        for c in range(0, COLUMN_MAX):
+            st = ss.table[(r, c)].info() if ss.table[(r, c)] else "xx" 
+            seatInfo = "["+str(r)+str(c)+"]\n" + st + "\n\n"
             Label(frame, text=seatInfo).grid(row=(r+1), column=c)
-
-    '''
-    root = Tk()
-    frame = Frame(root)
-    frame.pack()
-
-    Label(frame, text="teacher").grid(row=0, column = round(COLUMN_MAX/2))
-
-    for r in range(0,ROW_MAX):
-        for c in range(0,COLUMN_MAX):
-            st = seat_table[r,c]
-            seatInfo = "["+str(r+1)+str(c+1)+"]\n" + st.info() + "\n\n"
-            Label(frame, text=seatInfo).grid(row=(r+1), column=c)'''
 
     root.mainloop()
