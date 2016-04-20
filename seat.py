@@ -147,38 +147,62 @@ class SeatSheet(object):
         return self.__rscore
 
 
-    def __location_valid(self, tp):
-        if (0 <= tp[0] < self.__row) and (0 <= tp[1] < self.__column):
+    def __location_valid(self, loc):
+        if (0 <= loc[0] < self.__row) and (0 <= loc[1] < self.__column):
             return True
         else:
             return False
     
     def exclusion_score(self, exclusion_table):
         print("in exclusion_score", self.__row, self.__column)
-        ex = (0,0)
+        xscore = 0
+        xloc = (0,0)
         for loc in self.__table:
             if self.__table[loc].number == exclusion_table[0].number:
-                ex = loc
-        print("excloc:", ex) 
-        if self.__location_valid((ex[0]-1, ex[1]-1)):
+                xloc = loc
+        print("excloc:", xloc)
+         
+        rloc = (xloc[0]-1, xloc[1]-1)
+        if self.__location_valid(rloc):
             print("--valid")
-        if self.__location_valid((ex[0]-1, ex[1])):
+            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            
+        rloc = (xloc[0]-1, xloc[1])    
+        if self.__location_valid(rloc):
             print("-0valid")
-        if self.__location_valid((ex[0]-1, ex[1]+1)):
+            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            
+        rloc = (xloc[0]-1, xloc[1]+1)
+        if self.__location_valid(rloc):
             print("-+valid")
-        if self.__location_valid((ex[0], ex[1]-1)):
+            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            
+        rloc = (xloc[0], xloc[1]-1)
+        if self.__location_valid(rloc):
             print("0-valid")
-        if self.__location_valid((ex[0], ex[1])):
-            print("00valid")
-        if self.__location_valid((ex[0], ex[1]+1)):
+            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+
+        rloc = (xloc[0], xloc[1]+1)
+        if self.__location_valid(rloc):
             print("0+valid")
-        if self.__location_valid((ex[0]+1, ex[1]-1)):
+            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            
+        rloc = (xloc[0]+1, xloc[1]-1)
+        if self.__location_valid(rloc):
             print("+-valid")
-        if self.__location_valid((ex[0]+1, ex[1])):
+            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            
+        rloc = (xloc[0]+1, xloc[1])
+        if self.__location_valid(rloc):
             print("+0valid")
-        if self.__location_valid((ex[0]+1, ex[1]+1)):
+            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            
+        rloc = (xloc[0]+1, xloc[1]+1)
+        if self.__location_valid(rloc):
             print("++valid")
+            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
         
+        return xscore
                 
 
 if __name__ == '__main__':
@@ -198,8 +222,8 @@ if __name__ == '__main__':
         ss.info()
         #print(ss.height_score())
         #print(ss.responsibility_score())
-        ss.exclusion_score(exclusion_table)
-
+        xs = ss.exclusion_score(exclusion_table)
+        print("xs: ", xs)
 
 
     # gui
