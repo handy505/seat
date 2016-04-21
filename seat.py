@@ -221,9 +221,9 @@ class GUIDemo(Frame):
     def __init__(self, master=None, seatsheet=None):
         Frame.__init__(self, master)
         self.grid()
-        self.createWidgets()
+        self.createWidgets(seatsheet)
         
-        Label(master, text="teacher").grid(row=0, column = math.floor(COLUMN_MAX/2))
+        '''Label(master, text="teacher").grid(row=0, column = math.floor(COLUMN_MAX/2))
 
         for r, c in seatsheet.table:
             ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx" 
@@ -231,11 +231,44 @@ class GUIDemo(Frame):
             Label(master, text=seatInfo).grid(row=(r+1), column=c, padx=2, pady=4)
     
         scorestr = "suit score: " + str(seatsheet.score)
-        Label(master, text=scorestr, fg="red").grid(row=ROW_MAX+1, column = 0, padx=2, pady=4, columnspan=COLUMN_MAX)
-        
-    def createWidgets(self):
-        pass
+        Label(master, text=scorestr, fg="red").grid(row=ROW_MAX+1, column=0, padx=2, pady=4, columnspan=COLUMN_MAX)
+        '''
+    def createWidgets(self, seatsheet=None):
+        Label(self, text="teacher").grid(row=0, column = math.floor(COLUMN_MAX/2))
 
+        for r, c in seatsheet.table:
+            ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx" 
+            seatInfo = "[{0},{1}]\n{2}\n".format(r, c, ststr)
+            Label(self, text=seatInfo).grid(row=(r+1), column=c, padx=2, pady=4)
+    
+        scorestr = "suit score: " + str(seatsheet.score)
+        Label(self, text=scorestr, fg="red").grid(row=ROW_MAX+1, column=0, padx=2, pady=4, columnspan=COLUMN_MAX)
+    
+        self.btn = Button(self, text="again", command=self.again).grid(row=ROW_MAX+2, column=0, padx=2, pady=4)
+
+    def update(self, seatsheet):
+        Label(self, text="teacher").grid(row=0, column = math.floor(COLUMN_MAX/2))
+
+        for r, c in seatsheet.table:
+            ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx" 
+            seatInfo = "[{0},{1}]\n{2}\n".format(r, c, ststr)
+            Label(self, text=seatInfo).grid(row=(r+1), column=c, padx=2, pady=4)
+    
+        scorestr = "suit score: " + str(seatsheet.score)
+        Label(self, text=scorestr, fg="red").grid(row=ROW_MAX+1, column=0, padx=2, pady=4, columnspan=COLUMN_MAX)
+
+    def again(self):
+        ss = gererage_seat_sheet()
+        self.update(ss)
+    
+
+
+def gererage_seat_sheet():
+    student_table, exclusion_table = generate_student_table()
+    ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table)
+    ss.calc_score(exclusion_table)
+    return ss
+        
 if __name__ == '__main__':
     for loop in range(0, 4):
         # genrate student table
