@@ -69,7 +69,9 @@ class Student(object):
 
     def info(self):
         """ empty """
-        return "#" + str(self.__number) + "," + self.__name + "," + str(self.__duty) + "," + str(self.__height)
+        return ("#{num},{name},{duty},{height}".format(
+            num=self.__number, name=self.__name, duty=self.__duty, height=self.__height)
+        )
 
 
 def distance(a, b):
@@ -85,33 +87,40 @@ class SeatSheet(object):
         self.__column = column
         self.__table = collections.OrderedDict()
         self.__students = students
-        if self.__students:
-            for i in range(0, self.__row):
-                for j in range(0, self.__column):
-                    if students:
-                        rnd = random.randint(0, len(students)-1)
-                        self.__table[(i, j)] = students[rnd]
-                        students.pop(rnd)
-                    else:
-                        self.__table[(i, j)] = None
+
+        for i in range(0, self.__row):
+            for j in range(0, self.__column):
+                if self.__students:
+                    rnd = random.randint(0, len(self.__students)-1)
+                    self.__table[(i, j)] = self.__students[rnd]
+                    self.__students.pop(rnd)
+                else:
+                    self.__table[(i, j)] = None
+                        
         self.height_score()
         self.duty_score()
+        
+          
     @property
     def table(self):
         """ empty """
         return self.__table
+        
     @table.setter
     def table(self, key, val):
         """ empty """
         self.__table[key] = val
 
-
+    def calc_score(self, exclusion_table):
+        self.__hs = self.height_score()
+        self.__ds = self.duty_score()
+        self.__xs = self.exclusion_score(exclusion_table)
+        self.__score = self.__hs + self.__ds + self.__xs
+        
     @property
     def score(self):
         """ empty """
-        self.__score = self.__hscore + self.__rscore
         return self.__score
-
 
     def info(self):
         """ infomation """
@@ -123,12 +132,6 @@ class SeatSheet(object):
     def height_score(self):
         """ height score """
         score = []
-        '''for i in range(0, self.__row):
-            for j in range(0, self.__column):
-                st = self.__table[(i, j)]
-                if st:
-                    score.append(st.height * distance((i, j), (0, self.__column/2)))
-        '''
         for r, c in self.__table:
             st = self.__table[(r, c)]
             if st:
@@ -161,55 +164,57 @@ class SeatSheet(object):
             return False
     
     def exclusion_score(self, exclusion_table):
-        print("in exclusion_score", self.__row, self.__column)
+        #print("in exclusion_score", self.__row, self.__column) # debug
         xscore = 0
         xloc = (0,0)
-        for loc in self.__table:
-            if self.__table[loc].number == exclusion_table[0].number:
-                xloc = loc
-        print("excloc:", xloc)
-         
-        near = (xloc[0]-1, xloc[1]-1)
-        if self.__location_valid(near):
-            print("--valid")
-            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
-            
-        near = (xloc[0]-1, xloc[1])    
-        if self.__location_valid(near):
-            print("-0valid")
-            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
-            
-        near = (xloc[0]-1, xloc[1]+1)
-        if self.__location_valid(near):
-            print("-+valid")
-            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
-            
-        near = (xloc[0], xloc[1]-1)
-        if self.__location_valid(near):
-            print("0-valid")
-            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
-
-        near = (xloc[0], xloc[1]+1)
-        if self.__location_valid(near):
-            print("0+valid")
-            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
-            
-        near = (xloc[0]+1, xloc[1]-1)
-        if self.__location_valid(near):
-            print("+-valid")
-            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
-            
-        near = (xloc[0]+1, xloc[1])
-        if self.__location_valid(near):
-            print("+0valid")
-            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
-            
-        near = (xloc[0]+1, xloc[1]+1)
-        if self.__location_valid(near):
-            print("++valid")
-            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
         
-        self.__xscore = xscore
+        for xstudent in exclusion_table:
+            for loc in self.__table:
+                #if self.__table[loc].number == exclusion_table[0].number:
+                if self.__table[loc].number == xstudent.number:
+                    xloc = loc
+            print("excloc:", xloc)
+            
+            near = (xloc[0]-1, xloc[1]-1)
+            if self.__location_valid(near):
+                #print("--valid") # debug
+                xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
+                
+            near = (xloc[0]-1, xloc[1])    
+            if self.__location_valid(near):
+                #print("-0valid") # debug
+                xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
+                
+            near = (xloc[0]-1, xloc[1]+1)
+            if self.__location_valid(near):
+                #print("-+valid") # debug
+                xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
+                
+            near = (xloc[0], xloc[1]-1)
+            if self.__location_valid(near):
+                #print("0-valid") # debug
+                xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
+
+            near = (xloc[0], xloc[1]+1)
+            if self.__location_valid(near):
+                #print("0+valid") # debug
+                xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
+                
+            near = (xloc[0]+1, xloc[1]-1)
+            if self.__location_valid(near):
+                #print("+-valid") # debug
+                xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
+                
+            near = (xloc[0]+1, xloc[1])
+            if self.__location_valid(near):
+                #print("+0valid") # debug
+                xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
+                
+            near = (xloc[0]+1, xloc[1]+1)
+            if self.__location_valid(near):
+                #print("++valid") # debug
+                xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
+        #print("xscore:", xscore) # debug
         return xscore
 
 class GUIDemo(Frame):
@@ -218,22 +223,15 @@ class GUIDemo(Frame):
         self.grid()
         self.createWidgets()
         
-        #Label(master, text="teacher").grid(row=0, column = round(COLUMN_MAX/2)-1)
         Label(master, text="teacher").grid(row=0, column = math.floor(COLUMN_MAX/2))
 
-        '''for r in range(0, ROW_MAX):
-            for c in range(0, COLUMN_MAX):
-                ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx" 
-                seatInfo = "[{0},{1}]\n{2}\n".format(r, c, ststr)
-                Label(master, text=seatInfo).grid(row=(r+1), column=c, padx=2, pady=4)
-        '''
         for r, c in seatsheet.table:
             ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx" 
             seatInfo = "[{0},{1}]\n{2}\n".format(r, c, ststr)
             Label(master, text=seatInfo).grid(row=(r+1), column=c, padx=2, pady=4)
     
-        teststr = "suit score: " + str(seatsheet.score)
-        Label(master, text=teststr, fg="red").grid(row=ROW_MAX+1, column = 0, padx=2, pady=4, columnspan=COLUMN_MAX)
+        scorestr = "suit score: " + str(seatsheet.score)
+        Label(master, text=scorestr, fg="red").grid(row=ROW_MAX+1, column = 0, padx=2, pady=4, columnspan=COLUMN_MAX)
         
     def createWidgets(self):
         pass
@@ -255,9 +253,9 @@ if __name__ == '__main__':
         ss.info()
         #print(ss.height_score())
         #print(ss.duty_score())
-        xs = ss.exclusion_score(exclusion_table)
-        print("xs: ", xs)
-
+        #xs = ss.exclusion_score(exclusion_table)
+        #print("xs: ", xs)
+        ss.calc_score(exclusion_table)
 
     # gui
     '''root = Tk()
