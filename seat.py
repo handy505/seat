@@ -29,10 +29,10 @@ def generate_student_table():
 
 class Student(object):
     """ student """
-    def __init__(self, number=0, name="empty", height=150, responsibility=False):
+    def __init__(self, number=0, name="empty", height=150, duty=False):
         self.__number = number
         self.__name = name
-        self.__responsibility = responsibility
+        self.__duty = duty
         self.__height = height
 
     @property
@@ -40,7 +40,6 @@ class Student(object):
         """ doc string """
         return self.__number
         
-
     @property
     def height(self):
         """ empty """
@@ -60,17 +59,17 @@ class Student(object):
         self.__name = name
 
     @property
-    def responsibility(self):
+    def duty(self):
         """ empty """
-        return self.__responsibility
-    @responsibility.setter
-    def responsibility(self, arg):
+        return self.__duty
+    @duty.setter
+    def duty(self, arg):
         """ empty """
-        self.__responsibility = arg
+        self.__duty = arg
 
     def info(self):
         """ empty """
-        return "#" + str(self.__number) + "," + self.__name + "," + str(self.__responsibility) + "," + str(self.__height)
+        return "#" + str(self.__number) + "," + self.__name + "," + str(self.__duty) + "," + str(self.__height)
 
 
 def distance(a, b):
@@ -95,15 +94,16 @@ class SeatSheet(object):
                         students.pop(rnd)
                     else:
                         self.__table[(i, j)] = None
-
+        self.height_score()
+        self.duty_score()
     @property
     def table(self):
         """ empty """
         return self.__table
     @table.setter
-    def table(self, k, val):
+    def table(self, key, val):
         """ empty """
-        self.__table[k] = val
+        self.__table[key] = val
 
 
     @property
@@ -123,16 +123,23 @@ class SeatSheet(object):
     def height_score(self):
         """ height score """
         score = []
-        for i in range(0, self.__row):
+        '''for i in range(0, self.__row):
             for j in range(0, self.__column):
                 st = self.__table[(i, j)]
                 if st:
                     score.append(st.height * distance((i, j), (0, self.__column/2)))
+        '''
+        for r, c in self.__table:
+            st = self.__table[(r, c)]
+            if st:
+                score.append(st.height * distance((r, c), (0, self.__column/2)))
+        
         #print(score) # debug
+        
         self.__hscore = sum(score)
         return self.__hscore
 
-    def responsibility_score(self):
+    def duty_score(self):
         """ empty """
         col_score = []
         for c in range(0, self.__column):
@@ -140,7 +147,7 @@ class SeatSheet(object):
             for r in range(0, self.__row):
                 st = self.__table[(r, c)]
                 if st:
-                    rcount = rcount + (1 if st.responsibility == True else 0)
+                    rcount = rcount + (1 if st.duty == True else 0)
             #print("rcount", c, ":", rcount) # debug
             col_score.append(1000) if rcount >=1 else col_score.append(0)
         self.__rscore = sum(col_score) 
@@ -162,48 +169,74 @@ class SeatSheet(object):
                 xloc = loc
         print("excloc:", xloc)
          
-        rloc = (xloc[0]-1, xloc[1]-1)
-        if self.__location_valid(rloc):
+        near = (xloc[0]-1, xloc[1]-1)
+        if self.__location_valid(near):
             print("--valid")
-            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
             
-        rloc = (xloc[0]-1, xloc[1])    
-        if self.__location_valid(rloc):
+        near = (xloc[0]-1, xloc[1])    
+        if self.__location_valid(near):
             print("-0valid")
-            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
             
-        rloc = (xloc[0]-1, xloc[1]+1)
-        if self.__location_valid(rloc):
+        near = (xloc[0]-1, xloc[1]+1)
+        if self.__location_valid(near):
             print("-+valid")
-            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
             
-        rloc = (xloc[0], xloc[1]-1)
-        if self.__location_valid(rloc):
+        near = (xloc[0], xloc[1]-1)
+        if self.__location_valid(near):
             print("0-valid")
-            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
 
-        rloc = (xloc[0], xloc[1]+1)
-        if self.__location_valid(rloc):
+        near = (xloc[0], xloc[1]+1)
+        if self.__location_valid(near):
             print("0+valid")
-            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
             
-        rloc = (xloc[0]+1, xloc[1]-1)
-        if self.__location_valid(rloc):
+        near = (xloc[0]+1, xloc[1]-1)
+        if self.__location_valid(near):
             print("+-valid")
-            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
             
-        rloc = (xloc[0]+1, xloc[1])
-        if self.__location_valid(rloc):
+        near = (xloc[0]+1, xloc[1])
+        if self.__location_valid(near):
             print("+0valid")
-            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
             
-        rloc = (xloc[0]+1, xloc[1]+1)
-        if self.__location_valid(rloc):
+        near = (xloc[0]+1, xloc[1]+1)
+        if self.__location_valid(near):
             print("++valid")
-            xscore = xscore + (100 if self.__table[rloc] in exclusion_table else 0)
+            xscore = xscore + (100 if self.__table[near] in exclusion_table else 0)
         
+        self.__xscore = xscore
         return xscore
-                
+
+class GUIDemo(Frame):
+    def __init__(self, master=None, seatsheet=None):
+        Frame.__init__(self, master)
+        self.grid()
+        self.createWidgets()
+        
+        #Label(master, text="teacher").grid(row=0, column = round(COLUMN_MAX/2)-1)
+        Label(master, text="teacher").grid(row=0, column = math.floor(COLUMN_MAX/2))
+
+        '''for r in range(0, ROW_MAX):
+            for c in range(0, COLUMN_MAX):
+                ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx" 
+                seatInfo = "[{0},{1}]\n{2}\n".format(r, c, ststr)
+                Label(master, text=seatInfo).grid(row=(r+1), column=c, padx=2, pady=4)
+        '''
+        for r, c in seatsheet.table:
+            ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx" 
+            seatInfo = "[{0},{1}]\n{2}\n".format(r, c, ststr)
+            Label(master, text=seatInfo).grid(row=(r+1), column=c, padx=2, pady=4)
+    
+        teststr = "suit score: " + str(seatsheet.score)
+        Label(master, text=teststr, fg="red").grid(row=ROW_MAX+1, column = 0, padx=2, pady=4, columnspan=COLUMN_MAX)
+        
+    def createWidgets(self):
+        pass
 
 if __name__ == '__main__':
     for loop in range(0, 4):
@@ -221,13 +254,13 @@ if __name__ == '__main__':
         ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table)
         ss.info()
         #print(ss.height_score())
-        #print(ss.responsibility_score())
+        #print(ss.duty_score())
         xs = ss.exclusion_score(exclusion_table)
         print("xs: ", xs)
 
 
     # gui
-    root = Tk()
+    '''root = Tk()
     frame = Frame(root)
     frame.pack()
 
@@ -240,3 +273,8 @@ if __name__ == '__main__':
             Label(frame, text=seatInfo).grid(row=(r+1), column=c)
 
     root.mainloop()
+    '''
+    
+    root = Tk()
+    app = GUIDemo(master=root, seatsheet=ss)
+    app.mainloop()    
