@@ -74,11 +74,6 @@ class Student(object):
         )
 
 
-def distance(a, b):
-    """ empty """
-    return math.hypot(abs(a[0] - b[0]), abs(a[1] - b[1]))
-
-
 class SeatSheet(object):
     """ empty """
     def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None):
@@ -112,16 +107,20 @@ class SeatSheet(object):
         self.__table[key] = val
 
     def calc_score(self, exclusion_table):
+        """ weight adjusting """
+        HEIGHT_WEIGHT = 2
+        DUTY_WEIGHT = 1000
+        EXCLUSION_WEIGHT = 10
         self.__hs = self.height_score()
         self.__ds = self.duty_score()
         self.__xs = self.exclusion_score(exclusion_table)
-        self.__score = self.__hs + self.__ds + self.__xs
+        self.__score = (self.__hs*HEIGHT_WEIGHT) + (self.__ds*DUTY_WEIGHT) - (self.__xs*EXCLUSION_WEIGHT)
         
     @property
     def score(self):
         """ empty """
         return self.__score
-
+        
     def info(self):
         """ infomation """
         for i in range(0, self.__row):
@@ -135,10 +134,9 @@ class SeatSheet(object):
         for r, c in self.__table:
             st = self.__table[(r, c)]
             if st:
-                score.append(st.height * distance((r, c), (0, self.__column/2)))
-        
+                distance = math.hypot(abs(r - 0), abs(c - self.__column/2))
+                score.append(st.height * distance)
         #print(score) # debug
-        
         self.__hscore = sum(score)
         return self.__hscore
 
@@ -152,10 +150,9 @@ class SeatSheet(object):
                 if st:
                     rcount = rcount + (1 if st.duty == True else 0)
             #print("rcount", c, ":", rcount) # debug
-            col_score.append(1000) if rcount >=1 else col_score.append(0)
+            col_score.append(1) if rcount >=1 else col_score.append(0)
         self.__rscore = sum(col_score) 
         return self.__rscore
-
 
     def __location_valid(self, loc):
         if (0 <= loc[0] < self.__row) and (0 <= loc[1] < self.__column):
@@ -170,10 +167,9 @@ class SeatSheet(object):
         
         for xstudent in exclusion_table:
             for loc in self.__table:
-                #if self.__table[loc].number == exclusion_table[0].number:
-                if self.__table[loc].number == xstudent.number:
+                if self.__table[loc] and (self.__table[loc].number == xstudent.number):
                     xloc = loc
-            print("excloc:", xloc)
+            #print("excloc:", xloc) # debug
             
             near = (xloc[0]-1, xloc[1]-1)
             if self.__location_valid(near):
@@ -218,82 +214,71 @@ class SeatSheet(object):
         return xscore
 
 class GUIDemo(Frame):
+    __bss = SeatSheet(ROW_MAX, COLUMN_MAX)
+    
     def __init__(self, master=None, seatsheet=None):
         Frame.__init__(self, master)
-        
         self.grid()
-        
         self.seatInfo = dict()
+        self.bestSeatInfo = dict()
         
-        self.createWidgets(seatsheet)
+        self.create_widgets(seatsheet)
         
-        '''Label(master, text="teacher").grid(row=0, column = math.floor(COLUMN_MAX/2))
-
-        for r, c in seatsheet.table:
-            ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx" 
-            seatInfo = "[{0},{1}]\n{2}\n".format(r, c, ststr)
-            Label(master, text=seatInfo).grid(row=(r+1), column=c, padx=2, pady=4)
-    
-        scorestr = "suit score: " + str(seatsheet.score)
-        Label(master, text=scorestr, fg="red").grid(row=ROW_MAX+1, column=0, padx=2, pady=4, columnspan=COLUMN_MAX)
-        '''
-        
-        
-    def createWidgets(self, seatsheet=None):
+    def create_widgets(self, seatsheet=None):
         Label(self, text="teacher").grid(row=0, column = math.floor(COLUMN_MAX/2))
         
-        '''for r, c in seatsheet.table:
-            ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx" 
-            seatInfo = "[{0},{1}]\n{2}\n".format(r, c, ststr)
-            Label(self, text=seatInfo).grid(row=(r+1), column=c, padx=2, pady=4)
-    
-        scorestr = "suit score: " + str(seatsheet.score)
-        Label(self, text=scorestr, fg="red").grid(row=ROW_MAX+1, column=0, padx=2, pady=4, columnspan=COLUMN_MAX)
-        '''
-        
-        
+        # random seat table
         for r, c in seatsheet.table:
             ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx" 
-            #seatInfo = "[{0},{1}]\n{2}\n".format(r, c, "xx")
             self.seatInfo[r, c] = StringVar()
-            self.seatInfo[r, c].set("[{0},{1}]\n{2}\n".format(r, c, "xx"))
-            Label(self, textvariable=self.seatInfo[r, c]).grid(row=(r+1), column=c, padx=2, pady=4)
+            self.seatInfo[r, c].set("[{0},{1}]\n{2}\n".format(r, c, ststr))
+            Label(self, textvariable=self.seatInfo[r, c]).grid(row=(r+1), column=c, padx=4, pady=4)
     
-        #scorestr = "suit score: " + str(seatsheet.score)
+        # seat score
         self.seatScore = StringVar()
         self.seatScore.set("suit score: " + str(seatsheet.score))
-        Label(self, textvariable=self.seatScore, fg="red").grid(row=ROW_MAX+1, column=0, padx=2, pady=4, columnspan=COLUMN_MAX)
+        Label(self, textvariable=self.seatScore, fg="red").grid(row=1+ROW_MAX, column=0, padx=2, pady=4, columnspan=COLUMN_MAX)
         
+        # again buttno
+        Button(self, text="again", command=self.again).grid(row=2+ROW_MAX, column=0, padx=2, pady=4)
         
-        '''self.txt = StringVar()
-        self.txt.set("abc")
-        self.lbl = Label(self, textvariable=self.txt).grid(row=(1), column=0, padx=2, pady=4)
-        self.txt.set("xyz")
-        '''
-        
-        self.btn = Button(self, text="again", command=self.again).grid(row=ROW_MAX+2, column=0, padx=2, pady=4)
+        # best score
+        self.bestSeatScore = StringVar()
+        self.bestSeatScore.set("best: " + str(self.__bss.score))        
+        Label(self, textvariable=self.bestSeatScore, fg="red").grid(row=3+ROW_MAX, column=0, padx=2, pady=4, columnspan=COLUMN_MAX)        
 
+        # best table
+        for r, c in self.__bss.table:
+            ststr = self.__bss.table[(r, c)].info() if self.__bss.table[(r, c)] else "xx" 
+            self.bestSeatInfo[r, c] = StringVar()
+            self.bestSeatInfo[r, c].set("[{0},{1}]\n{2}\n".format(r, c, ststr))
+            Label(self, textvariable=self.bestSeatInfo[r, c]).grid(row=(3+ROW_MAX)+(r+1), column=c, padx=4, pady=4)        
+        
+        
+        
     def update(self, seatsheet):
-        Label(self, text="teacher").grid(row=0, column = math.floor(COLUMN_MAX/2))
         
         for r, c in seatsheet.table:
             ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx"
             string = "[{0},{1}]\n{2}\n".format(r, c, ststr) 
             self.seatInfo[r, c].set(string)
-            #Label(self, text=seatInfo).grid(row=(r+1), column=c, padx=2, pady=4)
             
-    
         self.seatScore.set("suit score: " + str(seatsheet.score))
-        #Label(self, text=scorestr, fg="red").grid(row=ROW_MAX+1, column=0, padx=2, pady=4, columnspan=COLUMN_MAX)
-        #self.scorelabel = scorestr
+        
+        if seatsheet.score > self.__bss.score:
+            self.__bss = seatsheet
+        self.bestSeatScore.set("best: " + str(self.__bss.score))
+        
+        # best table
+        for r, c in self.__bss.table:
+            ststr = self.__bss.table[(r, c)].info() if self.__bss.table[(r, c)] else "xx" 
+            self.bestSeatInfo[r, c].set("[{0},{1}]\n{2}\n".format(r, c, ststr))        
         
         
     def again(self):
         ss = gererage_seat_sheet()
         self.update(ss)
     
-
-
 def gererage_seat_sheet():
     """ seat sheet include 1) student table 2) score """
     student_table, exclusion_table = generate_student_table()
@@ -302,10 +287,9 @@ def gererage_seat_sheet():
     return ss
         
 if __name__ == '__main__':
-    #for loop in range(0, 4):
+    
     # genrate student table
     student_table, exclusion_table = generate_student_table()
-
 
     '''# sorted
     st2 = sorted(student_table, key = attrgetter('height'))
@@ -313,31 +297,11 @@ if __name__ == '__main__':
         print(s.height) # debug
     '''
 
-
     ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table)
     ss.info()
-    #print(ss.height_score())
-    #print(ss.duty_score())
-    #xs = ss.exclusion_score(exclusion_table)
-    #print("xs: ", xs)
     ss.calc_score(exclusion_table)
 
     # gui
-    '''root = Tk()
-    frame = Frame(root)
-    frame.pack()
-
-    Label(frame, text="teacher").grid(row=0, column = round(COLUMN_MAX/2)-1)
-
-    for r in range(0, ROW_MAX):
-        for c in range(0, COLUMN_MAX):
-            st = ss.table[(r, c)].info() if ss.table[(r, c)] else "xx" 
-            seatInfo = "["+str(r)+str(c)+"]\n" + st + "\n\n"
-            Label(frame, text=seatInfo).grid(row=(r+1), column=c)
-
-    root.mainloop()
-    '''
-    
     root = Tk()
     app = GUIDemo(master=root, seatsheet=ss)
     app.mainloop()    

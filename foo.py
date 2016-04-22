@@ -6,4 +6,4 @@ def factorial(n):
 		s *= i
 	return s
 	
-print(factorial(50))
+print(factorial(9))
