@@ -44,6 +44,7 @@ class Student(object):
     def height(self):
         """ empty """
         return self.__height
+        
     @height.setter
     def height(self, height):
         """ empty """
@@ -53,6 +54,7 @@ class Student(object):
     def name(self):
         """ empty """
         return self.__name
+        
     @name.setter
     def name(self, name):
         """ empty """
@@ -62,6 +64,7 @@ class Student(object):
     def duty(self):
         """ empty """
         return self.__duty
+        
     @duty.setter
     def duty(self, arg):
         """ empty """
@@ -76,11 +79,11 @@ class Student(object):
 
 class SeatSheet(object):
     """ empty """
+    __score = 0
+    __table = collections.OrderedDict()
     def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None):
-        self.__score = 0
         self.__row = row
         self.__column = column
-        self.__table = collections.OrderedDict()
         self.__students = students
 
         for i in range(0, self.__row):
@@ -130,16 +133,6 @@ class SeatSheet(object):
 
     def height_score(self):
         """ height score """
-        '''score = []
-        for r, c in self.__table:
-            st = self.__table[(r, c)]
-            if st:
-                distance = math.hypot(abs(r - 0), abs(c - self.__column/2))
-                score.append(st.height * distance)
-        #print(score) # debug
-        self.__hscore = sum(score)
-        return self.__hscore
-        '''
         IGNORE_ERROR = 0
         self.hscore = 0
         for r, c in self.__table:
@@ -281,7 +274,7 @@ class GUIDemo(Frame):
         self.seatScore.set("suit score: " + str(seatsheet.score))
         
         # whether best
-        if seatsheet.score > self.__bss.score:
+        if seatsheet.score >= self.__bss.score:
             self.__bss = seatsheet
         self.bestSeatScore.set("best: " + str(self.__bss.score))
         
