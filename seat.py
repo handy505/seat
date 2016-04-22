@@ -108,7 +108,7 @@ class SeatSheet(object):
 
     def calc_score(self, exclusion_table):
         """ weight adjusting """
-        HEIGHT_WEIGHT = 2
+        HEIGHT_WEIGHT = 8
         DUTY_WEIGHT = 1000
         EXCLUSION_WEIGHT = 10
         self.__hs = self.height_score()
@@ -130,7 +130,7 @@ class SeatSheet(object):
 
     def height_score(self):
         """ height score """
-        score = []
+        '''score = []
         for r, c in self.__table:
             st = self.__table[(r, c)]
             if st:
@@ -139,6 +139,17 @@ class SeatSheet(object):
         #print(score) # debug
         self.__hscore = sum(score)
         return self.__hscore
+        '''
+        IGNORE_ERROR = 0
+        self.hscore = 0
+        for r, c in self.__table:
+            st = self.__table[(r, c)]
+            if st and (r != 0):
+                # valid seat
+                for before in range(0, r-1):
+                    if self.__table[(before, c)].height < (self.__table[(r, c)].height + IGNORE_ERROR):
+                        self.hscore += 1
+        return self.hscore
 
     def duty_score(self):
         """ empty """
@@ -239,8 +250,11 @@ class GUIDemo(Frame):
         self.seatScore.set("suit score: " + str(seatsheet.score))
         Label(self, textvariable=self.seatScore, fg="red").grid(row=1+ROW_MAX, column=0, padx=2, pady=4, columnspan=COLUMN_MAX)
         
-        # again buttno
-        Button(self, text="again", command=self.again).grid(row=2+ROW_MAX, column=0, padx=2, pady=4)
+        # manual again buttno
+        Button(self, text="manual", command=self.manualAgain).grid(row=2+ROW_MAX, column=0, padx=2, pady=4)
+        
+        # auto loop button 
+        Button(self, text="auto", command=self.autoAgain).grid(row=2+ROW_MAX, column=1, padx=2, pady=4)
         
         # best score
         self.bestSeatScore = StringVar()
@@ -257,14 +271,16 @@ class GUIDemo(Frame):
         
         
     def update(self, seatsheet):
-        
+        # random table
         for r, c in seatsheet.table:
             ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx"
             string = "[{0},{1}]\n{2}\n".format(r, c, ststr) 
             self.seatInfo[r, c].set(string)
             
+        # random score
         self.seatScore.set("suit score: " + str(seatsheet.score))
         
+        # whether best
         if seatsheet.score > self.__bss.score:
             self.__bss = seatsheet
         self.bestSeatScore.set("best: " + str(self.__bss.score))
@@ -275,9 +291,14 @@ class GUIDemo(Frame):
             self.bestSeatInfo[r, c].set("[{0},{1}]\n{2}\n".format(r, c, ststr))        
         
         
-    def again(self):
+    def manualAgain(self):
         ss = gererage_seat_sheet()
         self.update(ss)
+    
+    def autoAgain(self):
+        for autoloop in range(0, 100):
+            ss = gererage_seat_sheet()
+            self.update(ss)
     
 def gererage_seat_sheet():
     """ seat sheet include 1) student table 2) score """
