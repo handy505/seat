@@ -361,9 +361,7 @@ class GUIDemo(Frame):
     
     def gaSearch(self):
         pass
-    
-    
-    
+            
 def gererage_seat_sheet():
     """ seat sheet include 1) student table 2) score """
     #student_table, exclusion_table = generate_student_table_9()
@@ -377,12 +375,7 @@ if __name__ == '__main__':
     
     print("--------------- main() ---------------")
     # genrate student table
-    '''student_table, exclusion_table = generate_student_table_9()
-    ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table)
-    ss.calc_score(exclusion_table)
-    '''
-    ss = gererage_seat_sheet()
-    #ss.info()
+    #ss = gererage_seat_sheet()
     
     '''# sorted
     st2 = sorted(student_table, key = attrgetter('height'))
@@ -390,11 +383,14 @@ if __name__ == '__main__':
         print(s.height) # debug
     '''
     
-    ga.test()
     
+    gaSimu = ga.GA(gererage_seat_sheet)
+    print(gaSimu.info())
+    gaSimu.next_generation()
+    print(gaSimu.info())
     
-
     # gui
-    root = Tk()
+    '''root = Tk()
     app = GUIDemo(master=root, seatsheet=ss)
-    app.mainloop()    
+    app.mainloop()
+    '''    
