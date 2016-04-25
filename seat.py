@@ -141,7 +141,7 @@ class SeatSheet(object):
         """ empty """
         self.__table[key] = val
 
-    def calc_score(self, exclusion_table):
+    def calc_score(self):
         """ weight adjusting """
         HEIGHT_WEIGHT = 1
         DUTY_WEIGHT = 1000
@@ -369,7 +369,7 @@ def gererage_seat_sheet():
     #student_table, exclusion_table = generate_student_table_9()
     student_table, exclusion_table = generate_student_table_16()
     ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table, xtable=exclusion_table)
-    ss.calc_score(exclusion_table)
+    ss.calc_score()
     return ss
 
   
