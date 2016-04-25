@@ -11,6 +11,7 @@ import ga
 ROW_MAX = 4
 COLUMN_MAX = 4
 
+
 def generate_student_table_9():
     """ for debug """
 	# genrate student table

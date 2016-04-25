@@ -28,17 +28,26 @@ class GA(object):
         print("[eliminating...] pool[{0}] is min".format(idxmin))
         
         del self.__pool[idxmin]
-        print(self.info(), "debugging")
-        # mating
+        print(self.info(), "(debugging)")
+        
+        
+        # mating ..... not complete
         rnd1 = 0
         rnd2 = 0
         while rnd1 == rnd2:
             rnd1 = random.randint(0, len(self.__pool))
             rnd2 = random.randint(0, len(self.__pool))
             
-        print("[mating...] {0}, {1}".format(rnd1, rnd2))
+        print("[mating...] select two is {0}, {1}".format(rnd1, rnd2))
         student_table, exclusion_table = seat.generate_student_table_16()
-            
+        
+        ss1 = self.__pool[rnd1]
+        ss2 = self.__pool[rnd2]
+        for r in range(0, seat.ROW_MAX):
+            for c in range(0, seat.COLUMN_MAX):
+                if ss1.table[r, c].number == ss2.table[r, c].number:
+                    string = "the same in {0} {1}, {2} {3}".format(r, c, ss1.table[r, c].number, ss2.table[r, c].number)
+                    print(string) 
             
         # mutation
         
