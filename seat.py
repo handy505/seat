@@ -6,12 +6,12 @@ import math
 import collections
 from operator import itemgetter, attrgetter
 import copy
+import ga
 
+ROW_MAX = 4
+COLUMN_MAX = 4
 
-ROW_MAX = 3
-COLUMN_MAX = 3
-
-def generate_student_table():
+def generate_student_table_9():
     """ for debug """
 	# genrate student table
     s1 = Student(1, 'Ada', 160, True)
@@ -28,6 +28,34 @@ def generate_student_table():
     #for s in student_table:
     #	print(s.info()) # debug
     return st_table, exclusion_table
+
+def generate_student_table_16():
+    """ for debug """
+	# genrate student table
+    s1 = Student(1, 'Ada', 160, True)
+    s2 = Student(2, 'Bess', 170)
+    s3 = Student(3, 'Carol', 155, True)
+    s4 = Student(4, 'Dale', 175)
+    s5 = Student(5, 'Eileen', 154)
+    s6 = Student(6, 'Florence', 158)
+    s7 = Student(7, 'Gill', 153)
+    s8 = Student(8, 'Hannah', 163, True)
+    s9 = Student(9, 'Irma', 167)
+    s10 = Student(10, 'Hugo', 166)
+    s11 = Student(11, 'Ian', 165)
+    s12 = Student(12, 'Jacob', 172)
+    s13 = Student(13, 'Kerr', 171)
+    s14 = Student(14, 'Lambert', 169)
+    s15 = Student(15, 'Marcus', 178)
+    s16 = Student(16, 'Nat', 177)
+    
+    
+    st_table = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16]
+    exclusion_table = [s1, s9]
+    #for s in student_table:
+    #	print(s.info()) # debug
+    return st_table, exclusion_table
+
 
 class Student(object):
     """ student """
@@ -83,7 +111,8 @@ class SeatSheet(object):
     """ empty """
 
     __table = collections.OrderedDict()
-    def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None):
+    
+    def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None, xtable=None):
         self.__row = row
         self.__column = column
         self.__students = students
@@ -99,6 +128,7 @@ class SeatSheet(object):
                         
         self.height_score()
         self.duty_score()
+        self.__xtable = xtable
         
           
     @property
@@ -118,7 +148,7 @@ class SeatSheet(object):
         EXCLUSION_WEIGHT = 10
         self.__hscore = self.height_score()
         self.__dscore = self.duty_score()
-        self.__xscore = self.exclusion_score(exclusion_table)
+        self.__xscore = self.exclusion_score()
         self.__score = (self.__hscore*HEIGHT_WEIGHT) + (self.__dscore*DUTY_WEIGHT) - (self.__xscore*EXCLUSION_WEIGHT)
 
     __score = 0        
@@ -179,8 +209,6 @@ class SeatSheet(object):
                     rcount = rcount + (1 if st.duty == True else 0)
             #print("rcount", c, ":", rcount) # debug
             col_score.append(1) if rcount >=1 else col_score.append(0)
-        #self.__rscore = sum(col_score) 
-        #return self.__rscore
         return sum(col_score)
         
 
@@ -190,12 +218,13 @@ class SeatSheet(object):
         else:
             return False
     
-    def exclusion_score(self, exclusion_table):
+    #def exclusion_score(self, exclusion_table):
+    def exclusion_score(self):
         #print("in exclusion_score", self.__row, self.__column) # debug
         xscore = 0
         xloc = (0,0)
         
-        for xstudent in exclusion_table:
+        for xstudent in self.__xtable:
             for loc in self.__table:
                 if self.__table[loc] and (self.__table[loc].number == xstudent.number):
                     xloc = loc
@@ -204,42 +233,42 @@ class SeatSheet(object):
             near = (xloc[0]-1, xloc[1]-1)
             if self.__location_valid(near):
                 #print("--valid") # debug
-                xscore = xscore + (1 if self.__table[near] in exclusion_table else 0)
+                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
                 
             near = (xloc[0]-1, xloc[1])    
             if self.__location_valid(near):
                 #print("-0valid") # debug
-                xscore = xscore + (1 if self.__table[near] in exclusion_table else 0)
+                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
                 
             near = (xloc[0]-1, xloc[1]+1)
             if self.__location_valid(near):
                 #print("-+valid") # debug
-                xscore = xscore + (1 if self.__table[near] in exclusion_table else 0)
+                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
                 
             near = (xloc[0], xloc[1]-1)
             if self.__location_valid(near):
                 #print("0-valid") # debug
-                xscore = xscore + (1 if self.__table[near] in exclusion_table else 0)
+                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
 
             near = (xloc[0], xloc[1]+1)
             if self.__location_valid(near):
                 #print("0+valid") # debug
-                xscore = xscore + (1 if self.__table[near] in exclusion_table else 0)
+                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
                 
             near = (xloc[0]+1, xloc[1]-1)
             if self.__location_valid(near):
                 #print("+-valid") # debug
-                xscore = xscore + (1 if self.__table[near] in exclusion_table else 0)
+                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
                 
             near = (xloc[0]+1, xloc[1])
             if self.__location_valid(near):
                 #print("+0valid") # debug
-                xscore = xscore + (1 if self.__table[near] in exclusion_table else 0)
+                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
                 
             near = (xloc[0]+1, xloc[1]+1)
             if self.__location_valid(near):
                 #print("++valid") # debug
-                xscore = xscore + (1 if self.__table[near] in exclusion_table else 0)
+                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
         #print("xscore:", xscore) # debug
         return xscore
 
@@ -251,8 +280,8 @@ class GUIDemo(Frame):
         self.grid()
         self.seatInfo = dict()
         self.bestSeatInfo = dict()
-        
         self.create_widgets(seatsheet)
+        
         
     def create_widgets(self, seatsheet=None):
         Label(self, text="teacher").grid(row=0, column = math.floor(COLUMN_MAX/2))
@@ -263,7 +292,7 @@ class GUIDemo(Frame):
             self.seatInfo[r, c] = StringVar()
             self.seatInfo[r, c].set("[{0},{1}]\n{2}\n".format(r, c, ststr))
             Label(self, textvariable=self.seatInfo[r, c]).grid(row=(r+1), column=c, padx=4, pady=4)
-    
+            
         # seat score
         self.seatScore = StringVar()
         self.seatScore.set("suit score: " + str(seatsheet.score))
@@ -272,8 +301,12 @@ class GUIDemo(Frame):
         # manual again buttno
         Button(self, text="manual", command=self.manualAgain).grid(row=2+ROW_MAX, column=0, padx=2, pady=4)
         
-        # auto loop button 
-        Button(self, text="auto", command=self.autoAgain).grid(row=2+ROW_MAX, column=1, padx=2, pady=4)
+        # random search button 
+        Button(self, text="random search", command=self.randomSearch).grid(row=2+ROW_MAX, column=1, padx=2, pady=4)
+        
+        # Gene algorithm button 
+        Button(self, text="GA search", command=self.gaSearch).grid(row=2+ROW_MAX, column=2, padx=2, pady=4)
+        
         
         # best score
         self.bestSeatScore = StringVar()
@@ -295,6 +328,7 @@ class GUIDemo(Frame):
             ststr = seatsheet.table[(r, c)].info() if seatsheet.table[(r, c)] else "xx"
             string = "[{0},{1}]\n{2}\n".format(r, c, ststr) 
             self.seatInfo[r, c].set(string)
+            
             
         # random score
         scoreStr = ("best:{0}({1}, {2}, {3})".format(
@@ -320,33 +354,45 @@ class GUIDemo(Frame):
         ss = gererage_seat_sheet()
         self.update(ss)
     
-    def autoAgain(self):
-        for autoloop in range(0, 100):
+    def randomSearch(self):
+        for autoloop in range(0, 1000):
             ss = gererage_seat_sheet()
             self.update(ss)
     
+    def gaSearch(self):
+        pass
+    
+    
+    
 def gererage_seat_sheet():
     """ seat sheet include 1) student table 2) score """
-    student_table, exclusion_table = generate_student_table()
-    ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table)
+    #student_table, exclusion_table = generate_student_table_9()
+    student_table, exclusion_table = generate_student_table_16()
+    ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table, xtable=exclusion_table)
     ss.calc_score(exclusion_table)
     return ss
-        
+
+  
 if __name__ == '__main__':
     
     print("--------------- main() ---------------")
     # genrate student table
-    student_table, exclusion_table = generate_student_table()
-
+    '''student_table, exclusion_table = generate_student_table_9()
+    ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table)
+    ss.calc_score(exclusion_table)
+    '''
+    ss = gererage_seat_sheet()
+    #ss.info()
+    
     '''# sorted
     st2 = sorted(student_table, key = attrgetter('height'))
     for s in st2:
         print(s.height) # debug
     '''
-
-    ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table)
-    ss.info()
-    ss.calc_score(exclusion_table)
+    
+    ga.test()
+    
+    
 
     # gui
     root = Tk()
