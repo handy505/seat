@@ -437,7 +437,7 @@ if __name__ == '__main__':
     gaSimu = ga.GA(gererate_seat_sheet)
     print(gaSimu.info())
     gaSimu.next_generation()
-    print(gaSimu.info())
+    #print(gaSimu.info())
     
     
     # gui
