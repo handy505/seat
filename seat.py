@@ -11,6 +11,13 @@ import ga
 ROW_MAX = 4
 COLUMN_MAX = 4
 
+def gererate_seat_sheet():
+    """ seat sheet include 1) student table 2) score """
+    #student_table, exclusion_table = generate_student_table_9()
+    student_table, exclusion_table = generate_student_table_16()
+    ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table, xtable=exclusion_table)
+    ss.calc_score()
+    return ss
 
 def generate_student_table_9():
     """ for debug """
@@ -111,13 +118,12 @@ class Student(object):
 class SeatSheet(object):
     """ empty """
 
-    __table = collections.OrderedDict()
-    
     def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None, xtable=None):
+        self.__table = collections.OrderedDict()
         self.__row = row
         self.__column = column
         self.__students = students
-
+        
         for i in range(0, self.__row):
             for j in range(0, self.__column):
                 if self.__students:
@@ -127,8 +133,8 @@ class SeatSheet(object):
                 else:
                     self.__table[(i, j)] = None
                         
-        self.height_score()
-        self.duty_score()
+        #self.height_score()
+        #self.duty_score()
         self.__xtable = xtable
         
           
@@ -177,11 +183,14 @@ class SeatSheet(object):
         
     def info(self):
         """ infomation """
+        string = ""
         for i in range(0, self.__row):
             for j in range(0, self.__column):
                 st = self.__table[(i, j)].info() if self.__table[(i, j)] else "xxxx" 
-                print(i, j, st)
-
+                #print(i, j, st)
+                string += "({0}, {1}) {2}\n".format(i, j, st)
+        return string
+        
     def height_score(self):
         """ height score """
         IGNORE_ERROR = 0
@@ -352,31 +361,71 @@ class GUIDemo(Frame):
             
         
     def manualAgain(self):
-        ss = gererage_seat_sheet()
+        ss = gererate_seat_sheet()
         self.update(ss)
     
     def randomSearch(self):
         for autoloop in range(0, 1000):
-            ss = gererage_seat_sheet()
+            ss = gererate_seat_sheet()
             self.update(ss)
     
     def gaSearch(self):
         pass
-            
-def gererage_seat_sheet():
-    """ seat sheet include 1) student table 2) score """
-    #student_table, exclusion_table = generate_student_table_9()
-    student_table, exclusion_table = generate_student_table_16()
-    ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table, xtable=exclusion_table)
-    ss.calc_score()
-    return ss
 
-  
+
+
+
+class obj(object):
+    __val = 0
+    
+    def __init__(self):
+        self.__lst = [1,2,3]
+        self.__val = 1
+        self.__lst.append(4)
+        
+    @property
+    def val(self):
+        return self.__val
+        
+    @val.setter
+    def val(self, arg):
+        self.__val = arg
+        
+    @property
+    def lst(self):
+        return self.__lst
+        
+    @lst.setter
+    def lst(self, arg):
+        self.__lst.append(arg)
+
+            
+
 if __name__ == '__main__':
     
     print("--------------- main() ---------------")
+    
+    
+    ''' about deepcopy and object and list
+    a = obj()
+    b = a
+    c = copy.copy(a)
+    d = copy.deepcopy(a)
+    e = obj()
+    
+    a.val = 2
+    a.lst.append(5)
+    
+    print("a:" + str(a.lst) + ", " + str(a.val))
+    print("b:" + str(b.lst) + ", " + str(b.val))
+    print("c:" + str(c.lst) + ", " + str(c.val))
+    print("d:" + str(d.lst) + ", " + str(d.val))
+    print("e:" + str(e.lst) + ", " + str(e.val))
+    '''
+    
+    
     # genrate student table
-    #ss = gererage_seat_sheet()
+    #ss = gererate_seat_sheet()
     
     '''# sorted
     st2 = sorted(student_table, key = attrgetter('height'))
@@ -385,10 +434,11 @@ if __name__ == '__main__':
     '''
     
     
-    gaSimu = ga.GA(gererage_seat_sheet)
+    gaSimu = ga.GA(gererate_seat_sheet)
     print(gaSimu.info())
     gaSimu.next_generation()
     print(gaSimu.info())
+    
     
     # gui
     '''root = Tk()
