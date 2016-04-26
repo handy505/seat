@@ -79,6 +79,10 @@ class GA(object):
         print(ss.info()) # debug
         return ss
     
+    def __mutation(self, ss=None):
+        ''' not complete '''
+    
+    
     def next_generation(self):
         """ eliminate, mating, mutation  """
         self.__generation += 1
@@ -92,14 +96,11 @@ class GA(object):
         while len(self.__pool) < self.POOLSIZE:
             print("pool len:", len(self.__pool))
             ss = self.__mating()
+            # mutation
+            ss = self.__mutation(ss)    
             self.__pool.append(ss)
                     
-                    
-                
-                
-                            
-                    
-        # mutation
+        
         
         
     __generation = 0
