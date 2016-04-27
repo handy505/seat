@@ -68,16 +68,17 @@ class GA(object):
                 st2 = ss2.table[r, c]
                 
                 try:
-                    if st1.number == st2.number:
-                        #string = "the same in {0} {1}, {2} {3}".format(r, c, st1.info(), st2.info()) # debug
-                        #print(string) # debug
-                        
-                        # find index of the same student in student_table
-                        for x in student_table:
-                            if x.number == st1.number:
-                                idx = student_table.index(x)
-                        ss.table[(r, c)] = copy.deepcopy(student_table[idx])
-                        del student_table[idx]
+                    if type(st1) == 'Student' and type(st2) == 'Student':
+                        if st1.number == st2.number:
+                            #string = "the same in {0} {1}, {2} {3}".format(r, c, st1.info(), st2.info()) # debug
+                            #print(string) # debug
+                            
+                            # find index of the same student in student_table
+                            for x in student_table:
+                                if x.number == st1.number:
+                                    idx = student_table.index(x)
+                            ss.table[(r, c)] = copy.deepcopy(student_table[idx])
+                            del student_table[idx]
                 except AttributeError as err:
                     print(err)
         #print("after copy the same student in sheetA and sheetB to new sheet") # debug
@@ -87,9 +88,10 @@ class GA(object):
         for r in range(0, seat.ROW_MAX):
             for c in range(0, seat.COLUMN_MAX):
                 if ss.table[(r, c)] == None:
-                    rnd = random.randint(0, len(student_table)-1) 
-                    ss.table[(r, c)] = student_table[rnd]
-                    del student_table[rnd]
+                    if student_table:
+                        rnd = random.randint(0, len(student_table)-1) 
+                        ss.table[(r, c)] = student_table[rnd]
+                        del student_table[rnd]
         #print("after fill students to the other empty seats by ranodm, new sheet complete") # debug
         #print(ss.info()) # debug
         return ss
@@ -204,7 +206,7 @@ if __name__ == '__main__':
                 fout.write( string.ljust(FIELD_WIDTH, " ") )
             fout.write("\n")
             for c in range(0, ss.column):
-                string = ss.table[(r, c)].info()
+                string = ss.table[(r, c)].info() if ss.table[(r, c)] else ""
                 fout.write( string.ljust(FIELD_WIDTH, " ") )
             fout.write("\n")
                 

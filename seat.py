@@ -277,9 +277,10 @@ class SeatSheet(object):
                 # valid seat
                 curHeight = self.__table[(r, c)].height
                 for before in range(0, r):
-                    beforeHeight = self.__table[(before, c)].height
-                    hscore += (curHeight - beforeHeight) if beforeHeight > (curHeight + IGNORE_ERROR) else 0
-                    #print("hscore:{0} at {1} scan {2}".format(hscore, (r, c), (before, c))) # debug
+                    if self.__table[(before, c)]:
+                        beforeHeight = self.__table[(before, c)].height
+                        hscore += (curHeight - beforeHeight) if beforeHeight > (curHeight + IGNORE_ERROR) else 0
+                        #print("hscore:{0} at {1} scan {2}".format(hscore, (r, c), (before, c))) # debug
         return hscore
 
     def duty_score(self):
