@@ -22,8 +22,12 @@ class GA(object):
             print("pool: " + str(self.__pool[i]))
             print(self.__pool[i].info())
         '''
+        self.__generation = 0
 
-
+    @property
+    def pool(self):
+        return self.__pool
+        
     def __eliminating(self):
         min = 99999
         idxmin = 0
@@ -129,11 +133,7 @@ class GA(object):
             self.__pool.append(ss)
             print("new ss score:", ss.score)
             #print("after mutaton, pool size:", len(self.__pool)) # debug
-                    
-        
-        
-        
-    __generation = 0
+       
     @property
     def generation(self):
         return self.__generation
@@ -146,26 +146,63 @@ class GA(object):
         string = "[GA {0}] {1}".format(self.generation, scoreStr)
         return string
         
-    def average_pool_score(self):
+    def average(self):
         sum = 0
         for i in self.__pool:
             sum += i.score
         return sum/len(self.__pool)
 
+    def sd(self):
+        """ standard difference """
+        self.__u = self.average()
+        sum = 0
+        for i in self.__pool:
+            sum += (i.score - self.__u) ** 2
+        sd = math.sqrt( sum / len(self.__pool) )
+        return sd
         
-def rand_gen():
-    rnd = random.randint(0, 10)
-    print(rnd)
-    return rnd
-            
 
 
     
 
 if __name__ == '__main__':
     gaSimu = GA(seat.gererate_seat_sheet)
-    print(gaSimu.info(), "(average:", str( round(gaSimu.average_pool_score())) + ")")
+    avg = round(gaSimu.average(), 2)
+    sd = round(gaSimu.sd(), 2)
+    print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
     
-    for i in range(0, 1000):
+    # ga generation loop
+    for i in range(0, 100):
         gaSimu.next_generation()
-        print(gaSimu.info(), "(average:", str( round(gaSimu.average_pool_score())) + ")")
+        avg = round(gaSimu.average(), 2)
+        sd = round(gaSimu.sd(), 2)
+        print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
+        
+    # write file
+    gnt = gaSimu.generation
+    avg = round(gaSimu.average(), 2)
+    sd = round(gaSimu.sd(), 2)
+    filename = "ga-result-{0}.txt".format(gnt)
+    fout = open(filename, "w", encoding="utf-8")
+    fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}\n\n".format(gnt, avg, sd))
+    
+    for ss in gaSimu.pool:
+        fout.write("seat sheet score: {0}\n".format(ss.score))
+        fout.write("------------------------\n")
+        
+        #linestr = ss.info()
+        #fout.write(linestr)
+        FIELD_WIDTH = 23
+        for r in range(0, ss.row):
+            for c in range(0, ss.column):
+                string = "({0}, {1}) ".format(r, c)
+                fout.write( string.ljust(FIELD_WIDTH, " ") )
+            fout.write("\n")
+            for c in range(0, ss.column):
+                string = ss.table[(r, c)].info()
+                fout.write( string.ljust(FIELD_WIDTH, " ") )
+            fout.write("\n")
+                
+        fout.write("\n\n")
+    fout.close()
+        

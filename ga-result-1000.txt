@@ -1,0 +1,4 @@
+GA Result with 1000 generation, avg: 2892.8, sd:312.7
+
+seat sheet score: 3000
+-------------------------------------
