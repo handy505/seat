@@ -9,7 +9,7 @@ import math
 class GA(object):
     
     def __init__(self, func=None):
-        self.POOLSIZE = 10
+        self.POOLSIZE = 20
         self.__pool = []
         for i in range(0, self.POOLSIZE):
             #print("--------") # debug
@@ -138,7 +138,7 @@ class GA(object):
             ss = self.__mutation(ss)
             ss.calc_score()
             self.__pool.append(ss)
-            print("new ss score:", ss.score)
+            #print("new ss score:", ss.score) # debug
             #print("after mutaton, pool size:", len(self.__pool)) # debug
        
     @property
@@ -168,6 +168,11 @@ class GA(object):
         sd = math.sqrt( sum / len(self.__pool) )
         return sd
         
+    def max(self):
+        max = 0
+        for i in self.__pool:
+            max = i.score if i.score > max else max
+        return max
 
 
     
@@ -179,7 +184,8 @@ if __name__ == '__main__':
     print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
     
     # ga generation loop
-    for i in range(0, 100):
+    GA_LOOP = 100000
+    for i in range(0, GA_LOOP):
         gaSimu.next_generation()
         avg = round(gaSimu.average(), 2)
         sd = round(gaSimu.sd(), 2)
@@ -189,9 +195,10 @@ if __name__ == '__main__':
     gnt = gaSimu.generation
     avg = round(gaSimu.average(), 2)
     sd = round(gaSimu.sd(), 2)
+    max = gaSimu.max()
     filename = "ga-result-{0}.txt".format(gnt)
     fout = open(filename, "w", encoding="utf-8")
-    fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}\n\n".format(gnt, avg, sd))
+    fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}, max:{3}\n\n".format(gnt, avg, sd, max))
     
     for ss in gaSimu.pool:
         fout.write("seat sheet score: {0}\n".format(ss.score))

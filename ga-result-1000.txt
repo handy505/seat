@@ -1,4 +1,183 @@
-GA Result with 1000 generation, avg: 2892.8, sd:312.7
+GA RESULT WITH 1000 GERERATION
+avg:6060.6, sd:1078.86
 
-seat sheet score: 3000
--------------------------------------
+seat sheet score: 6562
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#5,Eileen,False,154    #48,Chloe,False,158    #19,Rebeca,False,165   #10,Hugo,False,166     #40,Sheila,False,163   #31,Sean,False,166     #8,Hannah,True,163     
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#1,Ada,True,160        #21,Tiffay,False,168   #38,Wallis,False,161   #3,Carol,True,155      #42,Sibyl,False,165    #2,Bess,False,170      #12,Jacob,False,172    
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#17,Olivia,False,162   #23,Vic,False,173      #22,Upton,False,172    #9,Irma,False,167      #4,Dale,False,175      #29,Uriah,False,160    #18,Pandora,False,168  
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#25,Yale,False,177     #34,Ted,False,159      #15,Marcus,False,178   #7,Gill,False,153      #46,Ula,False,165      #41,Sherry,False,164   #43,Sophia,False,173   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#24,Wayne,False,178    #14,Lambert,False,169  #33,Simon,False,160    #11,Ian,False,165      #32,Samuel,True,169    #44,Spring,False,175   #28,Wade,False,165     
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#35,Vicky,False,162    #49,Cora,False,159     #37,Vivian,True,166    #36,Virginia,False,164 #27,Victor,False,166   #20,Sandra,False,160   #45,Truda,False,163    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#39,Veromca,False,169  #13,Kerr,True,171      #6,Florence,False,158  #16,Nat,False,177      #30,Scott,False,163    #47,Claire,True,169    #26,Zachary,False,175  
+
+
+seat sheet score: 6565
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#28,Wade,False,165     #45,Truda,False,163    #48,Chloe,False,158    #41,Sherry,False,164   #12,Jacob,False,172    #13,Kerr,True,171      #46,Ula,False,165      
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#36,Virginia,False,164 #33,Simon,False,160    #25,Yale,False,177     #42,Sibyl,False,165    #3,Carol,True,155      #6,Florence,False,158  #32,Samuel,True,169    
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#43,Sophia,False,173   #1,Ada,True,160        #29,Uriah,False,160    #2,Bess,False,170      #16,Nat,False,177      #11,Ian,False,165      #7,Gill,False,153      
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#15,Marcus,False,178   #31,Sean,False,166     #17,Olivia,False,162   #37,Vivian,True,166    #5,Eileen,False,154    #10,Hugo,False,166     #20,Sandra,False,160   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#24,Wayne,False,178    #35,Vicky,False,162    #4,Dale,False,175      #14,Lambert,False,169  #26,Zachary,False,175  #49,Cora,False,159     #27,Victor,False,166   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#21,Tiffay,False,168   #22,Upton,False,172    #47,Claire,True,169    #38,Wallis,False,161   #30,Scott,False,163    #23,Vic,False,173      #34,Ted,False,159      
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#8,Hannah,True,163     #18,Pandora,False,168  #19,Rebeca,False,165   #9,Irma,False,167      #44,Spring,False,175   #39,Veromca,False,169  #40,Sheila,False,163   
+
+
+seat sheet score: 6558
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#47,Claire,True,169    #22,Upton,False,172    #6,Florence,False,158  #3,Carol,True,155      #18,Pandora,False,168  #13,Kerr,True,171      #38,Wallis,False,161   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#42,Sibyl,False,165    #1,Ada,True,160        #37,Vivian,True,166    #34,Ted,False,159      #5,Eileen,False,154    #9,Irma,False,167      #4,Dale,False,175      
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#25,Yale,False,177     #23,Vic,False,173      #36,Virginia,False,164 #33,Simon,False,160    #10,Hugo,False,166     #27,Victor,False,166   #35,Vicky,False,162    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#11,Ian,False,165      #7,Gill,False,153      #44,Spring,False,175   #17,Olivia,False,162   #32,Samuel,True,169    #24,Wayne,False,178    #19,Rebeca,False,165   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#12,Jacob,False,172    #2,Bess,False,170      #28,Wade,False,165     #48,Chloe,False,158    #20,Sandra,False,160   #41,Sherry,False,164   #39,Veromca,False,169  
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#16,Nat,False,177      #40,Sheila,False,163   #31,Sean,False,166     #43,Sophia,False,173   #30,Scott,False,163    #21,Tiffay,False,168   #15,Marcus,False,178   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#29,Uriah,False,160    #26,Zachary,False,175  #14,Lambert,False,169  #49,Cora,False,159     #46,Ula,False,165      #45,Truda,False,163    #8,Hannah,True,163     
+
+
+seat sheet score: 6618
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#24,Wayne,False,178    #36,Virginia,False,164 #19,Rebeca,False,165   #3,Carol,True,155      #23,Vic,False,173      #5,Eileen,False,154    #34,Ted,False,159      
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#48,Chloe,False,158    #32,Samuel,True,169    #40,Sheila,False,163   #2,Bess,False,170      #22,Upton,False,172    #7,Gill,False,153      #9,Irma,False,167      
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#20,Sandra,False,160   #12,Jacob,False,172    #30,Scott,False,163    #35,Vicky,False,162    #31,Sean,False,166     #46,Ula,False,165      #10,Hugo,False,166     
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#8,Hannah,True,163     #11,Ian,False,165      #25,Yale,False,177     #17,Olivia,False,162   #18,Pandora,False,168  #1,Ada,True,160        #13,Kerr,True,171      
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#39,Veromca,False,169  #41,Sherry,False,164   #26,Zachary,False,175  #27,Victor,False,166   #37,Vivian,True,166    #38,Wallis,False,161   #4,Dale,False,175      
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#45,Truda,False,163    #43,Sophia,False,173   #47,Claire,True,169    #29,Uriah,False,160    #33,Simon,False,160    #6,Florence,False,158  #16,Nat,False,177      
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#14,Lambert,False,169  #44,Spring,False,175   #21,Tiffay,False,168   #15,Marcus,False,178   #49,Cora,False,159     #42,Sibyl,False,165    #28,Wade,False,165     
+
+
+seat sheet score: 6610
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#30,Scott,False,163    #21,Tiffay,False,168   #49,Cora,False,159     #12,Jacob,False,172    #5,Eileen,False,154    #48,Chloe,False,158    #2,Bess,False,170      
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#41,Sherry,False,164   #11,Ian,False,165      #44,Spring,False,175   #34,Ted,False,159      #31,Sean,False,166     #32,Samuel,True,169    #36,Virginia,False,164 
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#27,Victor,False,166   #23,Vic,False,173      #8,Hannah,True,163     #10,Hugo,False,166     #20,Sandra,False,160   #4,Dale,False,175      #1,Ada,True,160        
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#29,Uriah,False,160    #47,Claire,True,169    #40,Sheila,False,163   #6,Florence,False,158  #3,Carol,True,155      #17,Olivia,False,162   #7,Gill,False,153      
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#13,Kerr,True,171      #26,Zachary,False,175  #42,Sibyl,False,165    #28,Wade,False,165     #18,Pandora,False,168  #16,Nat,False,177      #15,Marcus,False,178   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#43,Sophia,False,173   #35,Vicky,False,162    #14,Lambert,False,169  #45,Truda,False,163    #19,Rebeca,False,165   #46,Ula,False,165      #25,Yale,False,177     
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#9,Irma,False,167      #38,Wallis,False,161   #39,Veromca,False,169  #37,Vivian,True,166    #33,Simon,False,160    #24,Wayne,False,178    #22,Upton,False,172    
+
+
+seat sheet score: 6648
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#27,Victor,False,166   #12,Jacob,False,172    #35,Vicky,False,162    #46,Ula,False,165      #11,Ian,False,165      #29,Uriah,False,160    #38,Wallis,False,161   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#41,Sherry,False,164   #31,Sean,False,166     #32,Samuel,True,169    #26,Zachary,False,175  #5,Eileen,False,154    #7,Gill,False,153      #8,Hannah,True,163     
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#37,Vivian,True,166    #15,Marcus,False,178   #10,Hugo,False,166     #43,Sophia,False,173   #9,Irma,False,167      #24,Wayne,False,178    #33,Simon,False,160    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#49,Cora,False,159     #1,Ada,True,160        #20,Sandra,False,160   #45,Truda,False,163    #48,Chloe,False,158    #3,Carol,True,155      #34,Ted,False,159      
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#18,Pandora,False,168  #21,Tiffay,False,168   #14,Lambert,False,169  #23,Vic,False,173      #6,Florence,False,158  #40,Sheila,False,163   #44,Spring,False,175   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#19,Rebeca,False,165   #22,Upton,False,172    #25,Yale,False,177     #47,Claire,True,169    #13,Kerr,True,171      #17,Olivia,False,162   #30,Scott,False,163    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#28,Wade,False,165     #42,Sibyl,False,165    #39,Veromca,False,169  #2,Bess,False,170      #16,Nat,False,177      #36,Virginia,False,164 #4,Dale,False,175      
+
+
+seat sheet score: 6570
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#42,Sibyl,False,165    #35,Vicky,False,162    #28,Wade,False,165     #3,Carol,True,155      #12,Jacob,False,172    #49,Cora,False,159     #19,Rebeca,False,165   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#32,Samuel,True,169    #46,Ula,False,165      #33,Simon,False,160    #44,Spring,False,175   #23,Vic,False,173      #18,Pandora,False,168  #7,Gill,False,153      
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#30,Scott,False,163    #34,Ted,False,159      #11,Ian,False,165      #16,Nat,False,177      #5,Eileen,False,154    #48,Chloe,False,158    #26,Zachary,False,175  
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#41,Sherry,False,164   #13,Kerr,True,171      #17,Olivia,False,162   #10,Hugo,False,166     #37,Vivian,True,166    #21,Tiffay,False,168   #20,Sandra,False,160   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#6,Florence,False,158  #14,Lambert,False,169  #1,Ada,True,160        #24,Wayne,False,178    #27,Victor,False,166   #22,Upton,False,172    #25,Yale,False,177     
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#9,Irma,False,167      #40,Sheila,False,163   #15,Marcus,False,178   #36,Virginia,False,164 #45,Truda,False,163    #8,Hannah,True,163     #47,Claire,True,169    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#29,Uriah,False,160    #4,Dale,False,175      #43,Sophia,False,173   #2,Bess,False,170      #31,Sean,False,166     #39,Veromca,False,169  #38,Wallis,False,161   
+
+
+seat sheet score: 6559
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#41,Sherry,False,164   #22,Upton,False,172    #26,Zachary,False,175  #17,Olivia,False,162   #29,Uriah,False,160    #20,Sandra,False,160   #5,Eileen,False,154    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#48,Chloe,False,158    #18,Pandora,False,168  #6,Florence,False,158  #42,Sibyl,False,165    #43,Sophia,False,173   #35,Vicky,False,162    #9,Irma,False,167      
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#40,Sheila,False,163   #14,Lambert,False,169  #25,Yale,False,177     #39,Veromca,False,169  #45,Truda,False,163    #38,Wallis,False,161   #44,Spring,False,175   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#4,Dale,False,175      #3,Carol,True,155      #46,Ula,False,165      #7,Gill,False,153      #16,Nat,False,177      #19,Rebeca,False,165   #1,Ada,True,160        
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#31,Sean,False,166     #34,Ted,False,159      #11,Ian,False,165      #37,Vivian,True,166    #47,Claire,True,169    #33,Simon,False,160    #12,Jacob,False,172    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#13,Kerr,True,171      #24,Wayne,False,178    #2,Bess,False,170      #49,Cora,False,159     #27,Victor,False,166   #32,Samuel,True,169    #36,Virginia,False,164 
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#30,Scott,False,163    #10,Hugo,False,166     #8,Hannah,True,163     #28,Wade,False,165     #15,Marcus,False,178   #23,Vic,False,173      #21,Tiffay,False,168   
+
+
+seat sheet score: 4496
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#3,Carol,True,155      #36,Virginia,False,164 #32,Samuel,True,169    #2,Bess,False,170      #49,Cora,False,159     #28,Wade,False,165     #4,Dale,False,175      
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#19,Rebeca,False,165   #16,Nat,False,177      #33,Simon,False,160    #41,Sherry,False,164   #13,Kerr,True,171      #22,Upton,False,172    #38,Wallis,False,161   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#14,Lambert,False,169  #24,Wayne,False,178    #5,Eileen,False,154    #29,Uriah,False,160    #43,Sophia,False,173   #35,Vicky,False,162    #17,Olivia,False,162   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#48,Chloe,False,158    #34,Ted,False,159      #11,Ian,False,165      #39,Veromca,False,169  #37,Vivian,True,166    #21,Tiffay,False,168   #20,Sandra,False,160   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#44,Spring,False,175   #46,Ula,False,165      #9,Irma,False,167      #23,Vic,False,173      #18,Pandora,False,168  #8,Hannah,True,163     #6,Florence,False,158  
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#26,Zachary,False,175  #31,Sean,False,166     #47,Claire,True,169    #12,Jacob,False,172    #7,Gill,False,153      #40,Sheila,False,163   #45,Truda,False,163    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#30,Scott,False,163    #25,Yale,False,177     #15,Marcus,False,178   #1,Ada,True,160        #27,Victor,False,166   #42,Sibyl,False,165    #10,Hugo,False,166     
+
+
+seat sheet score: 3420
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#33,Simon,False,160    #37,Vivian,True,166    #35,Vicky,False,162    #26,Zachary,False,175  #30,Scott,False,163    #8,Hannah,True,163     #29,Uriah,False,160    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#28,Wade,False,165     #12,Jacob,False,172    #21,Tiffay,False,168   #19,Rebeca,False,165   #10,Hugo,False,166     #23,Vic,False,173      #13,Kerr,True,171      
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#25,Yale,False,177     #6,Florence,False,158  #44,Spring,False,175   #9,Irma,False,167      #38,Wallis,False,161   #20,Sandra,False,160   #31,Sean,False,166     
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#5,Eileen,False,154    #7,Gill,False,153      #27,Victor,False,166   #36,Virginia,False,164 #46,Ula,False,165      #2,Bess,False,170      #47,Claire,True,169    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#32,Samuel,True,169    #24,Wayne,False,178    #43,Sophia,False,173   #11,Ian,False,165      #16,Nat,False,177      #49,Cora,False,159     #1,Ada,True,160        
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#45,Truda,False,163    #40,Sheila,False,163   #17,Olivia,False,162   #15,Marcus,False,178   #22,Upton,False,172    #39,Veromca,False,169  #14,Lambert,False,169  
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#4,Dale,False,175      #42,Sibyl,False,165    #18,Pandora,False,168  #34,Ted,False,159      #41,Sherry,False,164   #3,Carol,True,155      #48,Chloe,False,158    
+
+
