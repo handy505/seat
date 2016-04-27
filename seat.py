@@ -8,14 +8,14 @@ from operator import itemgetter, attrgetter
 import copy
 import ga
 
-ROW_MAX = 4
+ROW_MAX = 7
 COLUMN_MAX = 7
 
 def gererate_seat_sheet():
     """ seat sheet include 1) student table 2) score """
     #student_table, exclusion_table = generate_student_table_9()
-    student_table, exclusion_table = generate_student_table_16()
-    #student_table, exclusion_table = generate_student_table()
+    #student_table, exclusion_table = generate_student_table_16()
+    student_table, exclusion_table = generate_student_table()
     ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table, xtable=exclusion_table)
     ss.calc_score()
     return ss
@@ -65,7 +65,7 @@ def generate_student_table_16():
     #	print(s.info()) # debug
     return st_table, exclusion_table
 
-def xgenerate_student_table():
+def generate_student_table():
     """ for debug """
 	# genrate student table
     s1 = Student(1, 'Ada', 160, True)
@@ -123,9 +123,9 @@ def xgenerate_student_table():
     s49 = Student(49, 'Cora', 159)
     
     st_table = ([s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, 
-                s11, s12, s13, s14, s15, s16, s17, s18, s19,
-                s21, s22, s23, s24, s25, s26, s27, s28, s29,
-                s31, s32, s33, s34, s35, s36, s37, s38, s39,
+                s11, s12, s13, s14, s15, s16, s17, s18, s19, s20,
+                s21, s22, s23, s24, s25, s26, s27, s28, s29, s30,
+                s31, s32, s33, s34, s35, s36, s37, s38, s39, s40,
                 s41, s42, s43, s44, s45, s46, s47, s48, s49])
     exclusion_table = [s1, s9]
     #for s in st_table:

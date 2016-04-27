@@ -52,8 +52,8 @@ class GA(object):
         #print("[mating...] select two is {0}, {1}".format(rnd1, rnd2)) # debug
         
         # gererate empty seat sheet
-        student_table, exclusion_table = seat.generate_student_table_16()
-        #student_table, exclusion_table = seat.generate_student_table()
+        #student_table, exclusion_table = seat.generate_student_table_16()
+        student_table, exclusion_table = seat.generate_student_table()
         #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=None)
         ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=exclusion_table)
         #print(ss.info()) #debug        
