@@ -53,6 +53,7 @@ class GA(object):
         
         # gererate empty seat sheet
         student_table, exclusion_table = seat.generate_student_table_16()
+        #student_table, exclusion_table = seat.generate_student_table()
         #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=None)
         ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=exclusion_table)
         #print(ss.info()) #debug        
@@ -61,20 +62,24 @@ class GA(object):
         # copy the same student in sheetA and sheetB to new sheet
         ss1 = self.__pool[rnd1]
         ss2 = self.__pool[rnd2]
-        for r in range(0, seat.ROW_MAX):
-            for c in range(0, seat.COLUMN_MAX):
+        for r in range(0, ss.row):
+            for c in range(0, ss.column):
                 st1 = ss1.table[r, c]
                 st2 = ss2.table[r, c]
-                if st1.number == st2.number:
-                    #string = "the same in {0} {1}, {2} {3}".format(r, c, st1.info(), st2.info()) # debug
-                    #print(string) # debug
-                    
-                    # find index of the same student in student_table
-                    for x in student_table:
-                        if x.number == st1.number:
-                            idx = student_table.index(x)
-                    ss.table[(r, c)] = copy.deepcopy(student_table[idx])
-                    del student_table[idx]
+                
+                try:
+                    if st1.number == st2.number:
+                        #string = "the same in {0} {1}, {2} {3}".format(r, c, st1.info(), st2.info()) # debug
+                        #print(string) # debug
+                        
+                        # find index of the same student in student_table
+                        for x in student_table:
+                            if x.number == st1.number:
+                                idx = student_table.index(x)
+                        ss.table[(r, c)] = copy.deepcopy(student_table[idx])
+                        del student_table[idx]
+                except AttributeError as err:
+                    print(err)
         #print("after copy the same student in sheetA and sheetB to new sheet") # debug
         #print(ss.info()) # debug
 
