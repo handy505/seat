@@ -137,7 +137,14 @@ class SeatSheet(object):
         #self.duty_score()
         self.__xtable = xtable
         
-          
+    @property
+    def row(self):
+        return self.__row
+        
+    @property
+    def column(self):
+        return self.__column
+        
     @property
     def table(self):
         """ empty """
