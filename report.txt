@@ -1,0 +1,39 @@
+GA RESULT WITH 10 GERERATION
+avg:3781.0, sd:520.0, max:4301
+
+seat sheet score: 4301
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#30,unknow,False,159   #47,unknow,False,176   #25,unknow,False,157   #18,unknow,False,165   #2,unknow,False,161    #24,unknow,False,172   #11,unknow,False,177   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#4,unknow,False,171    #46,unknow,False,156   #44,unknow,False,166   #38,unknow,False,156   #10,unknow,False,165   #21,unknow,False,174   #34,unknow,False,175   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#32,unknow,True,166    #41,unknow,False,156   #22,unknow,True,153    #33,unknow,True,153    #29,unknow,False,175   #37,unknow,False,170   #39,unknow,False,150   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#6,unknow,True,154     #1,unknow,False,156    #16,unknow,False,177   #23,unknow,False,164   #14,unknow,False,169   #45,unknow,False,165   #9,unknow,False,172    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#20,unknow,False,167   #43,unknow,True,155    #19,unknow,False,179   #31,unknow,False,167   #48,unknow,False,151   #35,unknow,False,173   #13,unknow,False,159   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#36,unknow,False,158   #3,unknow,True,153     #28,unknow,False,177   #7,unknow,False,180    #5,unknow,False,168    #27,unknow,False,180   #12,unknow,True,158    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#40,unknow,False,175   #49,unknow,False,173   #17,unknow,False,155   #15,unknow,False,166   #8,unknow,False,157    #42,unknow,False,172   #26,unknow,False,164   
+
+
+seat sheet score: 3261
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#47,unknow,False,176   #45,unknow,False,165   #20,unknow,False,167   #43,unknow,True,155    #25,unknow,False,157   #10,unknow,False,165   #34,unknow,False,175   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#24,unknow,False,172   #22,unknow,True,153    #6,unknow,True,154     #42,unknow,False,172   #16,unknow,False,177   #38,unknow,False,156   #21,unknow,False,174   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#11,unknow,False,177   #39,unknow,False,150   #33,unknow,True,153    #29,unknow,False,175   #15,unknow,False,166   #40,unknow,False,175   #5,unknow,False,168    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#35,unknow,False,173   #18,unknow,False,165   #4,unknow,False,171    #23,unknow,False,164   #26,unknow,False,164   #30,unknow,False,159   #7,unknow,False,180    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#19,unknow,False,179   #3,unknow,True,153     #13,unknow,False,159   #12,unknow,True,158    #31,unknow,False,167   #41,unknow,False,156   #48,unknow,False,151   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#32,unknow,True,166    #37,unknow,False,170   #2,unknow,False,161    #14,unknow,False,169   #17,unknow,False,155   #9,unknow,False,172    #36,unknow,False,158   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#49,unknow,False,173   #44,unknow,False,166   #8,unknow,False,157    #27,unknow,False,180   #28,unknow,False,177   #46,unknow,False,156   #1,unknow,False,156    
+
+

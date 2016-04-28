@@ -11,8 +11,8 @@ import getopt
 
 class GA(object):
     
-    def __init__(self, func=None):
-        self.POOLSIZE = 20
+    def __init__(self, func=None, population=10):
+        self.POOLSIZE = population
         self.__pool = []
         for i in range(0, self.POOLSIZE):
             #print("--------") # debug
@@ -181,13 +181,13 @@ class GA(object):
         return max
 
 
-def report(gaSimu):
+def report(gaSimu, filename="ga-result.txt"):
     # write file
     gnt = gaSimu.generation
     avg = round(gaSimu.average(), 2)
     sd = round(gaSimu.sd(), 2)
     max = gaSimu.max()
-    filename = "ga-result-{0}.txt".format(gnt)
+    #filename = "ga-result-{0}.txt".format(gnt)
     fout = open(filename, "w", encoding="utf-8")
     fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}, max:{3}\n\n".format(gnt, avg, sd, max))
     
@@ -230,22 +230,34 @@ def main(argv):
         elif opt in ("-o", "--output"):
             ofile = arg
         elif opt in ("-p", "--population"):
-            population = arg
+            population = int(arg)
         elif opt in ("-g", "--gereration"):
-            generations = arg
+            generation = int(arg)
         
         
             
-    print(ifile, ofile, population, generations)
+    #print(ifile, ofile, population, generation)
+    
+    gaSimu = GA(seat.gererate_seat_sheet, population)
+    avg = round(gaSimu.average(), 2)
+    sd = round(gaSimu.sd(), 2)
+    print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
+    
+    # ga generation loop
+    for i in range(0, generation):
+        gaSimu.next_generation()
+        avg = round(gaSimu.average(), 2)
+        sd = round(gaSimu.sd(), 2)
+        print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
+        
+
+    report(gaSimu, ofile)
     
 if __name__ == '__main__':
 
     
     main(sys.argv[1:])
-    '''if len(sys.argv) == 1 or sys.argv[1] in {"-h", "--help"}:
-        print("usage: {0} file1 [file2 [... fileN]]".format(sys.argv[0]))
-        sys.exit()
-    '''
+    
         
     '''    
     gaSimu = GA(seat.gererate_seat_sheet)
