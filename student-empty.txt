@@ -1,0 +1,54 @@
+# STUDENT LIST
+1, unknow, 156, False
+2, unknow, 161, False
+3, unknow, 153, True
+4, unknow, 171, False
+5, unknow, 168, False
+6, unknow, 154, True
+7, unknow, 180, False
+8, unknow, 157, False
+9, unknow, 172, False
+10, unknow, 165, False
+11, unknow, 177, False
+12, unknow, 158, True
+13, unknow, 159, False
+14, unknow, 169, False
+15, unknow, 166, False
+16, unknow, 177, False
+17, unknow, 155, False
+18, unknow, 165, False
+19, unknow, 179, False
+20, unknow, 167, False
+21, unknow, 174, False
+22, unknow, 153, True
+23, unknow, 164, False
+24, unknow, 172, False
+25, unknow, 157, False
+26, unknow, 164, False
+27, unknow, 180, False
+28, unknow, 177, False
+29, unknow, 175, False
+30, unknow, 159, False
+31, unknow, 167, False
+32, unknow, 166, True
+33, unknow, 153, True
+34, unknow, 175, False
+35, unknow, 173, False
+36, unknow, 158, False
+37, unknow, 170, False
+38, unknow, 156, False
+39, unknow, 150, False
+40, unknow, 175, False
+41, unknow, 156, False
+42, unknow, 172, False
+43, unknow, 155, True
+44, unknow, 166, False
+45, unknow, 165, False
+46, unknow, 156, False
+47, unknow, 176, False
+48, unknow, 151, False
+49, unknow, 173, False
+
+# EXCLUSION LIST
+{1, 2, 3, 43, 32}
+

@@ -5,6 +5,8 @@ import random
 import seat
 import copy
 import math
+import student
+import sys
 
 class GA(object):
     
@@ -28,7 +30,7 @@ class GA(object):
     def pool(self):
         return self.__pool
         
-    def __crossover(self):
+    def __eliminating(self):
         min = 99999
         idxmin = 0
         for i in self.__pool:
@@ -41,7 +43,7 @@ class GA(object):
         del self.__pool[idxmin]
         #print(self.info(), "(after del)") # debug
         
-    def __mating(self):
+    def __crossover(self):
     
         # pick 2 random elements in pool
         rnd1 = 0
@@ -52,8 +54,11 @@ class GA(object):
         #print("[mating...] select two is {0}, {1}".format(rnd1, rnd2)) # debug
         
         # gererate empty seat sheet
-        #student_table, exclusion_table = seat.generate_student_table_16()
-        student_table, exclusion_table = seat.generate_student_table()
+        #student_table, exclusion_table = student.generate_student_table_16()
+        #student_table, exclusion_table = student.generate_student_table()
+        student_table, exclusion_table = student.import_student_file()
+        
+        
         #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=None)
         ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=exclusion_table)
         #print(ss.info()) #debug        
@@ -127,13 +132,13 @@ class GA(object):
         ELIMINATE_RETE = 0.2
         eliminateCount = round(len(self.__pool) * ELIMINATE_RETE) 
         for i in range(0, eliminateCount):
-            self.__crossover()
+            self.__eliminating()
         #print("after eliminate, pool size:", len(self.__pool)) # debug
         
         # 2) mating and mutation
         while len(self.__pool) < self.POOLSIZE:
             #print("before mutaton, pool size:", len(self.__pool)) # debug
-            ss = self.__mating()
+            ss = self.__crossover()
             # mutation
             ss = self.__mutation(ss)
             ss.calc_score()

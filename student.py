@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 #-*- coding: UTF-8 -*-
 
+import sys
+import random
 
 class Student(object):
     """ student """
@@ -166,3 +168,69 @@ def generate_student_table():
     #for s in st_table:
     #	print(s.info()) # debug
     return st_table, exclusion_table
+    
+def generate_empty_student_file(filename="student-empty"):
+    filename += ".txt"
+    fout = open(filename, "w", encoding="utf-8")
+    fout.write("# STUDENT LIST\n\n")
+    for i in range(0, 49):
+        h = random.randint(150, 180)
+        string = "{num}, {name}, {height}, {duty}\n".format(num=i+1, name="unknow", height=h, duty=False)
+        fout.write(string)
+        
+    fout.write("# EXCLUSION LIST\n\n")
+    
+    fout.close()    
+
+def import_student_file(filename="student-empty"):
+    filename += ".txt"
+    fin = open(filename, "r", encoding="utf-8")
+    st_table = []
+    xtable = []
+    for line in fin.readlines():
+    
+        if line[0] in {"#", "", "\n"}: 
+            continue
+        elif line[0] == "{":
+            line = line.strip("\n")
+            lst = line.split(",")
+            for s in lst: 
+                s = s.strip(" {}")
+                if(s.isdecimal()): 
+                    for st in st_table:
+                        if s == st.number:
+                            xtable.append(st)
+        else:
+            line = line.strip("\n")
+            #print(line)
+            
+            tp = line.split(",")
+            num = tp[0].strip(" ")
+            name = tp[1].strip(" ")
+            height = tp[2].strip(" ")
+            duty = True if tp[3].strip(" ") == "True" else False
+            st = Student(int(num), name, int(height), duty)
+            st_table.append(st)
+    fin.close()
+    
+    #for st in st_table: print(st.info())
+    #print(xtable)
+    return st_table, xtable
+
+if __name__ == '__main__':
+    
+    if len(sys.argv) == 2 and sys.argv[1] in {"-e", "--empty"}:
+        generate_empty_student_file()
+    elif len(sys.argv) == 3 and sys.argv[1] in {"-f", "--file"}:
+        filename = sys.argv[2]
+        generate_empty_student_file(filename)
+    else:
+        '''print("usage: {0} [option]... [file]...".format(sys.argv[0]))
+        print(" -e, --empty: output empty student file")
+        print(" -o, --output: output student file with file name")'''
+        
+        import_student_file()
+        sys.exit()
+    
+
+    
