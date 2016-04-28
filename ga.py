@@ -28,7 +28,7 @@ class GA(object):
     def pool(self):
         return self.__pool
         
-    def __eliminating(self):
+    def __crossover(self):
         min = 99999
         idxmin = 0
         for i in self.__pool:
@@ -119,15 +119,15 @@ class GA(object):
         return ss
         
     def next_generation(self):
-        """ eliminate, mating, mutation  """
+        """ crossover, mating, mutation  """
         self.__generation += 1
         
-        # 1) eliminating
+        # 1) crossover
         #print("before eliminate, pool size:", len(self.__pool)) # debug
         ELIMINATE_RETE = 0.2
         eliminateCount = round(len(self.__pool) * ELIMINATE_RETE) 
         for i in range(0, eliminateCount):
-            self.__eliminating()
+            self.__crossover()
         #print("after eliminate, pool size:", len(self.__pool)) # debug
         
         # 2) mating and mutation
@@ -178,13 +178,19 @@ class GA(object):
     
 
 if __name__ == '__main__':
+
+    '''if len(sys.argv) == 1 or sys.argv[1] in {"-h", "--help"}:
+        print("usage: {0} file1 [file2 [... fileN]]".format(sys.argv[0]))
+        sys.exit()
+    '''
+        
     gaSimu = GA(seat.gererate_seat_sheet)
     avg = round(gaSimu.average(), 2)
     sd = round(gaSimu.sd(), 2)
     print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
     
     # ga generation loop
-    GA_LOOP = 100000
+    GA_LOOP = 100
     for i in range(0, GA_LOOP):
         gaSimu.next_generation()
         avg = round(gaSimu.average(), 2)
