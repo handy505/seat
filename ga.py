@@ -7,6 +7,7 @@ import copy
 import math
 import student
 import sys
+import getopt
 
 class GA(object):
     
@@ -180,28 +181,7 @@ class GA(object):
         return max
 
 
-    
-
-if __name__ == '__main__':
-
-    '''if len(sys.argv) == 1 or sys.argv[1] in {"-h", "--help"}:
-        print("usage: {0} file1 [file2 [... fileN]]".format(sys.argv[0]))
-        sys.exit()
-    '''
-        
-    gaSimu = GA(seat.gererate_seat_sheet)
-    avg = round(gaSimu.average(), 2)
-    sd = round(gaSimu.sd(), 2)
-    print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
-    
-    # ga generation loop
-    GA_LOOP = 100
-    for i in range(0, GA_LOOP):
-        gaSimu.next_generation()
-        avg = round(gaSimu.average(), 2)
-        sd = round(gaSimu.sd(), 2)
-        print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
-        
+def report(gaSimu):
     # write file
     gnt = gaSimu.generation
     avg = round(gaSimu.average(), 2)
@@ -229,5 +209,58 @@ if __name__ == '__main__':
             fout.write("\n")
                 
         fout.write("\n\n")
-    fout.close()
+    fout.close()        
+
+
+def main(argv):
+    try:
+        opts, args = getopt.getopt(argv, "hei:o:p:g:", ["help",  "epmty", "input=", "output=", "population=", "gereration="])
+    except getopt.GetoptError:
+        print('usage: ga.py [option] [file]]')
+        sys.exit(2)
+        
+    for opt, arg in opts:
+        if opt == '-h':
+            print('usage: ga.py [option] [file]]')
+            sys.exit()
+        elif opt in ("-e", "--epmty"):
+            print("generate empty file")
+        elif opt in ("-i", "--input"):
+            ifile = arg
+        elif opt in ("-o", "--output"):
+            ofile = arg
+        elif opt in ("-p", "--population"):
+            population = arg
+        elif opt in ("-g", "--gereration"):
+            generations = arg
+        
+        
+            
+    print(ifile, ofile, population, generations)
+    
+if __name__ == '__main__':
+
+    
+    main(sys.argv[1:])
+    '''if len(sys.argv) == 1 or sys.argv[1] in {"-h", "--help"}:
+        print("usage: {0} file1 [file2 [... fileN]]".format(sys.argv[0]))
+        sys.exit()
+    '''
+        
+    '''    
+    gaSimu = GA(seat.gererate_seat_sheet)
+    avg = round(gaSimu.average(), 2)
+    sd = round(gaSimu.sd(), 2)
+    print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
+    
+    # ga generation loop
+    GA_LOOP = 100
+    for i in range(0, GA_LOOP):
+        gaSimu.next_generation()
+        avg = round(gaSimu.average(), 2)
+        sd = round(gaSimu.sd(), 2)
+        print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
+        
+
+    report(gaSimu)'''
         

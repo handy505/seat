@@ -217,6 +217,7 @@ def import_student_file(filename="student-empty"):
     #print(xtable)
     return st_table, xtable
 
+
 if __name__ == '__main__':
     
     if len(sys.argv) == 2 and sys.argv[1] in {"-e", "--empty"}:
