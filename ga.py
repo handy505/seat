@@ -219,6 +219,10 @@ def main(argv):
         print('usage: ga.py [option] [file]]')
         sys.exit(2)
         
+    ifile = "student.txt"
+    ofile = "ga-report.txt"
+    population = 10
+    generation = 20
     for opt, arg in opts:
         if opt == '-h':
             print('usage: ga.py [option] [file]]')
@@ -234,7 +238,9 @@ def main(argv):
         elif opt in ("-g", "--gereration"):
             generation = int(arg)
         
-        
+
+    
+                
             
     #print(ifile, ofile, population, generation)
     
