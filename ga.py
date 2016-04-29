@@ -8,34 +8,29 @@ import math
 import student
 import sys
 import getopt
-
+from operator import itemgetter, attrgetter
 
 
     
 class GA(object):
     
-    #def __init__(self, func=None, population=10):
     def __init__(self, st_table, xtable, population=10):
         self.__st_table = st_table
         self.__xtable = xtable
         self.POOLSIZE = population
         self.__pool = []
         for i in range(0, self.POOLSIZE):
-            #print("--------") # debug
-            #ss = func()
             sttable = copy.deepcopy(self.__st_table) # st_table is expendables should copy another one to use
             ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=sttable, xtable=self.__xtable)
             ss.calc_score()
             self.__pool.append( copy.deepcopy(ss))
-            
-        ''' debug
-        for i in range(0, self.POOLSIZE):
-            print("--------")
-            print("pool: " + str(self.__pool[i]))
-            print(self.__pool[i].info())
-        '''
         self.__generation = 0
-
+        self.__best = []
+        
+    @property
+    def best(self):
+        return self.__best
+        
     @property
     def pool(self):
         return self.__pool
@@ -54,25 +49,15 @@ class GA(object):
         #print(self.info(), "(after del)") # debug
         
     def __crossover(self):
-    
         # pick 2 random elements in pool
         rnd1 = 0
         rnd2 = 0
         while rnd1 == rnd2:
             rnd1 = random.randint(0, len(self.__pool)-1)
             rnd2 = random.randint(0, len(self.__pool)-1)
-        #print("[mating...] select two is {0}, {1}".format(rnd1, rnd2)) # debug
-        
-        # gererate empty seat sheet
-        #student_table, exclusion_table = student.generate_student_table_16()
-        #student_table, exclusion_table = student.generate_student_table()
-        #student_table, exclusion_table = student.import_student_file()
-        
         student_table = copy.deepcopy(self.__st_table)
-        #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=None)
         ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=self.__xtable)
         #print(ss.info()) #debug        
-        
         
         # copy the same student in sheetA and sheetB to new sheet
         ss1 = self.__pool[rnd1]
@@ -155,6 +140,14 @@ class GA(object):
             self.__pool.append(ss)
             #print("new ss score:", ss.score) # debug
             #print("after mutaton, pool size:", len(self.__pool)) # debug
+            
+        
+            self.__best.append(ss)
+            self.__best = sorted(self.__best, key=attrgetter('score'), reverse=True)
+                
+            while len(self.__best) > 10:
+                del self.__best[-1]
+
        
     @property
     def generation(self):
@@ -200,6 +193,31 @@ def report(gaSimu, filename="ga-result.txt"):
     fout = open(filename, "w", encoding="utf-8")
     fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}, max:{3}\n\n".format(gnt, avg, sd, max))
     
+    # best
+    for ss in gaSimu.best:
+        fout.write("seat sheet best {0} score: {1}\n".format(gaSimu.best.index(ss), ss.score))
+        fout.write("------------------------------------\n")
+        
+        #linestr = ss.info()
+        #fout.write(linestr)
+        FIELD_WIDTH = 23
+        for r in range(0, ss.row):
+            for c in range(0, ss.column):
+                string = "({0}, {1}) ".format(r, c)
+                fout.write( string.ljust(FIELD_WIDTH, " ") )
+            fout.write("\n")
+            for c in range(0, ss.column):
+                string = ss.table[(r, c)].info() if ss.table[(r, c)] else ""
+                fout.write( string.ljust(FIELD_WIDTH, " ") )
+            fout.write("\n")
+                
+        fout.write("\n\n")    
+    
+    
+    
+    
+    
+    # pool
     for ss in gaSimu.pool:
         fout.write("seat sheet score: {0}\n".format(ss.score))
         fout.write("------------------------\n")
