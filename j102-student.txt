@@ -21,10 +21,10 @@
 19, unknow, 154, nduty, nexc
 20, unknow, 154, nduty, nexc
 21, unknow, 172, nduty, nexc
-22, unknow, 176, nduty, nexc
-23, unknow, 154, duty, nexc
-24, unknow, 158, duty, nexc
-25, unknow, 177, duty, nexc
+22, unknow, 176, nduty, exc
+23, unknow, 154, duty, exc
+24, unknow, 158, duty, exc
+25, unknow, 177, duty, exc
 26, unknow, 169, nduty, nexc
 27, unknow, 168, nduty, nexc
 28, unknow, 167, nduty, nexc
