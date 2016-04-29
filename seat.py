@@ -69,7 +69,7 @@ class SeatSheet(object):
     def calc_score(self):
         """ weight adjusting """
         HEIGHT_WEIGHT = 1
-        DUTY_WEIGHT = 1000
+        DUTY_WEIGHT = 2000
         EXCLUSION_WEIGHT = 10
         self.__hscore = self.height_score()
         self.__dscore = self.duty_score()
@@ -106,7 +106,14 @@ class SeatSheet(object):
             for j in range(0, self.__column):
                 st = self.__table[(i, j)].info() if self.__table[(i, j)] else "xxxx" 
                 #print(i, j, st)
-                string += "({0}, {1}) {2}\n".format(i, j, st)
+                #string += "({0}, {1}) {2}\n".format(i, j, st)
+                
+                for xst in self.__xtable:
+                    print("text", xst.number)
+                    if xst.number == st.number:
+                        string += "({0}, {1}) {2}, {3}\n".format(i, j, st, "x")
+                    else:
+                        string += "({0}, {1}) {2}\n".format(i, j, st)
         return string
         
     def height_score(self):
@@ -137,7 +144,7 @@ class SeatSheet(object):
                 if st:
                     rcount = rcount + (1 if st.duty == True else 0)
             #print("rcount", c, ":", rcount) # debug
-            col_score.append(1) if rcount >=1 else col_score.append(0)
+            col_score.append(rcount) if rcount <=2 else col_score.append(2)
         return sum(col_score)
         
 

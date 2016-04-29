@@ -119,7 +119,7 @@ class GA(object):
         return ss
         
     def next_generation(self):
-        """ crossover, mating, mutation  """
+        """ crossover, mutation  """
         self.__generation += 1
         
         # 1) crossover

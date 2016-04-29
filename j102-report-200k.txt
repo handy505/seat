@@ -1,0 +1,651 @@
+GA RESULT WITH 200000 GERERATION
+avg:8470.73, sd:602.71, max:8784
+
+seat sheet best 0 score: 8784
+------------------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#26,unknow,False,160   #27,unknow,True,151    #23,unknow,False,151   #10,unknow,False,163   #37,unknow,False,156   #31,unknow,False,160   #43,unknow,False,158   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#29,unknow,True,174    #39,unknow,False,151   #35,unknow,False,157   #45,unknow,False,156   #32,unknow,False,151   #8,unknow,False,167    #47,unknow,False,157   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#21,unknow,False,173   #20,unknow,False,153   #13,unknow,False,171   #14,unknow,False,166   #1,unknow,False,170    #3,unknow,False,174    #15,unknow,False,152   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#30,unknow,False,166   #28,unknow,True,160    #38,unknow,False,150   #7,unknow,False,150    #16,unknow,True,167    #49,unknow,True,172    #4,unknow,False,157    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#9,unknow,False,170    #12,unknow,False,167   #19,unknow,True,174    #36,unknow,False,170   #11,unknow,False,179   #46,unknow,False,170   #42,unknow,False,154   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#18,unknow,False,169   #24,unknow,False,167   #17,unknow,False,167   #40,unknow,False,156   #5,unknow,True,178     #48,unknow,True,171    #6,unknow,False,159    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#34,unknow,False,167   #25,unknow,False,171   #33,unknow,False,175   #41,unknow,True,174    #44,unknow,False,175   #2,unknow,False,173    #22,unknow,False,177   
+
+
+seat sheet best 1 score: 8783
+------------------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#27,unknow,True,151    #15,unknow,False,152   #10,unknow,False,163   #47,unknow,False,157   #49,unknow,True,172    #4,unknow,False,157    #28,unknow,True,160    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#23,unknow,False,151   #1,unknow,False,170    #8,unknow,False,167    #31,unknow,False,160   #14,unknow,False,166   #32,unknow,False,151   #40,unknow,False,156   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#39,unknow,False,151   #35,unknow,False,157   #18,unknow,False,169   #6,unknow,False,159    #38,unknow,False,150   #42,unknow,False,154   #34,unknow,False,167   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#9,unknow,False,170    #17,unknow,False,167   #12,unknow,False,167   #7,unknow,False,150    #45,unknow,False,156   #37,unknow,False,156   #33,unknow,False,175   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#46,unknow,False,170   #48,unknow,True,171    #26,unknow,False,160   #20,unknow,False,153   #43,unknow,False,158   #36,unknow,False,170   #3,unknow,False,174    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#5,unknow,True,178     #24,unknow,False,167   #16,unknow,True,167    #19,unknow,True,174    #21,unknow,False,173   #25,unknow,False,171   #11,unknow,False,179   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#22,unknow,False,177   #2,unknow,False,173    #13,unknow,False,171   #30,unknow,False,166   #41,unknow,True,174    #29,unknow,True,174    #44,unknow,False,175   
+
+
+seat sheet best 2 score: 8765
+------------------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#7,unknow,False,150    #4,unknow,False,157    #42,unknow,False,154   #38,unknow,False,150   #40,unknow,False,156   #15,unknow,False,152   #48,unknow,True,171    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#27,unknow,True,151    #20,unknow,False,153   #8,unknow,False,167    #45,unknow,False,156   #31,unknow,False,160   #24,unknow,False,167   #44,unknow,False,175   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#26,unknow,False,160   #39,unknow,False,151   #10,unknow,False,163   #35,unknow,False,157   #23,unknow,False,151   #3,unknow,False,174    #49,unknow,True,172    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#17,unknow,False,167   #16,unknow,True,167    #12,unknow,False,167   #37,unknow,False,156   #43,unknow,False,158   #21,unknow,False,173   #32,unknow,False,151   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#9,unknow,False,170    #13,unknow,False,171   #30,unknow,False,166   #33,unknow,False,175   #46,unknow,False,170   #22,unknow,False,177   #14,unknow,False,166   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#18,unknow,False,169   #47,unknow,False,157   #5,unknow,True,178     #28,unknow,True,160    #29,unknow,True,174    #19,unknow,True,174    #11,unknow,False,179   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#36,unknow,False,170   #34,unknow,False,167   #2,unknow,False,173    #41,unknow,True,174    #6,unknow,False,159    #25,unknow,False,171   #1,unknow,False,170    
+
+
+seat sheet best 3 score: 8764
+------------------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#42,unknow,False,154   #46,unknow,False,170   #36,unknow,False,170   #15,unknow,False,152   #28,unknow,True,160    #39,unknow,False,151   #7,unknow,False,150    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#27,unknow,True,151    #30,unknow,False,166   #38,unknow,False,150   #20,unknow,False,153   #17,unknow,False,167   #26,unknow,False,160   #24,unknow,False,167   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#37,unknow,False,156   #41,unknow,True,174    #35,unknow,False,157   #6,unknow,False,159    #18,unknow,False,169   #12,unknow,False,167   #3,unknow,False,174    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#9,unknow,False,170    #21,unknow,False,173   #32,unknow,False,151   #23,unknow,False,151   #49,unknow,True,172    #1,unknow,False,170    #29,unknow,True,174    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#16,unknow,True,167    #40,unknow,False,156   #31,unknow,False,160   #45,unknow,False,156   #14,unknow,False,166   #8,unknow,False,167    #2,unknow,False,173    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#10,unknow,False,163   #33,unknow,False,175   #47,unknow,False,157   #43,unknow,False,158   #44,unknow,False,175   #19,unknow,True,174    #5,unknow,True,178     
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#13,unknow,False,171   #48,unknow,True,171    #4,unknow,False,157    #11,unknow,False,179   #25,unknow,False,171   #34,unknow,False,167   #22,unknow,False,177   
+
+
+seat sheet best 4 score: 8757
+------------------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#15,unknow,False,152   #6,unknow,False,159    #27,unknow,True,151    #26,unknow,False,160   #18,unknow,False,169   #46,unknow,False,170   #45,unknow,False,156   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#47,unknow,False,157   #20,unknow,False,153   #4,unknow,False,157    #31,unknow,False,160   #38,unknow,False,150   #34,unknow,False,167   #43,unknow,False,158   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#40,unknow,False,156   #7,unknow,False,150    #39,unknow,False,151   #32,unknow,False,151   #35,unknow,False,157   #24,unknow,False,167   #49,unknow,True,172    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#42,unknow,False,154   #12,unknow,False,167   #16,unknow,True,167    #25,unknow,False,171   #37,unknow,False,156   #3,unknow,False,174    #23,unknow,False,151   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#13,unknow,False,171   #44,unknow,False,175   #2,unknow,False,173    #19,unknow,True,174    #17,unknow,False,167   #36,unknow,False,170   #33,unknow,False,175   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#48,unknow,True,171    #22,unknow,False,177   #1,unknow,False,170    #21,unknow,False,173   #8,unknow,False,167    #29,unknow,True,174    #28,unknow,True,160    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#14,unknow,False,166   #5,unknow,True,178     #9,unknow,False,170    #41,unknow,True,174    #11,unknow,False,179   #10,unknow,False,163   #30,unknow,False,166   
+
+
+seat sheet best 5 score: 8747
+------------------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#43,unknow,False,158   #15,unknow,False,152   #27,unknow,True,151    #31,unknow,False,160   #39,unknow,False,151   #26,unknow,False,160   #8,unknow,False,167    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#38,unknow,False,150   #42,unknow,False,154   #23,unknow,False,151   #28,unknow,True,160    #34,unknow,False,167   #40,unknow,False,156   #44,unknow,False,175   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#36,unknow,False,170   #35,unknow,False,157   #37,unknow,False,156   #7,unknow,False,150    #2,unknow,False,173    #3,unknow,False,174    #10,unknow,False,163   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#19,unknow,True,174    #41,unknow,True,174    #20,unknow,False,153   #45,unknow,False,156   #30,unknow,False,166   #46,unknow,False,170   #32,unknow,False,151   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#25,unknow,False,171   #29,unknow,True,174    #12,unknow,False,167   #13,unknow,False,171   #18,unknow,False,169   #1,unknow,False,170    #14,unknow,False,166   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#21,unknow,False,173   #24,unknow,False,167   #47,unknow,False,157   #11,unknow,False,179   #16,unknow,True,167    #17,unknow,False,167   #6,unknow,False,159    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#9,unknow,False,170    #33,unknow,False,175   #4,unknow,False,157    #49,unknow,True,172    #22,unknow,False,177   #48,unknow,True,171    #5,unknow,True,178     
+
+
+seat sheet best 6 score: 8743
+------------------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#21,unknow,False,173   #20,unknow,False,153   #47,unknow,False,157   #42,unknow,False,154   #39,unknow,False,151   #49,unknow,True,172    #4,unknow,False,157    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#40,unknow,False,156   #23,unknow,False,151   #32,unknow,False,151   #17,unknow,False,167   #38,unknow,False,150   #43,unknow,False,158   #26,unknow,False,160   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#1,unknow,False,170    #14,unknow,False,166   #7,unknow,False,150    #12,unknow,False,167   #30,unknow,False,166   #36,unknow,False,170   #34,unknow,False,167   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#19,unknow,True,174    #35,unknow,False,157   #28,unknow,True,160    #6,unknow,False,159    #37,unknow,False,156   #9,unknow,False,170    #15,unknow,False,152   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#13,unknow,False,171   #16,unknow,True,167    #5,unknow,True,178     #31,unknow,False,160   #41,unknow,True,174    #3,unknow,False,174    #48,unknow,True,171    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#29,unknow,True,174    #22,unknow,False,177   #45,unknow,False,156   #44,unknow,False,175   #27,unknow,True,151    #18,unknow,False,169   #8,unknow,False,167    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#33,unknow,False,175   #11,unknow,False,179   #24,unknow,False,167   #10,unknow,False,163   #46,unknow,False,170   #2,unknow,False,173    #25,unknow,False,171   
+
+
+seat sheet best 7 score: 8740
+------------------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#7,unknow,False,150    #39,unknow,False,151   #24,unknow,False,167   #38,unknow,False,150   #42,unknow,False,154   #23,unknow,False,151   #27,unknow,True,151    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#16,unknow,True,167    #28,unknow,True,160    #35,unknow,False,157   #31,unknow,False,160   #48,unknow,True,171    #18,unknow,False,169   #43,unknow,False,158   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#11,unknow,False,179   #37,unknow,False,156   #15,unknow,False,152   #8,unknow,False,167    #26,unknow,False,160   #29,unknow,True,174    #32,unknow,False,151   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#34,unknow,False,167   #47,unknow,False,157   #36,unknow,False,170   #20,unknow,False,153   #40,unknow,False,156   #25,unknow,False,171   #17,unknow,False,167   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#9,unknow,False,170    #44,unknow,False,175   #10,unknow,False,163   #2,unknow,False,173    #30,unknow,False,166   #4,unknow,False,157    #45,unknow,False,156   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#46,unknow,False,170   #6,unknow,False,159    #19,unknow,True,174    #33,unknow,False,175   #22,unknow,False,177   #3,unknow,False,174    #21,unknow,False,173   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#5,unknow,True,178     #41,unknow,True,174    #12,unknow,False,167   #1,unknow,False,170    #14,unknow,False,166   #13,unknow,False,171   #49,unknow,True,172    
+
+
+seat sheet best 8 score: 8740
+------------------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#39,unknow,False,151   #38,unknow,False,150   #7,unknow,False,150    #32,unknow,False,151   #24,unknow,False,167   #5,unknow,True,178     #37,unknow,False,156   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#42,unknow,False,154   #47,unknow,False,157   #17,unknow,False,167   #2,unknow,False,173    #27,unknow,True,151    #43,unknow,False,158   #45,unknow,False,156   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#40,unknow,False,156   #4,unknow,False,157    #18,unknow,False,169   #20,unknow,False,153   #15,unknow,False,152   #6,unknow,False,159    #1,unknow,False,170    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#23,unknow,False,151   #29,unknow,True,174    #19,unknow,True,174    #31,unknow,False,160   #22,unknow,False,177   #13,unknow,False,171   #34,unknow,False,167   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#14,unknow,False,166   #26,unknow,False,160   #16,unknow,True,167    #48,unknow,True,171    #10,unknow,False,163   #12,unknow,False,167   #49,unknow,True,172    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#35,unknow,False,157   #8,unknow,False,167    #46,unknow,False,170   #28,unknow,True,160    #36,unknow,False,170   #9,unknow,False,170    #25,unknow,False,171   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#33,unknow,False,175   #41,unknow,True,174    #21,unknow,False,173   #44,unknow,False,175   #3,unknow,False,174    #11,unknow,False,179   #30,unknow,False,166   
+
+
+seat sheet best 9 score: 8739
+------------------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#35,unknow,False,157   #41,unknow,True,174    #23,unknow,False,151   #16,unknow,True,167    #39,unknow,False,151   #32,unknow,False,151   #6,unknow,False,159    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#26,unknow,False,160   #21,unknow,False,173   #20,unknow,False,153   #22,unknow,False,177   #38,unknow,False,150   #37,unknow,False,156   #19,unknow,True,174    
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#27,unknow,True,151    #33,unknow,False,175   #7,unknow,False,150    #24,unknow,False,167   #40,unknow,False,156   #29,unknow,True,174    #14,unknow,False,166   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#43,unknow,False,158   #46,unknow,False,170   #42,unknow,False,154   #48,unknow,True,171    #28,unknow,True,160    #49,unknow,True,172    #45,unknow,False,156   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#15,unknow,False,152   #13,unknow,False,171   #47,unknow,False,157   #17,unknow,False,167   #4,unknow,False,157    #10,unknow,False,163   #44,unknow,False,175   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#18,unknow,False,169   #11,unknow,False,179   #8,unknow,False,167    #9,unknow,False,170    #12,unknow,False,167   #34,unknow,False,167   #30,unknow,False,166   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#5,unknow,True,178     #25,unknow,False,171   #3,unknow,False,174    #1,unknow,False,170    #36,unknow,False,170   #2,unknow,False,173    #31,unknow,False,160   
+
+
+seat sheet score: 8710
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#24,unknow,False,167   #7,unknow,False,150    #39,unknow,False,151   #38,unknow,False,150   #42,unknow,False,154   #47,unknow,False,157   #29,unknow,True,174    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#14,unknow,False,166   #40,unknow,False,156   #26,unknow,False,160   #32,unknow,False,151   #44,unknow,False,175   #22,unknow,False,177   #37,unknow,False,156   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#35,unknow,False,157   #16,unknow,True,167    #45,unknow,False,156   #6,unknow,False,159    #31,unknow,False,160   #28,unknow,True,160    #15,unknow,False,152   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#34,unknow,False,167   #30,unknow,False,166   #4,unknow,False,157    #23,unknow,False,151   #21,unknow,False,173   #8,unknow,False,167    #41,unknow,True,174    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#13,unknow,False,171   #25,unknow,False,171   #19,unknow,True,174    #27,unknow,True,151    #43,unknow,False,158   #20,unknow,False,153   #2,unknow,False,173    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#17,unknow,False,167   #18,unknow,False,169   #36,unknow,False,170   #11,unknow,False,179   #1,unknow,False,170    #5,unknow,True,178     #12,unknow,False,167   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#46,unknow,False,170   #49,unknow,True,172    #48,unknow,True,171    #10,unknow,False,163   #33,unknow,False,175   #9,unknow,False,170    #3,unknow,False,174    
+
+
+seat sheet score: 8747
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#43,unknow,False,158   #15,unknow,False,152   #27,unknow,True,151    #31,unknow,False,160   #39,unknow,False,151   #26,unknow,False,160   #8,unknow,False,167    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#38,unknow,False,150   #42,unknow,False,154   #23,unknow,False,151   #28,unknow,True,160    #34,unknow,False,167   #40,unknow,False,156   #44,unknow,False,175   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#36,unknow,False,170   #35,unknow,False,157   #37,unknow,False,156   #7,unknow,False,150    #2,unknow,False,173    #3,unknow,False,174    #10,unknow,False,163   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#19,unknow,True,174    #41,unknow,True,174    #20,unknow,False,153   #45,unknow,False,156   #30,unknow,False,166   #46,unknow,False,170   #32,unknow,False,151   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#25,unknow,False,171   #29,unknow,True,174    #12,unknow,False,167   #13,unknow,False,171   #18,unknow,False,169   #1,unknow,False,170    #14,unknow,False,166   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#21,unknow,False,173   #24,unknow,False,167   #47,unknow,False,157   #11,unknow,False,179   #16,unknow,True,167    #17,unknow,False,167   #6,unknow,False,159    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#9,unknow,False,170    #33,unknow,False,175   #4,unknow,False,157    #49,unknow,True,172    #22,unknow,False,177   #48,unknow,True,171    #5,unknow,True,178     
+
+
+seat sheet score: 8740
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#7,unknow,False,150    #39,unknow,False,151   #24,unknow,False,167   #38,unknow,False,150   #42,unknow,False,154   #23,unknow,False,151   #27,unknow,True,151    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#16,unknow,True,167    #28,unknow,True,160    #35,unknow,False,157   #31,unknow,False,160   #48,unknow,True,171    #18,unknow,False,169   #43,unknow,False,158   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#11,unknow,False,179   #37,unknow,False,156   #15,unknow,False,152   #8,unknow,False,167    #26,unknow,False,160   #29,unknow,True,174    #32,unknow,False,151   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#34,unknow,False,167   #47,unknow,False,157   #36,unknow,False,170   #20,unknow,False,153   #40,unknow,False,156   #25,unknow,False,171   #17,unknow,False,167   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#9,unknow,False,170    #44,unknow,False,175   #10,unknow,False,163   #2,unknow,False,173    #30,unknow,False,166   #4,unknow,False,157    #45,unknow,False,156   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#46,unknow,False,170   #6,unknow,False,159    #19,unknow,True,174    #33,unknow,False,175   #22,unknow,False,177   #3,unknow,False,174    #21,unknow,False,173   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#5,unknow,True,178     #41,unknow,True,174    #12,unknow,False,167   #1,unknow,False,170    #14,unknow,False,166   #13,unknow,False,171   #49,unknow,True,172    
+
+
+seat sheet score: 8710
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#43,unknow,False,158   #15,unknow,False,152   #20,unknow,False,153   #7,unknow,False,150    #27,unknow,True,151    #8,unknow,False,167    #23,unknow,False,151   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#18,unknow,False,169   #24,unknow,False,167   #37,unknow,False,156   #4,unknow,False,157    #40,unknow,False,156   #35,unknow,False,157   #3,unknow,False,174    
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#25,unknow,False,171   #45,unknow,False,156   #6,unknow,False,159    #17,unknow,False,167   #16,unknow,True,167    #31,unknow,False,160   #29,unknow,True,174    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#34,unknow,False,167   #48,unknow,True,171    #1,unknow,False,170    #26,unknow,False,160   #47,unknow,False,157   #30,unknow,False,166   #14,unknow,False,166   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#13,unknow,False,171   #49,unknow,True,172    #28,unknow,True,160    #32,unknow,False,151   #46,unknow,False,170   #42,unknow,False,154   #2,unknow,False,173    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#5,unknow,True,178     #10,unknow,False,163   #21,unknow,False,173   #41,unknow,True,174    #39,unknow,False,151   #38,unknow,False,150   #12,unknow,False,167   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#11,unknow,False,179   #44,unknow,False,175   #22,unknow,False,177   #9,unknow,False,170    #36,unknow,False,170   #19,unknow,True,174    #33,unknow,False,175   
+
+
+seat sheet score: 8710
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#20,unknow,False,153   #47,unknow,False,157   #25,unknow,False,171   #15,unknow,False,152   #40,unknow,False,156   #32,unknow,False,151   #7,unknow,False,150    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#17,unknow,False,167   #35,unknow,False,157   #3,unknow,False,174    #12,unknow,False,167   #43,unknow,False,158   #4,unknow,False,157    #30,unknow,False,166   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#38,unknow,False,150   #18,unknow,False,169   #14,unknow,False,166   #27,unknow,True,151    #39,unknow,False,151   #10,unknow,False,163   #45,unknow,False,156   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#41,unknow,True,174    #48,unknow,True,171    #19,unknow,True,174    #33,unknow,False,175   #37,unknow,False,156   #42,unknow,False,154   #1,unknow,False,170    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#49,unknow,True,172    #36,unknow,False,170   #5,unknow,True,178     #24,unknow,False,167   #23,unknow,False,151   #28,unknow,True,160    #46,unknow,False,170   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#44,unknow,False,175   #8,unknow,False,167    #22,unknow,False,177   #9,unknow,False,170    #21,unknow,False,173   #6,unknow,False,159    #2,unknow,False,173    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#26,unknow,False,160   #11,unknow,False,179   #31,unknow,False,160   #34,unknow,False,167   #13,unknow,False,171   #29,unknow,True,174    #16,unknow,True,167    
+
+
+seat sheet score: 8711
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#23,unknow,False,151   #42,unknow,False,154   #14,unknow,False,166   #39,unknow,False,151   #46,unknow,False,170   #45,unknow,False,156   #40,unknow,False,156   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#27,unknow,True,151    #37,unknow,False,156   #38,unknow,False,150   #4,unknow,False,157    #32,unknow,False,151   #7,unknow,False,150    #2,unknow,False,173    
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#20,unknow,False,153   #18,unknow,False,169   #30,unknow,False,166   #26,unknow,False,160   #17,unknow,False,167   #5,unknow,True,178     #35,unknow,False,157   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#31,unknow,False,160   #19,unknow,True,174    #22,unknow,False,177   #6,unknow,False,159    #9,unknow,False,170    #25,unknow,False,171   #34,unknow,False,167   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#1,unknow,False,170    #24,unknow,False,167   #16,unknow,True,167    #47,unknow,False,157   #15,unknow,False,152   #33,unknow,False,175   #21,unknow,False,173   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#10,unknow,False,163   #13,unknow,False,171   #8,unknow,False,167    #49,unknow,True,172    #36,unknow,False,170   #48,unknow,True,171    #41,unknow,True,174    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#29,unknow,True,174    #12,unknow,False,167   #43,unknow,False,158   #11,unknow,False,179   #28,unknow,True,160    #44,unknow,False,175   #3,unknow,False,174    
+
+
+seat sheet score: 8740
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#39,unknow,False,151   #38,unknow,False,150   #7,unknow,False,150    #32,unknow,False,151   #24,unknow,False,167   #5,unknow,True,178     #37,unknow,False,156   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#42,unknow,False,154   #47,unknow,False,157   #17,unknow,False,167   #2,unknow,False,173    #27,unknow,True,151    #43,unknow,False,158   #45,unknow,False,156   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#40,unknow,False,156   #4,unknow,False,157    #18,unknow,False,169   #20,unknow,False,153   #15,unknow,False,152   #6,unknow,False,159    #1,unknow,False,170    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#23,unknow,False,151   #29,unknow,True,174    #19,unknow,True,174    #31,unknow,False,160   #22,unknow,False,177   #13,unknow,False,171   #34,unknow,False,167   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#14,unknow,False,166   #26,unknow,False,160   #16,unknow,True,167    #48,unknow,True,171    #10,unknow,False,163   #12,unknow,False,167   #49,unknow,True,172    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#35,unknow,False,157   #8,unknow,False,167    #46,unknow,False,170   #28,unknow,True,160    #36,unknow,False,170   #9,unknow,False,170    #25,unknow,False,171   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#33,unknow,False,175   #41,unknow,True,174    #21,unknow,False,173   #44,unknow,False,175   #3,unknow,False,174    #11,unknow,False,179   #30,unknow,False,166   
+
+
+seat sheet score: 8711
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#35,unknow,False,157   #31,unknow,False,160   #8,unknow,False,167    #36,unknow,False,170   #15,unknow,False,152   #45,unknow,False,156   #32,unknow,False,151   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#10,unknow,False,163   #40,unknow,False,156   #42,unknow,False,154   #12,unknow,False,167   #47,unknow,False,157   #7,unknow,False,150    #23,unknow,False,151   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#24,unknow,False,167   #38,unknow,False,150   #41,unknow,True,174    #14,unknow,False,166   #17,unknow,False,167   #1,unknow,False,170    #26,unknow,False,160   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#21,unknow,False,173   #49,unknow,True,172    #11,unknow,False,179   #34,unknow,False,167   #6,unknow,False,159    #18,unknow,False,169   #4,unknow,False,157    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#44,unknow,False,175   #28,unknow,True,160    #22,unknow,False,177   #2,unknow,False,173    #19,unknow,True,174    #37,unknow,False,156   #27,unknow,True,151    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#46,unknow,False,170   #20,unknow,False,153   #43,unknow,False,158   #13,unknow,False,171   #25,unknow,False,171   #5,unknow,True,178     #16,unknow,True,167    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#48,unknow,True,171    #30,unknow,False,166   #33,unknow,False,175   #29,unknow,True,174    #3,unknow,False,174    #9,unknow,False,170    #39,unknow,False,151   
+
+
+seat sheet score: 8783
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#27,unknow,True,151    #15,unknow,False,152   #10,unknow,False,163   #47,unknow,False,157   #49,unknow,True,172    #4,unknow,False,157    #28,unknow,True,160    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#23,unknow,False,151   #1,unknow,False,170    #8,unknow,False,167    #31,unknow,False,160   #14,unknow,False,166   #32,unknow,False,151   #40,unknow,False,156   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#39,unknow,False,151   #35,unknow,False,157   #18,unknow,False,169   #6,unknow,False,159    #38,unknow,False,150   #42,unknow,False,154   #34,unknow,False,167   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#9,unknow,False,170    #17,unknow,False,167   #12,unknow,False,167   #7,unknow,False,150    #45,unknow,False,156   #37,unknow,False,156   #33,unknow,False,175   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#46,unknow,False,170   #48,unknow,True,171    #26,unknow,False,160   #20,unknow,False,153   #43,unknow,False,158   #36,unknow,False,170   #3,unknow,False,174    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#5,unknow,True,178     #24,unknow,False,167   #16,unknow,True,167    #19,unknow,True,174    #21,unknow,False,173   #25,unknow,False,171   #11,unknow,False,179   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#22,unknow,False,177   #2,unknow,False,173    #13,unknow,False,171   #30,unknow,False,166   #41,unknow,True,174    #29,unknow,True,174    #44,unknow,False,175   
+
+
+seat sheet score: 8716
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#30,unknow,False,166   #4,unknow,False,157    #40,unknow,False,156   #27,unknow,True,151    #48,unknow,True,171    #32,unknow,False,151   #43,unknow,False,158   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#13,unknow,False,171   #18,unknow,False,169   #7,unknow,False,150    #42,unknow,False,154   #25,unknow,False,171   #6,unknow,False,159    #45,unknow,False,156   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#10,unknow,False,163   #41,unknow,True,174    #37,unknow,False,156   #15,unknow,False,152   #44,unknow,False,175   #39,unknow,False,151   #34,unknow,False,167   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#16,unknow,True,167    #9,unknow,False,170    #20,unknow,False,153   #23,unknow,False,151   #24,unknow,False,167   #49,unknow,True,172    #19,unknow,True,174    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#29,unknow,True,174    #31,unknow,False,160   #47,unknow,False,157   #1,unknow,False,170    #38,unknow,False,150   #12,unknow,False,167   #35,unknow,False,157   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#22,unknow,False,177   #33,unknow,False,175   #17,unknow,False,167   #2,unknow,False,173    #21,unknow,False,173   #26,unknow,False,160   #14,unknow,False,166   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#11,unknow,False,179   #36,unknow,False,170   #3,unknow,False,174    #8,unknow,False,167    #5,unknow,True,178     #28,unknow,True,160    #46,unknow,False,170   
+
+
+seat sheet score: 8724
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#27,unknow,True,151    #39,unknow,False,151   #40,unknow,False,156   #26,unknow,False,160   #7,unknow,False,150    #35,unknow,False,157   #6,unknow,False,159    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#15,unknow,False,152   #32,unknow,False,151   #16,unknow,True,167    #49,unknow,True,172    #42,unknow,False,154   #28,unknow,True,160    #38,unknow,False,150   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#20,unknow,False,153   #23,unknow,False,151   #36,unknow,False,170   #8,unknow,False,167    #19,unknow,True,174    #17,unknow,False,167   #14,unknow,False,166   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#22,unknow,False,177   #29,unknow,True,174    #34,unknow,False,167   #46,unknow,False,170   #25,unknow,False,171   #31,unknow,False,160   #30,unknow,False,166   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#4,unknow,False,157    #12,unknow,False,167   #24,unknow,False,167   #41,unknow,True,174    #48,unknow,True,171    #37,unknow,False,156   #44,unknow,False,175   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#1,unknow,False,170    #33,unknow,False,175   #47,unknow,False,157   #43,unknow,False,158   #9,unknow,False,170    #2,unknow,False,173    #45,unknow,False,156   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#18,unknow,False,169   #5,unknow,True,178     #13,unknow,False,171   #3,unknow,False,174    #10,unknow,False,163   #21,unknow,False,173   #11,unknow,False,179   
+
+
+seat sheet score: 8721
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#43,unknow,False,158   #38,unknow,False,150   #48,unknow,True,171    #23,unknow,False,151   #28,unknow,True,160    #40,unknow,False,156   #35,unknow,False,157   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#7,unknow,False,150    #18,unknow,False,169   #5,unknow,True,178     #4,unknow,False,157    #6,unknow,False,159    #27,unknow,True,151    #39,unknow,False,151   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#45,unknow,False,156   #14,unknow,False,166   #1,unknow,False,170    #47,unknow,False,157   #21,unknow,False,173   #31,unknow,False,160   #15,unknow,False,152   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#37,unknow,False,156   #41,unknow,True,174    #32,unknow,False,151   #22,unknow,False,177   #2,unknow,False,173    #12,unknow,False,167   #42,unknow,False,154   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#3,unknow,False,174    #20,unknow,False,153   #8,unknow,False,167    #19,unknow,True,174    #16,unknow,True,167    #26,unknow,False,160   #10,unknow,False,163   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#44,unknow,False,175   #36,unknow,False,170   #33,unknow,False,175   #11,unknow,False,179   #24,unknow,False,167   #17,unknow,False,167   #29,unknow,True,174    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#25,unknow,False,171   #9,unknow,False,170    #13,unknow,False,171   #46,unknow,False,170   #30,unknow,False,166   #34,unknow,False,167   #49,unknow,True,172    
+
+
+seat sheet score: 8764
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#42,unknow,False,154   #46,unknow,False,170   #36,unknow,False,170   #15,unknow,False,152   #28,unknow,True,160    #39,unknow,False,151   #7,unknow,False,150    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#27,unknow,True,151    #30,unknow,False,166   #38,unknow,False,150   #20,unknow,False,153   #17,unknow,False,167   #26,unknow,False,160   #24,unknow,False,167   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#37,unknow,False,156   #41,unknow,True,174    #35,unknow,False,157   #6,unknow,False,159    #18,unknow,False,169   #12,unknow,False,167   #3,unknow,False,174    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#9,unknow,False,170    #21,unknow,False,173   #32,unknow,False,151   #23,unknow,False,151   #49,unknow,True,172    #1,unknow,False,170    #29,unknow,True,174    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#16,unknow,True,167    #40,unknow,False,156   #31,unknow,False,160   #45,unknow,False,156   #14,unknow,False,166   #8,unknow,False,167    #2,unknow,False,173    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#10,unknow,False,163   #33,unknow,False,175   #47,unknow,False,157   #43,unknow,False,158   #44,unknow,False,175   #19,unknow,True,174    #5,unknow,True,178     
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#13,unknow,False,171   #48,unknow,True,171    #4,unknow,False,157    #11,unknow,False,179   #25,unknow,False,171   #34,unknow,False,167   #22,unknow,False,177   
+
+
+seat sheet score: 8743
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#21,unknow,False,173   #20,unknow,False,153   #47,unknow,False,157   #42,unknow,False,154   #39,unknow,False,151   #49,unknow,True,172    #4,unknow,False,157    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#40,unknow,False,156   #23,unknow,False,151   #32,unknow,False,151   #17,unknow,False,167   #38,unknow,False,150   #43,unknow,False,158   #26,unknow,False,160   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#1,unknow,False,170    #14,unknow,False,166   #7,unknow,False,150    #12,unknow,False,167   #30,unknow,False,166   #36,unknow,False,170   #34,unknow,False,167   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#19,unknow,True,174    #35,unknow,False,157   #28,unknow,True,160    #6,unknow,False,159    #37,unknow,False,156   #9,unknow,False,170    #15,unknow,False,152   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#13,unknow,False,171   #16,unknow,True,167    #5,unknow,True,178     #31,unknow,False,160   #41,unknow,True,174    #3,unknow,False,174    #48,unknow,True,171    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#29,unknow,True,174    #22,unknow,False,177   #45,unknow,False,156   #44,unknow,False,175   #27,unknow,True,151    #18,unknow,False,169   #8,unknow,False,167    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#33,unknow,False,175   #11,unknow,False,179   #24,unknow,False,167   #10,unknow,False,163   #46,unknow,False,170   #2,unknow,False,173    #25,unknow,False,171   
+
+
+seat sheet score: 8784
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#26,unknow,False,160   #27,unknow,True,151    #23,unknow,False,151   #10,unknow,False,163   #37,unknow,False,156   #31,unknow,False,160   #43,unknow,False,158   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#29,unknow,True,174    #39,unknow,False,151   #35,unknow,False,157   #45,unknow,False,156   #32,unknow,False,151   #8,unknow,False,167    #47,unknow,False,157   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#21,unknow,False,173   #20,unknow,False,153   #13,unknow,False,171   #14,unknow,False,166   #1,unknow,False,170    #3,unknow,False,174    #15,unknow,False,152   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#30,unknow,False,166   #28,unknow,True,160    #38,unknow,False,150   #7,unknow,False,150    #16,unknow,True,167    #49,unknow,True,172    #4,unknow,False,157    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#9,unknow,False,170    #12,unknow,False,167   #19,unknow,True,174    #36,unknow,False,170   #11,unknow,False,179   #46,unknow,False,170   #42,unknow,False,154   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#18,unknow,False,169   #24,unknow,False,167   #17,unknow,False,167   #40,unknow,False,156   #5,unknow,True,178     #48,unknow,True,171    #6,unknow,False,159    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#34,unknow,False,167   #25,unknow,False,171   #33,unknow,False,175   #41,unknow,True,174    #44,unknow,False,175   #2,unknow,False,173    #22,unknow,False,177   
+
+
+seat sheet score: 8765
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#7,unknow,False,150    #4,unknow,False,157    #42,unknow,False,154   #38,unknow,False,150   #40,unknow,False,156   #15,unknow,False,152   #48,unknow,True,171    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#27,unknow,True,151    #20,unknow,False,153   #8,unknow,False,167    #45,unknow,False,156   #31,unknow,False,160   #24,unknow,False,167   #44,unknow,False,175   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#26,unknow,False,160   #39,unknow,False,151   #10,unknow,False,163   #35,unknow,False,157   #23,unknow,False,151   #3,unknow,False,174    #49,unknow,True,172    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#17,unknow,False,167   #16,unknow,True,167    #12,unknow,False,167   #37,unknow,False,156   #43,unknow,False,158   #21,unknow,False,173   #32,unknow,False,151   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#9,unknow,False,170    #13,unknow,False,171   #30,unknow,False,166   #33,unknow,False,175   #46,unknow,False,170   #22,unknow,False,177   #14,unknow,False,166   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#18,unknow,False,169   #47,unknow,False,157   #5,unknow,True,178     #28,unknow,True,160    #29,unknow,True,174    #19,unknow,True,174    #11,unknow,False,179   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#36,unknow,False,170   #34,unknow,False,167   #2,unknow,False,173    #41,unknow,True,174    #6,unknow,False,159    #25,unknow,False,171   #1,unknow,False,170    
+
+
+seat sheet score: 8712
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#4,unknow,False,157    #45,unknow,False,156   #32,unknow,False,151   #24,unknow,False,167   #47,unknow,False,157   #36,unknow,False,170   #30,unknow,False,166   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#8,unknow,False,167    #15,unknow,False,152   #23,unknow,False,151   #6,unknow,False,159    #43,unknow,False,158   #39,unknow,False,151   #25,unknow,False,171   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#37,unknow,False,156   #26,unknow,False,160   #27,unknow,True,151    #28,unknow,True,160    #40,unknow,False,156   #12,unknow,False,167   #42,unknow,False,154   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#38,unknow,False,150   #16,unknow,True,167    #35,unknow,False,157   #20,unknow,False,153   #33,unknow,False,175   #9,unknow,False,170    #29,unknow,True,174    
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#18,unknow,False,169   #11,unknow,False,179   #21,unknow,False,173   #31,unknow,False,160   #17,unknow,False,167   #10,unknow,False,163   #3,unknow,False,174    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#49,unknow,True,172    #7,unknow,False,150    #5,unknow,True,178     #44,unknow,False,175   #34,unknow,False,167   #1,unknow,False,170    #14,unknow,False,166   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#13,unknow,False,171   #48,unknow,True,171    #2,unknow,False,173    #46,unknow,False,170   #41,unknow,True,174    #22,unknow,False,177   #19,unknow,True,174    
+
+
+seat sheet score: 8757
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#15,unknow,False,152   #6,unknow,False,159    #27,unknow,True,151    #26,unknow,False,160   #18,unknow,False,169   #46,unknow,False,170   #45,unknow,False,156   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#47,unknow,False,157   #20,unknow,False,153   #4,unknow,False,157    #31,unknow,False,160   #38,unknow,False,150   #34,unknow,False,167   #43,unknow,False,158   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#40,unknow,False,156   #7,unknow,False,150    #39,unknow,False,151   #32,unknow,False,151   #35,unknow,False,157   #24,unknow,False,167   #49,unknow,True,172    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#42,unknow,False,154   #12,unknow,False,167   #16,unknow,True,167    #25,unknow,False,171   #37,unknow,False,156   #3,unknow,False,174    #23,unknow,False,151   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#13,unknow,False,171   #44,unknow,False,175   #2,unknow,False,173    #19,unknow,True,174    #17,unknow,False,167   #36,unknow,False,170   #33,unknow,False,175   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#48,unknow,True,171    #22,unknow,False,177   #1,unknow,False,170    #21,unknow,False,173   #8,unknow,False,167    #29,unknow,True,174    #28,unknow,True,160    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#14,unknow,False,166   #5,unknow,True,178     #9,unknow,False,170    #41,unknow,True,174    #11,unknow,False,179   #10,unknow,False,163   #30,unknow,False,166   
+
+
+seat sheet score: 8712
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#40,unknow,False,156   #39,unknow,False,151   #20,unknow,False,153   #43,unknow,False,158   #23,unknow,False,151   #25,unknow,False,171   #10,unknow,False,163   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#45,unknow,False,156   #3,unknow,False,174    #28,unknow,True,160    #18,unknow,False,169   #4,unknow,False,157    #7,unknow,False,150    #31,unknow,False,160   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#38,unknow,False,150   #22,unknow,False,177   #6,unknow,False,159    #47,unknow,False,157   #35,unknow,False,157   #14,unknow,False,166   #27,unknow,True,151    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#26,unknow,False,160   #21,unknow,False,173   #41,unknow,True,174    #29,unknow,True,174    #34,unknow,False,167   #44,unknow,False,175   #42,unknow,False,154   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#30,unknow,False,166   #5,unknow,True,178     #37,unknow,False,156   #11,unknow,False,179   #33,unknow,False,175   #13,unknow,False,171   #32,unknow,False,151   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#15,unknow,False,152   #48,unknow,True,171    #9,unknow,False,170    #8,unknow,False,167    #16,unknow,True,167    #49,unknow,True,172    #17,unknow,False,167   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#12,unknow,False,167   #1,unknow,False,170    #2,unknow,False,173    #19,unknow,True,174    #36,unknow,False,170   #24,unknow,False,167   #46,unknow,False,170   
+
+
+seat sheet score: 8715
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#13,unknow,False,171   #39,unknow,False,151   #42,unknow,False,154   #11,unknow,False,179   #31,unknow,False,160   #27,unknow,True,151    #23,unknow,False,151   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#40,unknow,False,156   #15,unknow,False,152   #7,unknow,False,150    #32,unknow,False,151   #10,unknow,False,163   #38,unknow,False,150   #12,unknow,False,167   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#47,unknow,False,157   #6,unknow,False,159    #28,unknow,True,160    #46,unknow,False,170   #3,unknow,False,174    #34,unknow,False,167   #17,unknow,False,167   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#8,unknow,False,167    #20,unknow,False,153   #37,unknow,False,156   #36,unknow,False,170   #24,unknow,False,167   #29,unknow,True,174    #30,unknow,False,166   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#49,unknow,True,172    #43,unknow,False,158   #48,unknow,True,171    #22,unknow,False,177   #9,unknow,False,170    #14,unknow,False,166   #41,unknow,True,174    
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#2,unknow,False,173    #45,unknow,False,156   #18,unknow,False,169   #5,unknow,True,178     #35,unknow,False,157   #21,unknow,False,173   #26,unknow,False,160   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#4,unknow,False,157    #1,unknow,False,170    #25,unknow,False,171   #33,unknow,False,175   #16,unknow,True,167    #44,unknow,False,175   #19,unknow,True,174    
+
+
+seat sheet score: 8739
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#35,unknow,False,157   #41,unknow,True,174    #23,unknow,False,151   #16,unknow,True,167    #39,unknow,False,151   #32,unknow,False,151   #6,unknow,False,159    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#26,unknow,False,160   #21,unknow,False,173   #20,unknow,False,153   #22,unknow,False,177   #38,unknow,False,150   #37,unknow,False,156   #19,unknow,True,174    
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#27,unknow,True,151    #33,unknow,False,175   #7,unknow,False,150    #24,unknow,False,167   #40,unknow,False,156   #29,unknow,True,174    #14,unknow,False,166   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#43,unknow,False,158   #46,unknow,False,170   #42,unknow,False,154   #48,unknow,True,171    #28,unknow,True,160    #49,unknow,True,172    #45,unknow,False,156   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#15,unknow,False,152   #13,unknow,False,171   #47,unknow,False,157   #17,unknow,False,167   #4,unknow,False,157    #10,unknow,False,163   #44,unknow,False,175   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#18,unknow,False,169   #11,unknow,False,179   #8,unknow,False,167    #9,unknow,False,170    #12,unknow,False,167   #34,unknow,False,167   #30,unknow,False,166   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#5,unknow,True,178     #25,unknow,False,171   #3,unknow,False,174    #1,unknow,False,170    #36,unknow,False,170   #2,unknow,False,173    #31,unknow,False,160   
+
+
+seat sheet score: 7300
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#32,unknow,False,151   #29,unknow,True,174    #8,unknow,False,167    #49,unknow,True,172    #24,unknow,False,167   #15,unknow,False,152   #48,unknow,True,171    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#7,unknow,False,150    #20,unknow,False,153   #22,unknow,False,177   #47,unknow,False,157   #23,unknow,False,151   #33,unknow,False,175   #17,unknow,False,167   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#16,unknow,True,167    #28,unknow,True,160    #27,unknow,True,151    #36,unknow,False,170   #1,unknow,False,170    #30,unknow,False,166   #5,unknow,True,178     
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#14,unknow,False,166   #11,unknow,False,179   #40,unknow,False,156   #25,unknow,False,171   #42,unknow,False,154   #18,unknow,False,169   #13,unknow,False,171   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#37,unknow,False,156   #19,unknow,True,174    #3,unknow,False,174    #34,unknow,False,167   #35,unknow,False,157   #44,unknow,False,175   #43,unknow,False,158   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#38,unknow,False,150   #9,unknow,False,170    #2,unknow,False,173    #45,unknow,False,156   #26,unknow,False,160   #4,unknow,False,157    #21,unknow,False,173   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#39,unknow,False,151   #46,unknow,False,170   #31,unknow,False,160   #12,unknow,False,167   #6,unknow,False,159    #41,unknow,True,174    #10,unknow,False,163   
+
+
+seat sheet score: 7523
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#30,unknow,False,166   #43,unknow,False,158   #6,unknow,False,159    #27,unknow,True,151    #37,unknow,False,156   #10,unknow,False,163   #3,unknow,False,174    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#11,unknow,False,179   #20,unknow,False,153   #39,unknow,False,151   #36,unknow,False,170   #2,unknow,False,173    #4,unknow,False,157    #47,unknow,False,157   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#13,unknow,False,171   #42,unknow,False,154   #35,unknow,False,157   #26,unknow,False,160   #25,unknow,False,171   #31,unknow,False,160   #46,unknow,False,170   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#19,unknow,True,174    #1,unknow,False,170    #23,unknow,False,151   #28,unknow,True,160    #32,unknow,False,151   #17,unknow,False,167   #45,unknow,False,156   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#12,unknow,False,167   #18,unknow,False,169   #15,unknow,False,152   #48,unknow,True,171    #16,unknow,True,167    #22,unknow,False,177   #14,unknow,False,166   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#5,unknow,True,178     #41,unknow,True,174    #40,unknow,False,156   #24,unknow,False,167   #44,unknow,False,175   #29,unknow,True,174    #49,unknow,True,172    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#21,unknow,False,173   #34,unknow,False,167   #33,unknow,False,175   #38,unknow,False,150   #9,unknow,False,170    #8,unknow,False,167    #7,unknow,False,150    
+
+
+seat sheet score: 6380
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#11,unknow,False,179   #10,unknow,False,163   #29,unknow,True,174    #28,unknow,True,160    #37,unknow,False,156   #9,unknow,False,170    #6,unknow,False,159    
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#7,unknow,False,150    #8,unknow,False,167    #16,unknow,True,167    #27,unknow,True,151    #48,unknow,True,171    #32,unknow,False,151   #44,unknow,False,175   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#40,unknow,False,156   #15,unknow,False,152   #20,unknow,False,153   #17,unknow,False,167   #43,unknow,False,158   #30,unknow,False,166   #49,unknow,True,172    
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#24,unknow,False,167   #25,unknow,False,171   #39,unknow,False,151   #36,unknow,False,170   #47,unknow,False,157   #31,unknow,False,160   #5,unknow,True,178     
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#42,unknow,False,154   #35,unknow,False,157   #41,unknow,True,174    #4,unknow,False,157    #26,unknow,False,160   #18,unknow,False,169   #45,unknow,False,156   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#38,unknow,False,150   #23,unknow,False,151   #21,unknow,False,173   #19,unknow,True,174    #2,unknow,False,173    #33,unknow,False,175   #46,unknow,False,170   
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#22,unknow,False,177   #3,unknow,False,174    #34,unknow,False,167   #13,unknow,False,171   #1,unknow,False,170    #14,unknow,False,166   #12,unknow,False,167   
+
+
+seat sheet score: 7328
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#28,unknow,True,160    #45,unknow,False,156   #16,unknow,True,167    #21,unknow,False,173   #46,unknow,False,170   #41,unknow,True,174    #42,unknow,False,154   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#1,unknow,False,170    #32,unknow,False,151   #39,unknow,False,151   #18,unknow,False,169   #7,unknow,False,150    #12,unknow,False,167   #2,unknow,False,173    
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#13,unknow,False,171   #43,unknow,False,158   #5,unknow,True,178     #20,unknow,False,153   #35,unknow,False,157   #47,unknow,False,157   #38,unknow,False,150   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#10,unknow,False,163   #14,unknow,False,166   #25,unknow,False,171   #9,unknow,False,170    #11,unknow,False,179   #31,unknow,False,160   #26,unknow,False,160   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#29,unknow,True,174    #17,unknow,False,167   #22,unknow,False,177   #36,unknow,False,170   #8,unknow,False,167    #19,unknow,True,174    #23,unknow,False,151   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#34,unknow,False,167   #48,unknow,True,171    #3,unknow,False,174    #44,unknow,False,175   #6,unknow,False,159    #24,unknow,False,167   #49,unknow,True,172    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#37,unknow,False,156   #40,unknow,False,156   #33,unknow,False,175   #30,unknow,False,166   #4,unknow,False,157    #27,unknow,True,151    #15,unknow,False,152   
+
+
+seat sheet score: 8294
+------------------------
+(0, 0)                 (0, 1)                 (0, 2)                 (0, 3)                 (0, 4)                 (0, 5)                 (0, 6)                 
+#38,unknow,False,150   #5,unknow,True,178     #18,unknow,False,169   #7,unknow,False,150    #44,unknow,False,175   #21,unknow,False,173   #45,unknow,False,156   
+(1, 0)                 (1, 1)                 (1, 2)                 (1, 3)                 (1, 4)                 (1, 5)                 (1, 6)                 
+#15,unknow,False,152   #13,unknow,False,171   #8,unknow,False,167    #19,unknow,True,174    #31,unknow,False,160   #3,unknow,False,174    #35,unknow,False,157   
+(2, 0)                 (2, 1)                 (2, 2)                 (2, 3)                 (2, 4)                 (2, 5)                 (2, 6)                 
+#29,unknow,True,174    #9,unknow,False,170    #4,unknow,False,157    #34,unknow,False,167   #14,unknow,False,166   #43,unknow,False,158   #33,unknow,False,175   
+(3, 0)                 (3, 1)                 (3, 2)                 (3, 3)                 (3, 4)                 (3, 5)                 (3, 6)                 
+#20,unknow,False,153   #25,unknow,False,171   #10,unknow,False,163   #32,unknow,False,151   #28,unknow,True,160    #6,unknow,False,159    #24,unknow,False,167   
+(4, 0)                 (4, 1)                 (4, 2)                 (4, 3)                 (4, 4)                 (4, 5)                 (4, 6)                 
+#16,unknow,True,167    #2,unknow,False,173    #48,unknow,True,171    #1,unknow,False,170    #22,unknow,False,177   #42,unknow,False,154   #23,unknow,False,151   
+(5, 0)                 (5, 1)                 (5, 2)                 (5, 3)                 (5, 4)                 (5, 5)                 (5, 6)                 
+#39,unknow,False,151   #17,unknow,False,167   #46,unknow,False,170   #27,unknow,True,151    #40,unknow,False,156   #11,unknow,False,179   #49,unknow,True,172    
+(6, 0)                 (6, 1)                 (6, 2)                 (6, 3)                 (6, 4)                 (6, 5)                 (6, 6)                 
+#37,unknow,False,156   #36,unknow,False,170   #12,unknow,False,167   #30,unknow,False,166   #47,unknow,False,157   #26,unknow,False,160   #41,unknow,True,174    
+
+
