@@ -29,7 +29,8 @@ def gererate_seat_sheet():
 class SeatSheet(object):
     """ empty """
 
-    def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None, xtable=None):
+    #def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None, xtable=None):
+    def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None):
         self.__table = collections.OrderedDict()
         self.__row = row
         self.__column = column
@@ -46,7 +47,7 @@ class SeatSheet(object):
                         
         #self.height_score()
         #self.duty_score()
-        self.__xtable = xtable
+        #self.__xtable = xtable
         
     @property
     def row(self):
@@ -106,14 +107,16 @@ class SeatSheet(object):
             for j in range(0, self.__column):
                 st = self.__table[(i, j)].info() if self.__table[(i, j)] else "xxxx" 
                 #print(i, j, st)
-                #string += "({0}, {1}) {2}\n".format(i, j, st)
+                string += "({0}, {1}) {2}\n".format(i, j, st)
                 
-                for xst in self.__xtable:
+                
+                '''for xst in self.__xtable:
                     print("text", xst.number)
                     if xst.number == st.number:
                         string += "({0}, {1}) {2}, {3}\n".format(i, j, st, "x")
                     else:
                         string += "({0}, {1}) {2}\n".format(i, j, st)
+                '''
         return string
         
     def height_score(self):
@@ -159,6 +162,11 @@ class SeatSheet(object):
         #print("in exclusion_score", self.__row, self.__column) # debug
         xscore = 0
         xloc = (0,0)
+        
+        self.__xtable = []
+        for st in self.__students:
+            if st.exclusive:
+                self.__xtable.append(st)
         
         for xstudent in self.__xtable:
             for loc in self.__table:

@@ -6,12 +6,17 @@ import random
 
 class Student(object):
     """ student """
-    def __init__(self, number=0, name="empty", height=150, duty=False):
+    def __init__(self, number=0, name="empty", height=150, duty=False, exc=False):
         self.__number = number
         self.__name = name
         self.__duty = duty
         self.__height = height
-
+        self.__exclusive = exc
+        
+    @property
+    def exclusive(self):
+        return self.__exclusive
+        
     @property
     def number(self):
         """ doc string """
@@ -49,8 +54,10 @@ class Student(object):
 
     def info(self):
         """ empty """
-        return ("#{num},{name},{duty},{height}".format(
-            num=self.__number, name=self.__name, duty=self.__duty, height=self.__height)
+        dutyStr = "du" if self.__duty else "nd"
+        excStr = "xc" if self.__exclusive else "nx"
+        return ("#{num},{name},{height},{duty},{exc}".format(
+            num=self.__number, name=self.__name, height=self.__height, duty=dutyStr, exc=excStr)
         )
 
 
@@ -174,14 +181,14 @@ def generate_empty_student_file(filename="student.txt"):
     fout.write("# STUDENT LIST\n\n")
     for i in range(0, 49):
         h = random.randint(150, 180)
-        string = "{num}, {name}, {height}, {duty}\n".format(num=i+1, name="unknow", height=h, duty=False)
+        string = "{num}, {name}, {height}, {duty}, {x}\n".format(num=i+1, name="unknow", height=h, duty="nduty", x="nexc")
         fout.write(string)
         
-    fout.write("\n# EXCLUSION LIST\n")
-    fout.write("{}\n")
+    '''fout.write("\n# EXCLUSION LIST\n")
+    fout.write("{}\n")'''
     fout.close()    
 
-def import_student_file(filename="student.txt"):
+'''def import_student_file(filename="student.txt"):
     fin = open(filename, "r", encoding="utf-8")
     st_table = []
     xtable = []
@@ -214,22 +221,38 @@ def import_student_file(filename="student.txt"):
     #for st in st_table: print(st.info())
     #print(xtable)
     return st_table, xtable
+'''
+
+def import_student_file(filename="student.txt"):
+    fin = open(filename, "r", encoding="utf-8")
+    st_table = []
+    xtable = []
+    for line in fin.readlines():
+    
+        if line[0] in {"#", "", "\n"}: 
+            continue
+        else:
+            line = line.strip("\n")
+            #print(line)
+            
+            tp = line.split(",")
+            num = tp[0].strip(" ")
+            name = tp[1].strip(" ")
+            height = tp[2].strip(" ")
+            duty = True if tp[3].strip(" ") == "duty" else False
+            exc = True if tp[4].strip(" ") == "exc" else False
+            st = Student(int(num), name, int(height), duty, exc)
+            st_table.append(st)
+    fin.close()
+    
+    #for st in st_table: print(st.info())
+    #print(xtable)
+    return st_table
+
+
 
 
 if __name__ == '__main__':
     
-    if len(sys.argv) == 2 and sys.argv[1] in {"-e", "--empty"}:
-        generate_empty_student_file()
-    elif len(sys.argv) == 3 and sys.argv[1] in {"-f", "--file"}:
-        filename = sys.argv[2]
-        generate_empty_student_file(filename)
-    else:
-        '''print("usage: {0} [option]... [file]...".format(sys.argv[0]))
-        print(" -e, --empty: output empty student file")
-        print(" -o, --output: output student file with file name")'''
-        
-        import_student_file()
-        sys.exit()
-    
-
+    pass
     

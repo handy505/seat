@@ -14,14 +14,16 @@ from operator import itemgetter, attrgetter
     
 class GA(object):
     
-    def __init__(self, st_table, xtable, population=10):
+    #def __init__(self, st_table, xtable, population=10):
+    def __init__(self, st_table, population=10):
         self.__st_table = st_table
-        self.__xtable = xtable
+        #self.__xtable = xtable
         self.POOLSIZE = population
         self.__pool = []
         for i in range(0, self.POOLSIZE):
             sttable = copy.deepcopy(self.__st_table) # st_table is expendables should copy another one to use
-            ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=sttable, xtable=self.__xtable)
+            #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=sttable, xtable=self.__xtable)
+            ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=sttable)
             ss.calc_score()
             self.__pool.append( copy.deepcopy(ss))
         self.__generation = 0
@@ -56,7 +58,11 @@ class GA(object):
             rnd1 = random.randint(0, len(self.__pool)-1)
             rnd2 = random.randint(0, len(self.__pool)-1)
         student_table = copy.deepcopy(self.__st_table)
-        ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=self.__xtable)
+        #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=self.__xtable)
+        #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None)
+        ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=student_table)
+        for x in ss.table:
+            x = None
         #print(ss.info()) #debug        
         
         # copy the same student in sheetA and sheetB to new sheet
@@ -224,7 +230,6 @@ def report(gaSimu, filename="ga-result.txt"):
         
         #linestr = ss.info()
         #fout.write(linestr)
-        FIELD_WIDTH = 23
         for r in range(0, ss.row):
             for c in range(0, ss.column):
                 string = "({0}, {1}) ".format(r, c)
@@ -278,8 +283,11 @@ def main(argv):
             generation = int(arg)
         
     #print(ifile, ofile, population, generation)
-    student_table, exclusion_table = student.import_student_file(ifile)
-    gaSimu = GA(student_table, exclusion_table, population)
+    '''student_table, exclusion_table = student.import_student_file(ifile)
+    gaSimu = GA(student_table, exclusion_table, population)'''
+    student_table = student.import_student_file(ifile)
+    gaSimu = GA(student_table, population)
+    
     avg = round(gaSimu.average(), 2)
     sd = round(gaSimu.sd(), 2)
     print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
