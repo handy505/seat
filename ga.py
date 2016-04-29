@@ -220,8 +220,18 @@ def report(gaSimu, filename="ga-result.txt"):
         fout.write("\n\n")
     fout.close()        
 
-
+usage = (
+    "USAGE: ga.py [option] [file]\n"
+    "   -h, --help: help\n"
+    "   -e, --empty: generate empty student file, for modify\n"
+    "   -i, --input: input <filename>\n"
+    "   -o, --output: output <filename>\n"
+    "   -p, --population: population size\n"
+    "   -g, --generation: GA generations\n"
+)
+    
 def main(argv):
+    
     try:
         opts, args = getopt.getopt(argv, "hei:o:p:g:", ["help",  "epmty", "input=", "output=", "population=", "gereration="])
     except getopt.GetoptError:
@@ -234,10 +244,12 @@ def main(argv):
     generation = 20
     for opt, arg in opts:
         if opt == '-h':
-            print('usage: ga.py [option] [file]]')
+            print(usage)
             sys.exit()
         elif opt in ("-e", "--epmty"):
             print("generate empty file")
+            student.generate_empty_student_file()
+            sys.exit()
         elif opt in ("-i", "--input"):
             ifile = arg
         elif opt in ("-o", "--output"):
@@ -248,7 +260,7 @@ def main(argv):
             generation = int(arg)
         
     #print(ifile, ofile, population, generation)
-    student_table, exclusion_table = student.import_student_file()
+    student_table, exclusion_table = student.import_student_file(ifile)
     gaSimu = GA(student_table, exclusion_table, population)
     avg = round(gaSimu.average(), 2)
     sd = round(gaSimu.sd(), 2)
@@ -257,33 +269,14 @@ def main(argv):
     # ga generation loop
     for i in range(0, generation):
         gaSimu.next_generation()
-        avg = round(gaSimu.average(), 2)
-        sd = round(gaSimu.sd(), 2)
-        print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
+        avg = str(round(gaSimu.average(), 2))
+        avg = avg.ljust(8, " ")
+        sd = str(round(gaSimu.sd(), 2))
+        sd = sd.ljust(7, " ")
+        print(gaSimu.info(), "(average:", avg, "sd:", sd, ")")
         
 
     report(gaSimu, ofile)
     
-if __name__ == '__main__':
-
-    
+if __name__ == '__main__':    
     main(sys.argv[1:])
-    
-        
-    '''    
-    gaSimu = GA(seat.gererate_seat_sheet)
-    avg = round(gaSimu.average(), 2)
-    sd = round(gaSimu.sd(), 2)
-    print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
-    
-    # ga generation loop
-    GA_LOOP = 100
-    for i in range(0, GA_LOOP):
-        gaSimu.next_generation()
-        avg = round(gaSimu.average(), 2)
-        sd = round(gaSimu.sd(), 2)
-        print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
-        
-
-    report(gaSimu)'''
-        

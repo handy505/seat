@@ -169,8 +169,7 @@ def generate_student_table():
     #	print(s.info()) # debug
     return st_table, exclusion_table
     
-def generate_empty_student_file(filename="student-empty"):
-    filename += ".txt"
+def generate_empty_student_file(filename="student.txt"):
     fout = open(filename, "w", encoding="utf-8")
     fout.write("# STUDENT LIST\n\n")
     for i in range(0, 49):
@@ -178,12 +177,11 @@ def generate_empty_student_file(filename="student-empty"):
         string = "{num}, {name}, {height}, {duty}\n".format(num=i+1, name="unknow", height=h, duty=False)
         fout.write(string)
         
-    fout.write("# EXCLUSION LIST\n\n")
-    
+    fout.write("\n# EXCLUSION LIST\n")
+    fout.write("{}\n")
     fout.close()    
 
-def import_student_file(filename="student-empty"):
-    filename += ".txt"
+def import_student_file(filename="student.txt"):
     fin = open(filename, "r", encoding="utf-8")
     st_table = []
     xtable = []
