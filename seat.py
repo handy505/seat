@@ -323,24 +323,7 @@ class obj(object):
 if __name__ == '__main__':
     
     print("--------------- main() ---------------")
-    
-    
-    ''' about deepcopy and object and list
-    a = obj()
-    b = a
-    c = copy.copy(a)
-    d = copy.deepcopy(a)
-    e = obj()
-    
-    a.val = 2
-    a.lst.append(5)
-    
-    print("a:" + str(a.lst) + ", " + str(a.val))
-    print("b:" + str(b.lst) + ", " + str(b.val))
-    print("c:" + str(c.lst) + ", " + str(c.val))
-    print("d:" + str(d.lst) + ", " + str(d.val))
-    print("e:" + str(e.lst) + ", " + str(e.val))
-    '''
+
     
     
     # genrate student table
@@ -352,13 +335,7 @@ if __name__ == '__main__':
         print(s.height) # debug
     '''
     
-    
-    gaSimu = ga.GA(gererate_seat_sheet)
-    print(gaSimu.info())
-    gaSimu.next_generation()
-    #print(gaSimu.info())
-    
-    
+
     # gui
     '''root = Tk()
     app = GUIDemo(master=root, seatsheet=ss)

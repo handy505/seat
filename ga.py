@@ -9,14 +9,23 @@ import student
 import sys
 import getopt
 
+
+
+    
 class GA(object):
     
-    def __init__(self, func=None, population=10):
+    #def __init__(self, func=None, population=10):
+    def __init__(self, st_table, xtable, population=10):
+        self.__st_table = st_table
+        self.__xtable = xtable
         self.POOLSIZE = population
         self.__pool = []
         for i in range(0, self.POOLSIZE):
             #print("--------") # debug
-            ss = func()
+            #ss = func()
+            sttable = copy.deepcopy(self.__st_table) # st_table is expendables should copy another one to use
+            ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=sttable, xtable=self.__xtable)
+            ss.calc_score()
             self.__pool.append( copy.deepcopy(ss))
             
         ''' debug
@@ -57,11 +66,11 @@ class GA(object):
         # gererate empty seat sheet
         #student_table, exclusion_table = student.generate_student_table_16()
         #student_table, exclusion_table = student.generate_student_table()
-        student_table, exclusion_table = student.import_student_file()
+        #student_table, exclusion_table = student.import_student_file()
         
-        
+        student_table = copy.deepcopy(self.__st_table)
         #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=None)
-        ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=exclusion_table)
+        ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=self.__xtable)
         #print(ss.info()) #debug        
         
         
@@ -238,13 +247,9 @@ def main(argv):
         elif opt in ("-g", "--gereration"):
             generation = int(arg)
         
-
-    
-                
-            
     #print(ifile, ofile, population, generation)
-    
-    gaSimu = GA(seat.gererate_seat_sheet, population)
+    student_table, exclusion_table = student.import_student_file()
+    gaSimu = GA(student_table, exclusion_table, population)
     avg = round(gaSimu.average(), 2)
     sd = round(gaSimu.sd(), 2)
     print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
