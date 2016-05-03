@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 #-*- coding: UTF-8 -*-
-from tkinter import *
+#from tkinter import *
 import random
-import math
+#import math
 import collections
-from operator import itemgetter, attrgetter
-import copy
-import ga
-import student
-import sys
+#from operator import itemgetter, attrgetter
+#import copy
+#import ga
+#import student
+#import sys
 
 ROW_MAX = 7
 COLUMN_MAX = 7
 
-def gererate_seat_sheet():
+'''def gererate_seat_sheet():
     """ seat sheet include 1) student table 2) score """
     #student_table, exclusion_table = generate_student_table_9()
     #student_table, exclusion_table = generate_student_table_16()
@@ -24,12 +24,11 @@ def gererate_seat_sheet():
     ss = SeatSheet(ROW_MAX, COLUMN_MAX, students=student_table, xtable=exclusion_table)
     ss.calc_score()
     return ss
-
+'''
 
 class SeatSheet(object):
     """ empty """
 
-    #def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None, xtable=None):
     def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None):
         self.__table = collections.OrderedDict()
         self.__row = row
@@ -44,11 +43,12 @@ class SeatSheet(object):
                     self.__students.pop(rnd)
                 else:
                     self.__table[(i, j)] = None
-                        
-        #self.height_score()
-        #self.duty_score()
-        #self.__xtable = xtable
         
+        self.__score = 0
+        self.__hscore = 0
+        self.__dscore = 0
+        self.__xscore = 0
+    
     @property
     def row(self):
         return self.__row
@@ -77,23 +77,23 @@ class SeatSheet(object):
         self.__xscore = self.exclusion_score()
         self.__score = (self.__hscore*HEIGHT_WEIGHT) + (self.__dscore*DUTY_WEIGHT) - (self.__xscore*EXCLUSION_WEIGHT)
 
-    __score = 0        
+    
     @property
     def score(self):
         """ empty """
         return self.__score
     
-    __hscore = 0
+    
     @property
     def hscore(self):
         return self.__hscore
 
-    __dscore = 0
+    
     @property
     def dscore(self):
         return self.__dscore
     
-    __xscore = 0
+    
     @property
     def xscore(self):
         return self.__xscore
@@ -101,22 +101,13 @@ class SeatSheet(object):
         
         
     def info(self):
-        """ infomation """
+        """ information """
         string = ""
         for i in range(0, self.__row):
             for j in range(0, self.__column):
                 st = self.__table[(i, j)].info() if self.__table[(i, j)] else "xxxx" 
                 #print(i, j, st)
                 string += "({0}, {1}) {2}\n".format(i, j, st)
-                
-                
-                '''for xst in self.__xtable:
-                    print("text", xst.number)
-                    if xst.number == st.number:
-                        string += "({0}, {1}) {2}, {3}\n".format(i, j, st, "x")
-                    else:
-                        string += "({0}, {1}) {2}\n".format(i, j, st)
-                '''
         return string
         
     def height_score(self):
@@ -147,19 +138,22 @@ class SeatSheet(object):
                 if st:
                     rcount = rcount + (1 if st.duty == True else 0)
             #print("rcount", c, ":", rcount) # debug
-            col_score.append(rcount) if rcount <=2 else col_score.append(2)
+            #col_score.append(rcount) if rcount <=2 else col_score.append(2)
+            if rcount <=2:
+                col_score.append(rcount) 
+            else:
+                col_score.append(2)
         return sum(col_score)
         
-
     def __location_valid(self, loc):
-        if (0 <= loc[0] < self.__row) and (0 <= loc[1] < self.__column):
+        x = loc[0]
+        y = loc[1]
+        if (0 <= x < self.__row) and (0 <= y < self.__column):
             return True
         else:
             return False
     
-    #def exclusion_score(self, exclusion_table):
     def exclusion_score(self):
-        #print("in exclusion_score", self.__row, self.__column) # debug
         xscore = 0
         xloc = (0,0)
         
@@ -216,7 +210,7 @@ class SeatSheet(object):
         #print("xscore:", xscore) # debug
         return xscore
 
-class GUIDemo(Frame):
+"""class GUIDemo(Frame):
     __bss = SeatSheet(ROW_MAX, COLUMN_MAX)
     
     def __init__(self, master=None, seatsheet=None):
@@ -263,7 +257,7 @@ class GUIDemo(Frame):
             self.bestSeatInfo[r, c] = StringVar()
             self.bestSeatInfo[r, c].set("[{0},{1}]\n{2}\n".format(r, c, ststr))
             Label(self, textvariable=self.bestSeatInfo[r, c]).grid(row=(3+ROW_MAX)+(r+1), column=c, padx=4, pady=4)        
-        
+   
         
         
     def update(self, seatsheet):
@@ -299,17 +293,18 @@ class GUIDemo(Frame):
         self.update(ss)
     
     def randomSearch(self):
-        for autoloop in range(0, 1000):
+        #for autoloop in range(0, 1000):
+        for _ in range(0, 1000):
             ss = gererate_seat_sheet()
             self.update(ss)
     
     def gaSearch(self):
         pass
 
+"""     
 
 
-
-class obj(object):
+"""class obj(object):
     __val = 0
     
     def __init__(self):
@@ -332,12 +327,11 @@ class obj(object):
     @lst.setter
     def lst(self, arg):
         self.__lst.append(arg)
-
-            
+"""            
 
 if __name__ == '__main__':
     
-    print("--------------- main() ---------------")
+    #print("--------------- main() ---------------")
 
     
     

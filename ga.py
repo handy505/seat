@@ -8,21 +8,18 @@ import math
 import student
 import sys
 import getopt
-from operator import itemgetter, attrgetter
-
+#from operator import itemgetter, attrgetter
+from operator import attrgetter
 
     
 class GA(object):
     
-    #def __init__(self, st_table, xtable, population=10):
     def __init__(self, st_table, population=10):
         self.__st_table = st_table
-        #self.__xtable = xtable
         self.POOLSIZE = population
         self.__pool = []
-        for i in range(0, self.POOLSIZE):
-            sttable = copy.deepcopy(self.__st_table) # st_table is expendables should copy another one to use
-            #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=sttable, xtable=self.__xtable)
+        for _ in range(0, self.POOLSIZE):
+            sttable = copy.deepcopy(self.__st_table) # st_table is expendable should copy another one to use
             ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=sttable)
             ss.calc_score()
             self.__pool.append( copy.deepcopy(ss))
@@ -38,12 +35,12 @@ class GA(object):
         return self.__pool
         
     def __eliminating(self):
-        min = 99999
+        min_score = 99999
         idxmin = 0
         for i in self.__pool:
             #print("i:", self.__pool.index(i)) # debug
-            if i.score < min:
-                min = i.score
+            if i.score < min_score:
+                min_score = i.score
                 idxmin = self.__pool.index(i)
         #print("[eliminating...] pool[{0}] is min".format(idxmin)) # debug
         
@@ -103,8 +100,7 @@ class GA(object):
         return ss
     
     def __mutation(self, ss=None):
-        
-        # pick 2 random student in seat sheet
+        """" pick 2 random student and swap both """
         r1, c1 = (0, 0)
         r2, c2 = (0, 0)
         while (r1, c1) == (r2, c2):
@@ -113,12 +109,10 @@ class GA(object):
             r2 = random.randint(0, ss.row-1)
             c2 = random.randint(0, ss.column-1)
         #print("[mutation...] pick 2 random student in seat sheet ({0}, {1}) , ({2}, {3})".format(r1, c1, r2, c2)) # debug
-        
-        st1 = ss.table[(r1, c1)]
-        st2 = ss.table[(r2, c2)]
         #print("beofre mutation") # debug
         #print(ss.info())  # debug
         
+        # swap two students
         (ss.table[(r2, c2)], ss.table[(r1, c1)]) = (ss.table[(r1, c1)], ss.table[(r2, c2)]) 
         #print("after mutation") # debug
         #print(ss.info()) # debug
@@ -132,7 +126,7 @@ class GA(object):
         #print("before eliminate, pool size:", len(self.__pool)) # debug
         ELIMINATE_RETE = 0.2
         eliminateCount = round(len(self.__pool) * ELIMINATE_RETE) 
-        for i in range(0, eliminateCount):
+        for _ in range(0, eliminateCount):
             self.__eliminating()
         #print("after eliminate, pool size:", len(self.__pool)) # debug
         
@@ -160,7 +154,6 @@ class GA(object):
         return self.__generation
     
     def info(self):
-        score = []
         scoreStr = ""
         for i in self.__pool:
             scoreStr += str(i.score) + " "
@@ -168,25 +161,25 @@ class GA(object):
         return string
         
     def average(self):
-        sum = 0
+        sum_score = 0
         for i in self.__pool:
-            sum += i.score
-        return sum/len(self.__pool)
+            sum_score += i.score
+        return sum_score/len(self.__pool)
 
     def sd(self):
         """ standard difference """
-        self.__u = self.average()
-        sum = 0
+        self.__mean = self.average()
+        sum_score = 0
         for i in self.__pool:
-            sum += (i.score - self.__u) ** 2
-        sd = math.sqrt( sum / len(self.__pool) )
+            sum_score += (i.score - self.__mean) ** 2
+        sd = math.sqrt( sum_score / len(self.__pool) )
         return sd
         
     def max(self):
-        max = 0
+        max_score = 0
         for i in self.__pool:
-            max = i.score if i.score > max else max
-        return max
+            max_score = i.score if i.score > max_score else max_score
+        return max_score
 
 
 def report(gaSimu, filename="ga-result.txt"):
@@ -194,18 +187,16 @@ def report(gaSimu, filename="ga-result.txt"):
     gnt = gaSimu.generation
     avg = round(gaSimu.average(), 2)
     sd = round(gaSimu.sd(), 2)
-    max = gaSimu.max()
+    max_score = gaSimu.max()
     #filename = "ga-result-{0}.txt".format(gnt)
     fout = open(filename, "w", encoding="utf-8")
-    fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}, max:{3}\n\n".format(gnt, avg, sd, max))
+    fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}, max:{3}\n\n".format(gnt, avg, sd, max_score))
     
     # best
     for ss in gaSimu.best:
         fout.write("seat sheet best {0} score: {1}\n".format(gaSimu.best.index(ss), ss.score))
         fout.write("------------------------------------\n")
         
-        #linestr = ss.info()
-        #fout.write(linestr)
         FIELD_WIDTH = 23
         for r in range(0, ss.row):
             for c in range(0, ss.column):
@@ -217,19 +208,13 @@ def report(gaSimu, filename="ga-result.txt"):
                 fout.write( string.ljust(FIELD_WIDTH, " ") )
             fout.write("\n")
                 
-        fout.write("\n\n")    
-    
-    
-    
-    
+        fout.write("\n\n")
     
     # pool
     for ss in gaSimu.pool:
         fout.write("seat sheet score: {0}\n".format(ss.score))
         fout.write("------------------------\n")
         
-        #linestr = ss.info()
-        #fout.write(linestr)
         for r in range(0, ss.row):
             for c in range(0, ss.column):
                 string = "({0}, {1}) ".format(r, c)
@@ -246,7 +231,6 @@ def report(gaSimu, filename="ga-result.txt"):
 usage = (
     "USAGE: ga.py [option] [file]\n"
     "   -h, --help: help\n"
-    "   -e, --empty: generate empty student file, for modify\n"
     "   -i, --input: input <filename>\n"
     "   -o, --output: output <filename>\n"
     "   -p, --population: population size\n"
@@ -256,22 +240,20 @@ usage = (
 def main(argv):
     
     try:
-        opts, args = getopt.getopt(argv, "hei:o:p:g:", ["help",  "epmty", "input=", "output=", "population=", "gereration="])
+        opts, args = getopt.getopt(argv, "hi:o:p:g:", ["help", "input=", "output=", "population=", "generation="])
     except getopt.GetoptError:
-        print('usage: ga.py [option] [file]]')
+        print(usage)
         sys.exit(2)
         
-    ifile = "student.txt"
-    ofile = "ga-report.txt"
+    DEFAULT_INPUT_FILENAME = "student.txt"
+    DEFAULT_OUTPUT_FILENAME = "ga-report.txt"
+    ifile = DEFAULT_INPUT_FILENAME
+    ofile = DEFAULT_OUTPUT_FILENAME
     population = 10
     generation = 20
     for opt, arg in opts:
         if opt == '-h':
             print(usage)
-            sys.exit()
-        elif opt in ("-e", "--epmty"):
-            print("generate empty file")
-            student.generate_empty_student_file()
             sys.exit()
         elif opt in ("-i", "--input"):
             ifile = arg
@@ -279,12 +261,9 @@ def main(argv):
             ofile = arg
         elif opt in ("-p", "--population"):
             population = int(arg)
-        elif opt in ("-g", "--gereration"):
+        elif opt in ("-g", "--generation"):
             generation = int(arg)
         
-    #print(ifile, ofile, population, generation)
-    '''student_table, exclusion_table = student.import_student_file(ifile)
-    gaSimu = GA(student_table, exclusion_table, population)'''
     student_table = student.import_student_file(ifile)
     gaSimu = GA(student_table, population)
     
@@ -292,8 +271,8 @@ def main(argv):
     sd = round(gaSimu.sd(), 2)
     print(gaSimu.info(), "(average:", str(avg), "sd:", str(sd), ")")
     
-    # ga generation loop
-    for i in range(0, generation):
+    # GA generation loop
+    for _ in range(0, generation):
         gaSimu.next_generation()
         avg = str(round(gaSimu.average(), 2))
         avg = avg.ljust(8, " ")
@@ -301,7 +280,6 @@ def main(argv):
         sd = sd.ljust(7, " ")
         print(gaSimu.info(), "(average:", avg, "sd:", sd, ")")
         
-
     report(gaSimu, ofile)
     
 if __name__ == '__main__':    
