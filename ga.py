@@ -11,7 +11,47 @@ import getopt
 #from operator import itemgetter, attrgetter
 from operator import attrgetter
 
+def wheel_select(elements):
+    right = 0
+    left = 0
+    bound = []
+    for x in elements:
+        left = right
+        right += x.score
+        bound.append((left, right))
+    #print(bound)
+      
+    max_value = bound[-1][1]
+    #print("max value:", max_value)
     
+    rnd = random.randint(0, max_value-1)
+    for idx, ele in enumerate(bound):
+        left = ele[0]
+        right = ele[1]
+        if left <= rnd < right:
+            return idx 
+
+def wheel_select_inverse(elements):
+    right = 0
+    left = 0
+    bound = []
+    for x in elements:
+        left = right
+        right += (1/x.score)
+        bound.append((left, right))
+    #print(bound)
+      
+    max_value = bound[-1][1]
+    #print("max value:", max_value)
+    
+    rnd = random.uniform(0, max_value)
+    for idx, ele in enumerate(bound):
+        left = ele[0]
+        right = ele[1]
+        if left <= rnd < right:
+            return idx 
+            
+            
 class GA(object):
     
     def __init__(self, st_table, population=10):
@@ -35,7 +75,7 @@ class GA(object):
         return self.__pool
         
     def __eliminating(self):
-        min_score = 99999
+        '''min_score = 99999
         idxmin = 0
         for i in self.__pool:
             #print("i:", self.__pool.index(i)) # debug
@@ -46,17 +86,22 @@ class GA(object):
         
         del self.__pool[idxmin]
         #print(self.info(), "(after del)") # debug
+        '''
+        
+        selected_idx = wheel_select_inverse(self.__pool)
+        del self.__pool[selected_idx]
         
     def __crossover(self):
         # pick 2 random elements in pool
         rnd1 = 0
         rnd2 = 0
         while rnd1 == rnd2:
-            rnd1 = random.randint(0, len(self.__pool)-1)
+            '''rnd1 = random.randint(0, len(self.__pool)-1)
             rnd2 = random.randint(0, len(self.__pool)-1)
+            '''
+            rnd1 = wheel_select(self.__pool)
+            rnd2 = wheel_select(self.__pool)
         student_table = copy.deepcopy(self.__st_table)
-        #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None, xtable=self.__xtable)
-        #ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=None)
         ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=student_table)
         for x in ss.table:
             x = None
@@ -118,7 +163,7 @@ class GA(object):
         #print(ss.info()) # debug
         return ss
         
-    def next_generation(self):
+    '''def next_generation(self):
         """ crossover, mutation  """
         self.__generation += 1
         
@@ -147,7 +192,103 @@ class GA(object):
                 
             while len(self.__best) > 10:
                 del self.__best[-1]
+    '''
+   
+    def crossover_wheel(self):
+        
+        # prepare new student_table and seat_sheet to fill newborn seat_sheet
+        student_table = copy.deepcopy(self.__st_table)
+        ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=student_table)
+        for x in ss.table: x = None 
+        
+        # pick up 2 different by wheel select
+        idx1 = 0
+        idx2 = 0
+        while idx1 == idx2: 
+            idx1 = wheel_select(self.__pool)
+            idx2 = wheel_select(self.__pool)
+                    
+        # copy the same student in sheetA and sheetB to newborn sheet
+        ss1 = self.__pool[idx1]
+        ss2 = self.__pool[idx2]
+        for r in range(0, ss.row):
+            for c in range(0, ss.column):
+                st1 = ss1.table[r, c]
+                st2 = ss2.table[r, c]
+                
+                try:
+                    if type(st1) == 'Student' and type(st2) == 'Student':
+                        if st1.number == st2.number:
+                            
+                            # find index of the same student in student_table
+                            for x in student_table:
+                                if x.number == st1.number:
+                                    idx = student_table.index(x)
+                            ss.table[(r, c)] = copy.deepcopy(student_table[idx])
+                            del student_table[idx]
+                except AttributeError as err:
+                    print(err)
+        
+        
+        # fill students to the other empty seats by random, new sheet complete
+        for r in range(0, seat.ROW_MAX):
+            for c in range(0, seat.COLUMN_MAX):
+                if ss.table[(r, c)] == None:
+                    if student_table:
+                        rnd = random.randint(0, len(student_table)-1) 
+                        ss.table[(r, c)] = student_table[rnd]
+                        del student_table[rnd]
+                        
+        ss = self.__mutation(ss)
+        return ss
 
+
+    def worst(self, pool):
+        min_idx = 0
+        min_score = pool[min_idx].score
+        for i, e in enumerate(pool):
+            #print(i, "min_score:", min_score, "e.score", e.score)
+            if e.score <= min_score: 
+                min_score = e.score
+                min_idx = i
+        return min_idx
+            
+            
+           
+    def next_generation(self):
+        """ crossover, mutation  """
+        self.__generation += 1
+        
+        # 1) crossover
+        CROSSOVER_RETE = 0.4
+        newborn_count = round(len(self.__pool) * CROSSOVER_RETE) 
+        for _ in range(0, newborn_count):
+            ss = self.crossover_wheel()
+            ss.calc_score()
+            self.__pool.append(ss)
+            
+            # best recorded
+            if len(self.__best) < 3:
+                self.__best.append(ss)
+            else:
+                idx = self.worst(self.__best)
+                #print("worst idx:", idx)
+                if ss.score > self.__best[idx].score:
+                    del self.__best[idx]
+                    self.__best.append(ss)
+                    self.__best = sorted(self.__best, key=attrgetter('score'), reverse=True)
+            
+        
+        # pick up to next generation
+        new_generation = []            
+        for _ in range(0, self.POOLSIZE):
+            selected = wheel_select(self.__pool)
+            new_generation.append(self.__pool[selected])
+            del self.__pool[selected]
+        self.__pool.clear()
+        self.__pool.extend(new_generation)
+    
+    
        
     @property
     def generation(self):
@@ -187,15 +328,16 @@ def report(gaSimu, filename="ga-result.txt"):
     gnt = gaSimu.generation
     avg = round(gaSimu.average(), 2)
     sd = round(gaSimu.sd(), 2)
-    max_score = gaSimu.max()
+    #max_score = gaSimu.max()
     #filename = "ga-result-{0}.txt".format(gnt)
     fout = open(filename, "w", encoding="utf-8")
-    fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}, max:{3}\n\n".format(gnt, avg, sd, max_score))
+    #fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}, max:{3}\n\n".format(gnt, avg, sd, max_score))
+    fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}\n\n".format(gnt, avg, sd))
     
     # best
     for ss in gaSimu.best:
-        fout.write("seat sheet best {0} score: {1}\n".format(gaSimu.best.index(ss), ss.score))
-        fout.write("------------------------------------\n")
+        fout.write("best {0} score: {1}\n".format(gaSimu.best.index(ss), ss.score))
+        fout.write("-------------------------\n")
         
         FIELD_WIDTH = 23
         for r in range(0, ss.row):
