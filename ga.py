@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 #-*- coding: UTF-8 -*-
-
 import random
 import seat
 import copy
@@ -8,7 +7,6 @@ import math
 import student
 import sys
 import getopt
-#from operator import itemgetter, attrgetter
 from operator import attrgetter
 
 def wheel_select(elements):
@@ -74,76 +72,6 @@ class GA(object):
     def pool(self):
         return self.__pool
         
-    def __eliminating(self):
-        '''min_score = 99999
-        idxmin = 0
-        for i in self.__pool:
-            #print("i:", self.__pool.index(i)) # debug
-            if i.score < min_score:
-                min_score = i.score
-                idxmin = self.__pool.index(i)
-        #print("[eliminating...] pool[{0}] is min".format(idxmin)) # debug
-        
-        del self.__pool[idxmin]
-        #print(self.info(), "(after del)") # debug
-        '''
-        
-        selected_idx = wheel_select_inverse(self.__pool)
-        del self.__pool[selected_idx]
-        
-    def __crossover(self):
-        # pick 2 random elements in pool
-        rnd1 = 0
-        rnd2 = 0
-        while rnd1 == rnd2:
-            '''rnd1 = random.randint(0, len(self.__pool)-1)
-            rnd2 = random.randint(0, len(self.__pool)-1)
-            '''
-            rnd1 = wheel_select(self.__pool)
-            rnd2 = wheel_select(self.__pool)
-        student_table = copy.deepcopy(self.__st_table)
-        ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=student_table)
-        for x in ss.table:
-            x = None
-        #print(ss.info()) #debug        
-        
-        # copy the same student in sheetA and sheetB to new sheet
-        ss1 = self.__pool[rnd1]
-        ss2 = self.__pool[rnd2]
-        for r in range(0, ss.row):
-            for c in range(0, ss.column):
-                st1 = ss1.table[r, c]
-                st2 = ss2.table[r, c]
-                
-                try:
-                    if type(st1) == 'Student' and type(st2) == 'Student':
-                        if st1.number == st2.number:
-                            #string = "the same in {0} {1}, {2} {3}".format(r, c, st1.info(), st2.info()) # debug
-                            #print(string) # debug
-                            
-                            # find index of the same student in student_table
-                            for x in student_table:
-                                if x.number == st1.number:
-                                    idx = student_table.index(x)
-                            ss.table[(r, c)] = copy.deepcopy(student_table[idx])
-                            del student_table[idx]
-                except AttributeError as err:
-                    print(err)
-        #print("after copy the same student in sheetA and sheetB to new sheet") # debug
-        #print(ss.info()) # debug
-
-        # fill students to the other empty seats by ranodm, new sheet complete
-        for r in range(0, seat.ROW_MAX):
-            for c in range(0, seat.COLUMN_MAX):
-                if ss.table[(r, c)] == None:
-                    if student_table:
-                        rnd = random.randint(0, len(student_table)-1) 
-                        ss.table[(r, c)] = student_table[rnd]
-                        del student_table[rnd]
-        #print("after fill students to the other empty seats by ranodm, new sheet complete") # debug
-        #print(ss.info()) # debug
-        return ss
-    
     def __mutation(self, ss=None):
         """" pick 2 random student and swap both """
         r1, c1 = (0, 0)
@@ -153,47 +81,11 @@ class GA(object):
             c1 = random.randint(0, ss.column-1)
             r2 = random.randint(0, ss.row-1)
             c2 = random.randint(0, ss.column-1)
-        #print("[mutation...] pick 2 random student in seat sheet ({0}, {1}) , ({2}, {3})".format(r1, c1, r2, c2)) # debug
-        #print("beofre mutation") # debug
-        #print(ss.info())  # debug
-        
+            
         # swap two students
         (ss.table[(r2, c2)], ss.table[(r1, c1)]) = (ss.table[(r1, c1)], ss.table[(r2, c2)]) 
-        #print("after mutation") # debug
-        #print(ss.info()) # debug
         return ss
-        
-    '''def next_generation(self):
-        """ crossover, mutation  """
-        self.__generation += 1
-        
-        # 1) crossover
-        #print("before eliminate, pool size:", len(self.__pool)) # debug
-        ELIMINATE_RETE = 0.2
-        eliminateCount = round(len(self.__pool) * ELIMINATE_RETE) 
-        for _ in range(0, eliminateCount):
-            self.__eliminating()
-        #print("after eliminate, pool size:", len(self.__pool)) # debug
-        
-        # 2) mating and mutation
-        while len(self.__pool) < self.POOLSIZE:
-            #print("before mutaton, pool size:", len(self.__pool)) # debug
-            ss = self.__crossover()
-            # mutation
-            ss = self.__mutation(ss)
-            ss.calc_score()
-            self.__pool.append(ss)
-            #print("new ss score:", ss.score) # debug
-            #print("after mutaton, pool size:", len(self.__pool)) # debug
-            
-        
-            self.__best.append(ss)
-            self.__best = sorted(self.__best, key=attrgetter('score'), reverse=True)
-                
-            while len(self.__best) > 10:
-                del self.__best[-1]
-    '''
-   
+    
     def crossover_wheel(self):
         
         # prepare new student_table and seat_sheet to fill newborn seat_sheet
@@ -242,7 +134,6 @@ class GA(object):
         ss = self.__mutation(ss)
         return ss
 
-
     def worst(self, pool):
         min_idx = 0
         min_score = pool[min_idx].score
@@ -253,8 +144,6 @@ class GA(object):
                 min_idx = i
         return min_idx
             
-            
-           
     def next_generation(self):
         """ crossover, mutation  """
         self.__generation += 1
@@ -287,8 +176,6 @@ class GA(object):
             del self.__pool[selected]
         self.__pool.clear()
         self.__pool.extend(new_generation)
-    
-    
        
     @property
     def generation(self):
