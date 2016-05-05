@@ -46,9 +46,9 @@ class SeatSheet(object):
 
     def calc_score(self):
         """ weight adjusting """
-        DUTY_WEIGHT = 0 #100
-        EXCLUSION_WEIGHT = 1
-        HEIGHT_WEIGHT = 0
+        DUTY_WEIGHT = 100
+        EXCLUSION_WEIGHT = 10
+        HEIGHT_WEIGHT = 1
         BASE_SCORE = 5000
         self.__hscore = self.height_score()
         self.__dscore = self.duty_score()
