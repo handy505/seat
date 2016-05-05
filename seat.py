@@ -44,24 +44,26 @@ class SeatSheet(object):
         
     @table.setter
     def table(self, key, val):
-        self.__variation = True
         self.__table[key] = val
+        self.__variation = True
 
     def calc_score(self):
         """ weight adjusting """
         DUTY_WEIGHT = 100
         EXCLUSION_WEIGHT = 10
         HEIGHT_WEIGHT = 1
-        BASE_SCORE = 5000
+        #BASE_SCORE = 7600 # perfect max score: 9000, 9000 = 7600 + (7*2*100)
+        OFFSET_SCORE = 9000 - (DUTY_WEIGHT*14)
         self.__hscore = self.height_score()
         self.__dscore = self.duty_score()
         self.__xscore = self.exclusion_score()
-        self.__score = BASE_SCORE + (self.__hscore*HEIGHT_WEIGHT) + (self.__dscore*DUTY_WEIGHT) - (self.__xscore*EXCLUSION_WEIGHT)
+        self.__score = OFFSET_SCORE + (self.__dscore*DUTY_WEIGHT) - (self.__xscore*EXCLUSION_WEIGHT) - (self.__hscore*HEIGHT_WEIGHT)
 
     @property
     def score(self):
         if self.__variation:
             self.calc_score()
+            self.__variation = False
             
         return self.__score
     
@@ -83,7 +85,6 @@ class SeatSheet(object):
         for i in range(0, self.__row):
             for j in range(0, self.__column):
                 st = self.__table[(i, j)].info() if self.__table[(i, j)] else "xxxx" 
-                #print(i, j, st)
                 string += "({0}, {1}) {2}\n".format(i, j, st)
         return string
         
@@ -101,7 +102,7 @@ class SeatSheet(object):
                 for before in range(0, r):
                     if self.__table[(before, c)]:
                         beforeHeight = self.__table[(before, c)].height
-                        hscore += (curHeight - beforeHeight) if beforeHeight > (curHeight + IGNORE_ERROR) else 0
+                        hscore += (beforeHeight - curHeight) if beforeHeight > (curHeight + IGNORE_ERROR) else 0
                         #print("hscore:{0} at {1} scan {2}".format(hscore, (r, c), (before, c))) # debug
         return hscore
 
