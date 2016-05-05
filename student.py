@@ -7,7 +7,7 @@ import getopt
 
 class Student(object):
     """ student """
-    def __init__(self, number=0, name="empty", height=150, duty=False, exc=False):
+    def __init__(self, number=0, name="empty", height=150, duty=False, exc="nx"):
         self.__number = number
         self.__name = name
         self.__duty = duty
@@ -49,7 +49,8 @@ class Student(object):
     def info(self):
         """ empty """
         dutyStr = "du" if self.__duty else "nd"
-        excStr = "xc" if self.__exclusive else "nx"
+        #excStr = "xc" if self.__exclusive else "nx"
+        excStr = self.__exclusive
         return ("#{num},{name},{height},{duty},{exc}".format(
             num=self.__number, name=self.__name, height=self.__height, duty=dutyStr, exc=excStr)
         )
@@ -59,7 +60,7 @@ def generate_empty_student_file(filename="student.txt"):
     fout.write("# STUDENT LIST\n\n")
     for i in range(0, 49):
         h = random.randint(150, 180)
-        string = "{num}, {name}, {height}, {duty}, {x}\n".format(num=i+1, name="unknow", height=h, duty="nduty", x="nexc")
+        string = "{num}, {name}, {height}, {duty}, {x}\n".format(num=i+1, name="unknow", height=h, duty="nduty", x="nx")
         fout.write(string)
     fout.close()    
 
@@ -79,7 +80,8 @@ def import_student_file(filename="student.txt"):
             name = tp[1].strip(" ")
             height = tp[2].strip(" ")
             duty = True if tp[3].strip(" ") == "duty" else False
-            exc = True if tp[4].strip(" ") == "exc" else False
+            #exc = True if tp[4].strip(" ") == "exc" else False
+            exc = tp[4].strip(" ")
             st = Student(int(num), name, int(height), duty, exc)
             st_table.append(st)
     fin.close()

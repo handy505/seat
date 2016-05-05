@@ -46,7 +46,7 @@ class SeatSheet(object):
 
     def calc_score(self):
         """ weight adjusting """
-        DUTY_WEIGHT = 0
+        DUTY_WEIGHT = 0 #100
         EXCLUSION_WEIGHT = 1
         HEIGHT_WEIGHT = 0
         BASE_SCORE = 5000
@@ -121,73 +121,13 @@ class SeatSheet(object):
         else:
             return False
     
-    '''def exclusion_score(self):
-        xscore = 0
-        xloc = (0,0)
-        
-        self.__students_expendables = copy.deepcopy(self.__students)
-        self.__xtable = []
-        for st in self.__students_expendables:
-            if st.exclusive:
-                self.__xtable.append(st)
-        
-        for xstudent in self.__xtable:
-            print("xst:", xstudent.info()) # debug
-            for loc in self.__table:
-                if self.__table[loc] and (self.__table[loc].number == xstudent.number):
-                    xloc = loc
-            print("xstloc:", xloc) # debug
-            
-            near = (xloc[0]-1, xloc[1]-1)
-            if self.__location_valid(near):
-                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
-                print("--valid ", xscore) # debug
-                
-            near = (xloc[0]-1, xloc[1])    
-            if self.__location_valid(near):
-                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
-                print("-0valid ", xscore) # debug
-                
-            near = (xloc[0]-1, xloc[1]+1)
-            if self.__location_valid(near):
-                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
-                print("-+valid ", xscore) # debug
-                
-            near = (xloc[0], xloc[1]-1)
-            if self.__location_valid(near):
-                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
-                print("0-valid ", xscore) # debug
-
-            near = (xloc[0], xloc[1]+1)
-            if self.__location_valid(near):
-                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
-                print("0+valid ", xscore) # debug
-                
-            near = (xloc[0]+1, xloc[1]-1)
-            if self.__location_valid(near):
-                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
-                print("+-valid ", xscore) # debug
-                
-            near = (xloc[0]+1, xloc[1])
-            if self.__location_valid(near):
-                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
-                print("+0valid ", xscore) # debug
-                
-            near = (xloc[0]+1, xloc[1]+1)
-            if self.__location_valid(near):
-                xscore = xscore + (1 if self.__table[near] in self.__xtable else 0)
-                print("++valid ", xscore) # debug
-                
-        print("xscore:", xscore) # debug
-        return xscore
-    '''
     def exclusion_score(self):
 
         xscore = 0
         for r, c in self.__table:
             st = self.__table[(r, c)]
             #print(r, c, st.info())
-            if st.exclusive:
+            if st.exclusive != "nx":
             
                 near = (r-1, c-1)
                 if self.__location_valid(near):

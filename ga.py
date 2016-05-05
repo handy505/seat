@@ -215,11 +215,9 @@ def report(gaSimu, filename="ga-result.txt"):
     gnt = gaSimu.generation
     avg = round(gaSimu.average(), 2)
     sd = round(gaSimu.sd(), 2)
-    #max_score = gaSimu.max()
-    #filename = "ga-result-{0}.txt".format(gnt)
     fout = open(filename, "w", encoding="utf-8")
-    #fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}, max:{3}\n\n".format(gnt, avg, sd, max_score))
-    fout.write("GA RESULT WITH {0} GERERATION\navg:{1}, sd:{2}\n\n".format(gnt, avg, sd))
+    fout.write("GA RESULT WITH {0} GENERATION\n".format(gnt))
+    fout.write("mean:{0}, sd:{1}\n\n".format(avg, sd))
     
     # best
     for ss in gaSimu.best:
