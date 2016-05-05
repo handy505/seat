@@ -27,6 +27,8 @@ class SeatSheet(object):
         self.__hscore = 0
         self.__dscore = 0
         self.__xscore = 0
+        self.__variation = True
+        
     
     @property
     def row(self):
@@ -42,13 +44,14 @@ class SeatSheet(object):
         
     @table.setter
     def table(self, key, val):
+        self.__variation = True
         self.__table[key] = val
 
     def calc_score(self):
         """ weight adjusting """
-        DUTY_WEIGHT = 100
-        EXCLUSION_WEIGHT = 10
-        HEIGHT_WEIGHT = 1
+        DUTY_WEIGHT = 0
+        EXCLUSION_WEIGHT = 1
+        HEIGHT_WEIGHT = 0
         BASE_SCORE = 5000
         self.__hscore = self.height_score()
         self.__dscore = self.duty_score()
@@ -57,6 +60,9 @@ class SeatSheet(object):
 
     @property
     def score(self):
+        if self.__variation:
+            self.calc_score()
+            
         return self.__score
     
     @property

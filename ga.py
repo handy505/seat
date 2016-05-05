@@ -59,7 +59,7 @@ class GA(object):
         for _ in range(0, self.POOLSIZE):
             sttable = copy.deepcopy(self.__st_table) # st_table is expendable should copy another one to use
             ss = seat.SeatSheet(seat.ROW_MAX, seat.COLUMN_MAX, students=sttable)
-            ss.calc_score()
+            #ss.calc_score()
             self.__pool.append( copy.deepcopy(ss))
         self.__generation = 0
         self.__best = []
@@ -153,7 +153,7 @@ class GA(object):
         newborn_count = round(len(self.__pool) * CROSSOVER_RETE) 
         for _ in range(0, newborn_count):
             ss = self.crossover_wheel()
-            ss.calc_score()
+            #ss.calc_score()
             self.__pool.append(ss)
             
             # best recorded
