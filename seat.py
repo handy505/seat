@@ -4,8 +4,40 @@ import random
 import collections
 import copy
 
+import student
+
 ROW_MAX = 7
 COLUMN_MAX = 7
+
+
+class SeatTable(object):
+    def __init__(self, students, row=ROW_MAX, column=COLUMN_MAX):
+        tmpstudents = copy.deepcopy(students)
+
+        # 2 dimention list
+        self.table = [[(r,c) for c in range(COLUMN_MAX)] for r in range(ROW_MAX)]
+
+        for r in range(0, ROW_MAX):
+            for c in range(0, COLUMN_MAX):
+                st = random.choice(tmpstudents)
+                self.table[r][c] = st
+                print('{} {}'.format(c, st))
+                tmpstudents.remove(st)
+                if not tmpstudents:
+                    break
+            if not tmpstudents:
+                break
+        pass
+
+    def score(self):
+        pass
+    
+    def __repr__(self):
+        return str(self.table)
+
+    def __str__(self):
+        return self.__repr__()
+
 
 class SeatSheet(object):
     def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None):
@@ -179,4 +211,6 @@ class SeatSheet(object):
 
 
 if __name__ == '__main__':
-    pass
+    students = student.student_factory('config.txt')
+    t = SeatTable(students)
+    print(t)
