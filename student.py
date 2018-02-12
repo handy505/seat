@@ -5,15 +5,14 @@ import random
 
 
 class Student(object):
-    def __init__(self, number=0, name='unknow', height=150, duty=False):
-        self.number = number
+    def __init__(self, num=0, name='unknow', height=150, duty=False):
+        self.num = num
         self.name = name
         self.height = height
         self.duty = duty
 
     def __repr__(self):
-        return '{},{},{},{}'.format(self.number, self.name, self.height, self.duty)
-        #return '{},{},{}'.format(self.number, self.name, self.height)
+        return '{},{},{},{}'.format(self.num, self.name, self.height, self.duty)
 
     def __str__(self):
         return self.__repr__()

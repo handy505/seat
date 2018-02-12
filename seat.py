@@ -9,31 +9,53 @@ import student
 ROW_MAX = 7
 COLUMN_MAX = 7
 
-
+'''
+Gene Algorithm Concept:
+    chromosome - SeatTable
+    fitness - SeatTable score
+    select - wheel select
+    mating
+    mutation
+'''
 class SeatTable(object):
-    def __init__(self, students, row=ROW_MAX, column=COLUMN_MAX):
-        tmpstudents = copy.deepcopy(students)
+    def __init__(self, students, mating_pair=None, row=ROW_MAX, column=COLUMN_MAX):
+        self.mating_pair = mating_pair
+        self.students = students
 
         # 2 dimention list
-        self.table = [[(r,c) for c in range(COLUMN_MAX)] for r in range(ROW_MAX)]
+        if self.mating_pair:
+            self._init_by_mating()
+        else:
+            self._init_by_random()
 
+    def _init_by_random(self):
+        students_tmp = copy.deepcopy(students)
+        self.table = [[(r,c) for c in range(COLUMN_MAX)] for r in range(ROW_MAX)]
         for r in range(0, ROW_MAX):
             for c in range(0, COLUMN_MAX):
-                st = random.choice(tmpstudents)
+                st = random.choice(students_tmp)
                 self.table[r][c] = st
-                print('{} {}'.format(c, st))
-                tmpstudents.remove(st)
-                if not tmpstudents:
-                    break
-            if not tmpstudents:
-                break
-        pass
+                #print('{} {}'.format(c, st))
+                students_tmp.remove(st)
+                if not students_tmp:
+                    return
+
 
     def score(self):
         pass
     
     def __repr__(self):
-        return str(self.table)
+        lines = []
+        for r in range(0, ROW_MAX):
+            student_nums = []
+            for c in range(0, COLUMN_MAX):
+                st = self.table[r][c]
+                num = int(st.num) if isinstance(st, student.Student) else 0
+                student_nums.append('{:02d}'.format(num))
+            line = ' '.join(student_nums)
+            lines.append(line)
+        result = '\n'.join(lines)
+        return result
 
     def __str__(self):
         return self.__repr__()
@@ -111,14 +133,7 @@ class SeatSheet(object):
     def xscore(self):
         return self.__xscore
         
-    def info(self):
-        """ information """
-        string = ""
-        for i in range(0, self.__row):
-            for j in range(0, self.__column):
-                st = self.__table[(i, j)].info() if self.__table[(i, j)] else "xxxx" 
-                string += "({0}, {1}) {2}\n".format(i, j, st)
-        return string
+
         
     def height_score(self):
         """ height score """
