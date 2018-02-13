@@ -2,6 +2,7 @@
 #-*- coding: UTF-8 -*-
 import sys
 import random
+import collections
 
 
 class Student(object):
@@ -19,16 +20,15 @@ class Student(object):
 
 
 def student_factory(filename):
-    students = []
+    students = collections.OrderedDict()
     with open(filename, 'r', encoding='utf-8') as fr:
         for line in fr.readlines():
-            if line[0] in ('#', '\n'):
-                continue
+            if line[0] in ('#', '\n'): continue
 
             line = line.strip('\n')
             num, name, height, duty = line.split(',')
-            st = Student(num, name, height, duty)
-            students.append(st)
+            st = Student(int(num), name, int(height), int(duty))
+            students[st.num] = st
     return students
         
 

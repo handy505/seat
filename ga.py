@@ -9,6 +9,14 @@ import sys
 import getopt
 from operator import attrgetter
 
+class GeneAlgorithm(object):
+    def __init__(self):
+        self.chromosomes = []
+
+
+
+
+
 def wheel_select(elements):
     right = 0
     left = 0

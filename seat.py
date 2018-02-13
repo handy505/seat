@@ -3,10 +3,12 @@
 import random
 import collections
 import copy
+import numpy as np
+import time
 
 import student
 
-ROW_MAX = 7
+ROW_MAX = 6
 COLUMN_MAX = 7
 
 '''
@@ -26,206 +28,87 @@ class SeatTable(object):
         if self.mating_pair:
             self._init_by_mating()
         else:
-            self._init_by_random()
+            self._init_by_random_np()
 
-    def _init_by_random(self):
-        students_tmp = copy.deepcopy(students)
-        self.table = [[(r,c) for c in range(COLUMN_MAX)] for r in range(ROW_MAX)]
-        for r in range(0, ROW_MAX):
-            for c in range(0, COLUMN_MAX):
-                st = random.choice(students_tmp)
-                self.table[r][c] = st
-                #print('{} {}'.format(c, st))
-                students_tmp.remove(st)
-                if not students_tmp:
-                    return
+    def _init_by_random_np(self):
+        st_nums = copy.deepcopy(list(students.keys()))
+        self.table = np.zeros((ROW_MAX, COLUMN_MAX), dtype='int32')
+        rows, cols = self.table.shape
+        locations = [(r,c) for r in range(rows) for c in range(cols)]
+
+        while st_nums:
+            st_num = random.choice(st_nums)
+            st_nums.remove(st_num)
+            loc = random.choice(locations)
+            locations.remove(loc)
+
+            r = loc[0]
+            c = loc[1]
+            self.table[r,c] = st_num
 
 
     def score(self):
-        pass
-    
+        hscore = self.height_score()
+        return hscore
+
+    def height_score(self):
+        result = 0
+        rows, cols = self.table.shape
+        tt = self.table.transpose()
+        for c in tt:
+            height_score = self.col_height_score(c)
+            result += height_score
+        return result
+
+    def col_height_score(self, col):
+        result = 0
+        for idx, sn in enumerate(col):
+            if sn == 0: continue
+            st = self.students[sn]
+            h = st.height
+
+            for sn2 in col[:idx]:
+                if sn2 == 0: continue
+                if sn2 != sn:
+                    front_st = self.students[sn2]
+                    h2 = front_st.height
+                    diff = h2 - h
+                    result += diff 
+        return result
+
+
     def __repr__(self):
         lines = []
-        for r in range(0, ROW_MAX):
-            student_nums = []
-            for c in range(0, COLUMN_MAX):
-                st = self.table[r][c]
-                num = int(st.num) if isinstance(st, student.Student) else 0
-                student_nums.append('{:02d}'.format(num))
-            line = ' '.join(student_nums)
+        rows, cols = self.table.shape
+        for r in range(rows):
+            st_infos = []
+            for c in range(cols):
+                sn = self.table[r, c]
+                if sn:
+                    st = self.students[sn]
+                    info = '#{:02d},{:03d},{}'.format(st.num, st.height, st.duty)
+                    st_infos.append(info)
+                else:
+                    st_infos.append('#--,---,-')
+            line = ' '.join(st_infos)
             lines.append(line)
         result = '\n'.join(lines)
         return result
 
     def __str__(self):
-        return self.__repr__()
-
-
-class SeatSheet(object):
-    def __init__(self, row=ROW_MAX, column=COLUMN_MAX, students=None):
-        self.__table = collections.OrderedDict()
-        self.__row = row
-        self.__column = column
-        self.__students = students
-        self.__students_expendables = copy.deepcopy(self.__students) 
-        for i in range(0, self.__row):
-            for j in range(0, self.__column):
-                if self.__students_expendables:
-                    rnd = random.randint(0, len(self.__students_expendables)-1)
-                    self.__table[(i, j)] = self.__students_expendables[rnd]
-                    self.__students_expendables.pop(rnd)
-                else:
-                    self.__table[(i, j)] = None
-        
-        self.__score = 0
-        self.__hscore = 0
-        self.__dscore = 0
-        self.__xscore = 0
-        self.__variation = True
-        
-    
-    @property
-    def row(self):
-        return self.__row
-        
-    @property
-    def column(self):
-        return self.__column
-        
-    @property
-    def table(self):
-        return self.__table
-        
-    @table.setter
-    def table(self, key, val):
-        self.__table[key] = val
-        self.__variation = True
-
-    def calc_score(self):
-        """ weight adjusting """
-        DUTY_WEIGHT = 100
-        EXCLUSION_WEIGHT = 10
-        HEIGHT_WEIGHT = 1
-        #BASE_SCORE = 7600 # perfect max score: 9000, 9000 = 7600 + (7*2*100)
-        OFFSET_SCORE = 9000 - (DUTY_WEIGHT*14)
-        self.__hscore = self.height_score()
-        self.__dscore = self.duty_score()
-        self.__xscore = self.exclusion_score()
-        self.__score = OFFSET_SCORE + (self.__dscore*DUTY_WEIGHT) - (self.__xscore*EXCLUSION_WEIGHT) - (self.__hscore*HEIGHT_WEIGHT)
-
-    @property
-    def score(self):
-        if self.__variation:
-            self.calc_score()
-            self.__variation = False
-            
-        return self.__score
-    
-    @property
-    def hscore(self):
-        return self.__hscore
-    
-    @property
-    def dscore(self):
-        return self.__dscore
-    
-    @property
-    def xscore(self):
-        return self.__xscore
-        
-
-        
-    def height_score(self):
-        """ height score """
-        IGNORE_ERROR = 0
-        hscore = 0
-        for r, c in self.__table:
-            st = self.__table[(r, c)]
-
-            #print("check location:{0}".format((r, c))) # debug
-            if st and (r != 0):
-                # valid seat
-                curHeight = self.__table[(r, c)].height
-                for before in range(0, r):
-                    if self.__table[(before, c)]:
-                        beforeHeight = self.__table[(before, c)].height
-                        hscore += (beforeHeight - curHeight) if beforeHeight > (curHeight + IGNORE_ERROR) else 0
-                        #print("hscore:{0} at {1} scan {2}".format(hscore, (r, c), (before, c))) # debug
-        return hscore
-
-    def duty_score(self):
-        col_score = []
-        for c in range(0, self.__column):
-            rcount = 0
-            for r in range(0, self.__row):
-                st = self.__table[(r, c)]
-                if st:
-                    rcount = rcount + (1 if st.duty == True else 0)
-            if rcount <=2:
-                col_score.append(rcount) 
-            else:
-                col_score.append(2)
-        return sum(col_score)
-        
-    def __location_valid(self, loc):
-        x = loc[0]
-        y = loc[1]
-        if (0 <= x < self.__row) and (0 <= y < self.__column):
-            return True
-        else:
-            return False
-    
-    def exclusion_score(self):
-
-        xscore = 0
-        for r, c in self.__table:
-            st = self.__table[(r, c)]
-            #print(r, c, st.info())
-            if st.exclusive != "nx":
-            
-                near = (r-1, c-1)
-                if self.__location_valid(near):
-                    xscore = xscore + (1 if self.__table[near].exclusive == st.exclusive else 0)
-                    #print("--valid ", xscore) # debug
-                
-                near = (r-1, c)
-                if self.__location_valid(near):
-                    xscore = xscore + (1 if self.__table[near].exclusive == st.exclusive else 0)
-                    #print("-0valid ", xscore) # debug
-                
-                near = (r-1, c+1)
-                if self.__location_valid(near):
-                    xscore = xscore + (1 if self.__table[near].exclusive == st.exclusive else 0)
-                    #print("-+valid ", xscore) # debug
-                
-                near = (r, c-1)
-                if self.__location_valid(near):
-                    xscore = xscore + (1 if self.__table[near].exclusive == st.exclusive else 0)
-                    #print("0-valid ", xscore) # debug
-                
-                near = (r, c+1)
-                if self.__location_valid(near):
-                    xscore = xscore + (1 if self.__table[near].exclusive == st.exclusive else 0)
-                    #print("0+valid ", xscore) # debug
-                
-                near = (r+1, c-1)
-                if self.__location_valid(near):
-                    xscore = xscore + (1 if self.__table[near].exclusive == st.exclusive else 0)
-                    #print("+-valid ", xscore) # debug
-                
-                near = (r+1, c)
-                if self.__location_valid(near):
-                    xscore = xscore + (1 if self.__table[near].exclusive == st.exclusive else 0)
-                    #print("+0valid ", xscore) # debug
-                
-                near = (r+1, c+1)
-                if self.__location_valid(near):
-                    xscore = xscore + (1 if self.__table[near].exclusive == st.exclusive else 0)
-                    #print("++valid ", xscore) # debug
-        return xscore
+        return str(self.table)
 
 
 if __name__ == '__main__':
     students = student.student_factory('config.txt')
-    t = SeatTable(students)
-    print(t)
+
+    for _ in range(3):
+        t = SeatTable(students)
+        print()
+        print(t)
+        print(repr(t))
+        t1 = time.time()
+        print('score: {}'.format(t.score()))
+        print('{} sec'.format(time.time() - t1))
+
+
