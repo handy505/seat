@@ -14,8 +14,8 @@ import student
 
 class GeneAlgorithm(object):
     def __init__(self):
-        students = student.student_factory('config.txt')
-        self.chromosomes = [seat.SeatTable(students) for _ in range(8)]
+        self.students = student.student_factory('config.txt')
+        self.chromosomes = [seat.SeatTable(self.students) for _ in range(8)]
 
 
     def wheel_select(self):
@@ -42,10 +42,13 @@ class GeneAlgorithm(object):
 
     def next(self):
         for _ in range(15):
-            a, b = ga.wheel_select()
-            print('a: {}, b: {}'.format(a.score, b.score))
+            a, b = self.wheel_select()
+            #print('a: {}, b: {}'.format(a.score, b.score))
+            print('a:\n{}'.format(repr(a)))
+            print('b:\n{}'.format(repr(b)))
 
             seat_table = seat.SeatTable(self.students, (a,b))
+            print('c:\n{}'.format(repr(seat_table)))
         
 
     
@@ -56,7 +59,7 @@ def main():
         
     print('----------------')
     cs2 = sorted(ga.chromosomes, key=attrgetter('score'))
-    [print(repr(cs) + '\n') for cs in cs2]
+    #[print(repr(cs) + '\n') for cs in cs2]
         
 
     ga.next()

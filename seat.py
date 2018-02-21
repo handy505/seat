@@ -39,9 +39,25 @@ class SeatTable(object):
         a = self.mating_pair[0]
         b = self.mating_pair[1]
 
+        # copy the same gene(seat location)
+        for r, c in locations:
+            if a.table[r, c] == b.table[r, c]:
+                st_num = a.table[r, c]
+                if st_num != 0:
+                    st_nums.remove(st_num)
+                    locations.remove((r,c))
 
+                    self.table[r,c] = st_num
 
-        # not finish
+        while st_nums:
+            st_num = random.choice(st_nums) # random choice student
+            st_nums.remove(st_num)
+            loc = random.choice(locations) # random choice location
+            locations.remove(loc)
+
+            r = loc[0]
+            c = loc[1]
+            self.table[r,c] = st_num
 
 
 
