@@ -20,26 +20,41 @@ Gene Algorithm Concept:
     mutation
 '''
 class SeatTable(object):
-    def __init__(self, students, mating_pair=None, row=ROW_MAX, column=COLUMN_MAX):
+    def __init__(self, students, mating_pair=None):
         self.mating_pair = mating_pair
         self.students = students
 
-        # 2 dimention list
         if self.mating_pair:
             self._init_by_mating()
         else:
-            self._init_by_random_np()
+            self._init_by_random()
+    
+        self.score = self.calc_score()
 
-    def _init_by_random_np(self):
-        st_nums = copy.deepcopy(list(students.keys()))
+    def _init_by_mating(self):
+        st_nums = copy.deepcopy(list(self.students.keys()))
+        self.table = np.zeros((ROW_MAX, COLUMN_MAX), dtype='int32')
+        rows, cols = self.table.shape
+        locations = [(r,c) for r in range(rows) for c in range(cols)]
+        a = self.mating_pair[0]
+        b = self.mating_pair[1]
+
+
+
+        # not finish
+
+
+
+    def _init_by_random(self):
+        st_nums = copy.deepcopy(list(self.students.keys()))
         self.table = np.zeros((ROW_MAX, COLUMN_MAX), dtype='int32')
         rows, cols = self.table.shape
         locations = [(r,c) for r in range(rows) for c in range(cols)]
 
         while st_nums:
-            st_num = random.choice(st_nums)
+            st_num = random.choice(st_nums) # random choice student
             st_nums.remove(st_num)
-            loc = random.choice(locations)
+            loc = random.choice(locations) # random choice location
             locations.remove(loc)
 
             r = loc[0]
@@ -47,7 +62,7 @@ class SeatTable(object):
             self.table[r,c] = st_num
 
 
-    def score(self):
+    def calc_score(self):
         hscore = self.height_score()
         return hscore
 
@@ -63,16 +78,16 @@ class SeatTable(object):
     def col_height_score(self, col):
         result = 0
         for idx, sn in enumerate(col):
-            if sn == 0: continue
+            if sn == 0: continue # empty seat
             st = self.students[sn]
             h = st.height
 
             for sn2 in col[:idx]:
-                if sn2 == 0: continue
+                if sn2 == 0: continue # empty seat
                 if sn2 != sn:
                     front_st = self.students[sn2]
-                    h2 = front_st.height
-                    diff = h2 - h
+                    front_h = front_st.height
+                    diff = (front_h - h) if front_h > h else 0
                     result += diff 
         return result
 
@@ -92,6 +107,10 @@ class SeatTable(object):
                     st_infos.append('#--,---,-')
             line = ' '.join(st_infos)
             lines.append(line)
+
+        line = 'score: {}'.format(self.calc_score())
+        lines.append(line)
+
         result = '\n'.join(lines)
         return result
 
@@ -108,7 +127,7 @@ if __name__ == '__main__':
         print(t)
         print(repr(t))
         t1 = time.time()
-        print('score: {}'.format(t.score()))
+        print('score: {}'.format(t.calc_score()))
         print('{} sec'.format(time.time() - t1))
 
 
