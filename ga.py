@@ -19,8 +19,9 @@ class GeneAlgorithm(object):
         mutation
     '''
     def __init__(self):
+        POPULATION_SIZE = 64
         self.students = student.student_factory('config.txt')
-        self.chromosomes = [seat.SeatTable(self.students) for _ in range(8)]
+        self.chromosomes = [seat.SeatTable(self.students) for _ in range(POPULATION_SIZE)]
         self.chromosomes.sort(key=attrgetter('score'))
 
 
@@ -59,15 +60,16 @@ class GeneAlgorithm(object):
         self.chromosomes.pop()
         
 
-    def report(self):
-        for cs in self.chromosomes:
+    def report(self, rank):
+        for cs in self.chromosomes[:rank]:
             print(repr(cs))
 
     
 if __name__ == '__main__':    
     ga = GeneAlgorithm()
 
-    for _ in range(300):
+    for i in range(9000):
         ga.next()
+        print(i)
 
-    ga.report()
+    ga.report(10)
