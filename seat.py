@@ -4,34 +4,25 @@ import random
 import collections
 import copy
 import numpy as np
-import time
 
 import student
 
 ROW_MAX = 6
 COLUMN_MAX = 7
 
-'''
-Gene Algorithm Concept:
-    chromosome - SeatTable
-    fitness - SeatTable score
-    select - wheel select
-    mating
-    mutation
-'''
+
 class SeatTable(object):
     def __init__(self, students, mating_pair=None):
         self.mating_pair = mating_pair
         self.students = students
 
-        if self.mating_pair:
-            self._init_by_mating()
-        else:
-            self._init_by_random()
-    
+        if self.mating_pair: self.init_by_mating()
+        else:                self.init_by_random()
+
         self.score = self.calc_score()
 
-    def _init_by_mating(self):
+
+    def init_by_mating(self):
         st_nums = copy.deepcopy(list(self.students.keys()))
         self.table = np.zeros((ROW_MAX, COLUMN_MAX), dtype='int32')
         rows, cols = self.table.shape
@@ -46,7 +37,6 @@ class SeatTable(object):
                 if st_num != 0:
                     st_nums.remove(st_num)
                     locations.remove((r,c))
-
                     self.table[r,c] = st_num
 
         while st_nums:
@@ -55,13 +45,13 @@ class SeatTable(object):
             loc = random.choice(locations) # random choice location
             locations.remove(loc)
 
-            r = loc[0]
-            c = loc[1]
+            r, c = loc[0], loc[1]
             self.table[r,c] = st_num
 
         self.mutation()
 
-    def _init_by_random(self):
+
+    def init_by_random(self):
         st_nums = copy.deepcopy(list(self.students.keys()))
         self.table = np.zeros((ROW_MAX, COLUMN_MAX), dtype='int32')
         rows, cols = self.table.shape
@@ -81,10 +71,14 @@ class SeatTable(object):
         while random.random() < 0.6:
             rows, cols = self.table.shape
             locations = [(r,c) for r in range(rows) for c in range(cols)]
+
+            # random selcect 2 locations
             loc1 = random.choice(locations)
             loc2 = loc1
             while loc2 == loc1: 
                 loc2 = random.choice(locations)
+            
+            # swap
             r1, c1 = loc1[0], loc1[1]
             r2, c2 = loc2[0], loc2[1]
             tmp = self.table[r1, c1]
@@ -99,12 +93,12 @@ class SeatTable(object):
 
     def height_score(self):
         result = 0
-        rows, cols = self.table.shape
         tt = self.table.transpose()
-        for c in tt:
-            height_score = self.col_height_score(c)
+        for col in tt:
+            height_score = self.col_height_score(col)
             result += height_score
         return result
+
 
     def col_height_score(self, col):
         result = 0
@@ -145,6 +139,7 @@ class SeatTable(object):
         result = '\n'.join(lines)
         return result
 
+
     def __str__(self):
         return str(self.table)
 
@@ -153,12 +148,8 @@ if __name__ == '__main__':
     students = student.student_factory('config.txt')
 
     for _ in range(3):
-        t = SeatTable(students)
-        print()
-        print(t)
-        print(repr(t))
-        t1 = time.time()
-        print('score: {}'.format(t.calc_score()))
-        print('{} sec'.format(time.time() - t1))
+        table = SeatTable(students)
+        print(table)
+        print(repr(table))
 
 
