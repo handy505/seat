@@ -59,7 +59,7 @@ class SeatTable(object):
             c = loc[1]
             self.table[r,c] = st_num
 
-
+        self.mutation()
 
     def _init_by_random(self):
         st_nums = copy.deepcopy(list(self.students.keys()))
@@ -73,14 +73,29 @@ class SeatTable(object):
             loc = random.choice(locations) # random choice location
             locations.remove(loc)
 
-            r = loc[0]
-            c = loc[1]
+            r, c = loc[0], loc[1]
             self.table[r,c] = st_num
+
+
+    def mutation(self):
+        while random.random() < 0.6:
+            rows, cols = self.table.shape
+            locations = [(r,c) for r in range(rows) for c in range(cols)]
+            loc1 = random.choice(locations)
+            loc2 = loc1
+            while loc2 == loc1: 
+                loc2 = random.choice(locations)
+            r1, c1 = loc1[0], loc1[1]
+            r2, c2 = loc2[0], loc2[1]
+            tmp = self.table[r1, c1]
+            self.table[r1, c1] = self.table[r2, c2]
+            self.table[r2, c2] = tmp
 
 
     def calc_score(self):
         hscore = self.height_score()
         return hscore
+
 
     def height_score(self):
         result = 0

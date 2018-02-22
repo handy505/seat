@@ -43,7 +43,5 @@ def make_config_file():
 
 
 if __name__ == '__main__':
-    #make_config_file()
-
     students = student_factory('config.txt')
     [print(st) for st in students]

@@ -2,9 +2,6 @@
 #-*- coding: UTF-8 -*-
 import random
 import copy
-import math
-import sys
-import getopt
 from operator import itemgetter, attrgetter
 from fractions import Fraction
 import bisect
@@ -16,20 +13,19 @@ class GeneAlgorithm(object):
     def __init__(self):
         self.students = student.student_factory('config.txt')
         self.chromosomes = [seat.SeatTable(self.students) for _ in range(8)]
+        self.chromosomes.sort(key=attrgetter('score'))
 
 
     def wheel_select(self):
         reciprocals = [Fraction(1, cs.score) for cs in self.chromosomes]
         total = sum(reciprocals)
         probabilities = [float(r/total) for r in reciprocals]
-        #print(probabilities)
 
         cdf_vals = []
         cumsum = 0
         for p in probabilities:
             cumsum += p
             cdf_vals.append(cumsum)
-        #print(cdf_vals)
 
         x = random.random()
         idx1 = bisect.bisect(cdf_vals, x)
@@ -41,28 +37,27 @@ class GeneAlgorithm(object):
 
 
     def next(self):
-        for _ in range(15):
-            a, b = self.wheel_select()
-            #print('a: {}, b: {}'.format(a.score, b.score))
-            print('a:\n{}'.format(repr(a)))
-            print('b:\n{}'.format(repr(b)))
-
-            seat_table = seat.SeatTable(self.students, (a,b))
-            print('c:\n{}'.format(repr(seat_table)))
+        a, b = self.wheel_select()
+        seat_table = seat.SeatTable(self.students, (a,b))
+    
+        keys = [cs.score for cs in self.chromosomes]
+        idx = bisect.bisect(keys, seat_table.score)
+        self.chromosomes.insert(idx, seat_table)
+        self.chromosomes.pop()
         
+
+    def report(self):
+        for cs in self.chromosomes:
+            print(repr(cs))
 
     
 def main():
     ga = GeneAlgorithm()
 
-    #[print(repr(cs) + '\n') for cs in ga.chromosomes]
-        
-    print('----------------')
-    cs2 = sorted(ga.chromosomes, key=attrgetter('score'))
-    #[print(repr(cs) + '\n') for cs in cs2]
-        
+    for _ in range(300):
+        ga.next()
 
-    ga.next()
+    ga.report()
     
     
 if __name__ == '__main__':    
